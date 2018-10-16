@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40A751520F1E4B2B35868731 /* Pods_ActivityReceiver_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E09A3B01C6872516E6B66A5 /* Pods_ActivityReceiver_iOS.framework */; };
+		EB05204E216C9C0900940214 /* WordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05204D216C9C0900940214 /* WordItem.swift */; };
+		EB052050216C9C4200940214 /* WordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB05204F216C9C4200940214 /* WordItem.xib */; };
+		EB052052216C9E4C00940214 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB052051216C9E4C00940214 /* XibUIView.swift */; };
 		EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF6215B526A005E9654 /* AppDelegate.swift */; };
-		EB0F5CF9215B526A005E9654 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* ViewController.swift */; };
+		EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* MainViewController.swift */; };
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E09A3B01C6872516E6B66A5 /* Pods_ActivityReceiver_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ActivityReceiver_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83591755A88A63D56EDB2E97 /* Pods-ActivityReceiver.iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.release.xcconfig"; sourceTree = "<group>"; };
+		EB05204D216C9C0900940214 /* WordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordItem.swift; sourceTree = "<group>"; };
+		EB05204F216C9C4200940214 /* WordItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordItem.xib; sourceTree = "<group>"; };
+		EB052051216C9E4C00940214 /* XibUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibUIView.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Functions/XibUIView.swift; sourceTree = "<group>"; };
 		EB0F5CF3215B526A005E9654 /* ActivityReceiver.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityReceiver.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F5CF6215B526A005E9654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB0F5CF8215B526A005E9654 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB0F5CF8215B526A005E9654 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EB0F5CFB215B526A005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB7852F4BD99220705EEFA77 /* Pods-ActivityReceiver.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A751520F1E4B2B35868731 /* Pods_ActivityReceiver_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C6C0E068898F53CDCFC9057 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E09A3B01C6872516E6B66A5 /* Pods_ActivityReceiver_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DACE94959856F09D8F69D0FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB7852F4BD99220705EEFA77 /* Pods-ActivityReceiver.iOS.debug.xcconfig */,
+				83591755A88A63D56EDB2E97 /* Pods-ActivityReceiver.iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EB0F5CEA215B526A005E9654 = {
 			isa = PBXGroup;
 			children = (
 				EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */,
 				EB0F5CF4215B526A005E9654 /* Products */,
+				DACE94959856F09D8F69D0FC /* Pods */,
+				4C6C0E068898F53CDCFC9057 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,8 +84,11 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EB052051216C9E4C00940214 /* XibUIView.swift */,
+				EB05204D216C9C0900940214 /* WordItem.swift */,
+				EB05204F216C9C4200940214 /* WordItem.xib */,
 				EB0F5CF6215B526A005E9654 /* AppDelegate.swift */,
-				EB0F5CF8215B526A005E9654 /* ViewController.swift */,
+				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
 				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
 				EB0F5CFD215B526C005E9654 /* Assets.xcassets */,
 				EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */,
@@ -71,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB0F5D05215B526C005E9654 /* Build configuration list for PBXNativeTarget "ActivityReceiver.iOS" */;
 			buildPhases = (
+				92221A4E6DB4B70B5BD6A96C /* [CP] Check Pods Manifest.lock */,
 				EB0F5CEF215B526A005E9654 /* Sources */,
 				EB0F5CF0215B526A005E9654 /* Frameworks */,
 				EB0F5CF1215B526A005E9654 /* Resources */,
+				8BDE8B547E00F34C06051C4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB052050216C9C4200940214 /* WordItem.xib in Resources */,
 				EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */,
 				EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */,
 				EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */,
@@ -130,12 +166,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8BDE8B547E00F34C06051C4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UIView+draggable/UIView_draggable.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIView_draggable.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92221A4E6DB4B70B5BD6A96C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ActivityReceiver.iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB0F5CEF215B526A005E9654 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB0F5CF9215B526A005E9654 /* ViewController.swift in Sources */,
+				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
+				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
+				EB052052216C9E4C00940214 /* XibUIView.swift in Sources */,
 				EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +363,7 @@
 		};
 		EB0F5D06215B526C005E9654 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB7852F4BD99220705EEFA77 /* Pods-ActivityReceiver.iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +382,7 @@
 		};
 		EB0F5D07215B526C005E9654 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83591755A88A63D56EDB2E97 /* Pods-ActivityReceiver.iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

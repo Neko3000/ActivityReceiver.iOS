@@ -1,0 +1,16 @@
+PODS:
+  - "UIView+draggable (1.1.0)"
+
+DEPENDENCIES:
+  - "UIView+draggable"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - "UIView+draggable"
+
+SPEC CHECKSUMS:
+  "UIView+draggable": ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
+
+PODFILE CHECKSUM: 525ed6f4ab0fb473363cb7ac66a633b670d065b2
+
+COCOAPODS: 1.5.3
