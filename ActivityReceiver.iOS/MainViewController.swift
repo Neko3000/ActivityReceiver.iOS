@@ -119,18 +119,42 @@ class MainViewController: UIViewController {
         }
     }
     
+    func generateAnswer(){
+        
+        var answer:String = ""
+        let sortedWordItems = wordItems.sorted(by: { $0.frame.minX < $1.frame.minX })
+        
+        for index in 0...sortedWordItems.count - 1{
+            
+            if(index == 0){
+                answer += sortedWordItems[index].textLabel.text!
+            }
+            else{
+                answer += " " + sortedWordItems[index].textLabel.text!
+            }
+        }
+        
+        answer += "."
+        answer.capitalizeFirstLetter()
+        
+        answerLabel.text = answer
+    }
+    
     @objc private func panGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
         switch recongnizer.state {
             
         case .began:
             pointerBeganPositionInWordItem = recongnizer.location(in: recongnizer.view)
             break;
+            
         case .changed:
             let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
             let triggeredViewSize = recongnizer.view!.frame.size
-            recongnizer.view?.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
+            recongnizer.view!.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
             break;
+            
         case .ended:
+            generateAnswer()
             break;
         
         default:

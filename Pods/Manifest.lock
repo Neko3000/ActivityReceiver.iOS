@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (4.6.0)
   - "UIView+draggable (1.1.0)"
 
 DEPENDENCIES:
+  - Alamofire
   - "UIView+draggable"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - "UIView+draggable"
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   "UIView+draggable": ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
 
-PODFILE CHECKSUM: 525ed6f4ab0fb473363cb7ac66a633b670d065b2
+PODFILE CHECKSUM: bede37aa03c927691afa5c4ce3dd2e7b887bacec
 
 COCOAPODS: 1.5.3

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7DA58C194E249C5D83B544ED618CB520"
+               BlueprintIdentifier = "99204F2D900BD471A148558FD3AEEE13"
                BuildableName = "UIView_draggable.framework"
                BlueprintName = "UIView+draggable"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7DA58C194E249C5D83B544ED618CB520"
+            BlueprintIdentifier = "99204F2D900BD471A148558FD3AEEE13"
             BuildableName = "UIView_draggable.framework"
             BlueprintName = "UIView+draggable"
             ReferencedContainer = "container:Pods.xcodeproj">
