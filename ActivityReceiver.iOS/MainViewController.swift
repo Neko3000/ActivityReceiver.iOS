@@ -8,10 +8,12 @@
 
 import UIKit
 import UIView_draggable
+import Alamofire
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
     // the list of all words in current question
@@ -30,12 +32,35 @@ class MainViewController: UIViewController {
         
         words = ["man","wise","oppotunities","finds","make","than","a","he","will"]
         
-        generateWordItems()
-        arrangeWordItems()
+        loadWordItems(index:0)
     }
     
-    func loadWordItems(){
+    func loadWordItems(index:Int){
         //view.addSubview(wordItem)
+        Alamofire.request("http://118.25.44.137/question").responseJSON(completionHandler: {
+            response in
+            
+            //print("Request: \(String(describing: response.request))")   // original url request
+            //print("Response: \(String(describing: response.response))") // http url response
+            //print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                //print("JSON: \(json)") // serialized json response
+                
+                let questions = json as! NSArray
+                let currentQuestion = questions[index] as! NSDictionary
+                
+                self.questionLabel.text = currentQuestion["sentenceJP"] as? String
+                self.words = (currentQuestion["division"] as! String).components(separatedBy: "|")
+                
+                self.answerLabel.text = "-"
+                
+                self.generateWordItems()
+                self.arrangeWordItems()
+            }
+            
+            
+        })
     }
     
     func printPosition(view:UIView){
@@ -49,6 +74,8 @@ class MainViewController: UIViewController {
     }
     
     func generateWordItems(){
+        
+        wordItems.removeAll()
         
         for index in 0...words!.count - 1{
             
@@ -161,6 +188,10 @@ class MainViewController: UIViewController {
             break;
         }
         
+    }
+    
+    @IBAction func nextQuestionBtn(_ sender: Any) {
+        loadWordItems(index: 1)
     }
     
     func loadViewFromNib() -> UIView {
