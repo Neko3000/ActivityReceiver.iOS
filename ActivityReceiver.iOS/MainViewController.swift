@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
             //print("Response: \(String(describing: response.response))") // http url response
             //print("Result: \(response.result)")                         // response serialization result
             
+            
             if let json = response.result.value {
                 //print("JSON: \(json)") // serialized json response
                 
@@ -74,6 +75,11 @@ class MainViewController: UIViewController {
     }
     
     func generateWordItems(){
+        
+        // clear
+        for remainedWordItem in wordItems{
+            remainedWordItem.removeFromSuperview()
+        }
         
         wordItems.removeAll()
         
