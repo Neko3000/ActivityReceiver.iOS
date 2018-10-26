@@ -13,30 +13,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WordItem" customModule="ActivityReceiver_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundView" destination="iN0-l3-epB" id="Ae2-LZ-Plf"/>
+                <outlet property="backgroundView" destination="qjV-by-O8t" id="07t-Lj-D7N"/>
+                <outlet property="mainContainerView" destination="iN0-l3-epB" id="tV1-Qb-I2z"/>
+                <outlet property="orderNumberLabel" destination="uc4-0g-Phu" id="lcg-4z-Z5x"/>
                 <outlet property="textLabel" destination="Ta7-w2-cee" id="dQj-IW-pFx"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="107" height="57"/>
+            <rect key="frame" x="0.0" y="0.0" width="107" height="69"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta7-w2-cee">
-                    <rect key="frame" x="38.5" y="20.5" width="30.5" height="16.5"/>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjV-by-O8t">
+                    <rect key="frame" x="0.0" y="20" width="107" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ta7-w2-cee">
+                            <rect key="frame" x="38.5" y="16.5" width="30.5" height="16.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="NormalPurple"/>
+                    <constraints>
+                        <constraint firstItem="Ta7-w2-cee" firstAttribute="centerX" secondItem="qjV-by-O8t" secondAttribute="centerX" id="00E-0p-Qmo"/>
+                        <constraint firstItem="Ta7-w2-cee" firstAttribute="centerY" secondItem="qjV-by-O8t" secondAttribute="centerY" id="zAw-c5-Zb1"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc4-0g-Phu">
+                    <rect key="frame" x="48.5" y="0.0" width="10" height="20"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" name="NormalPurple"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Ta7-w2-cee" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="aAl-Kr-lEn"/>
-                <constraint firstItem="Ta7-w2-cee" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ipH-UA-4dT"/>
+                <constraint firstItem="qjV-by-O8t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Rjr-jK-dlO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qjV-by-O8t" secondAttribute="trailing" id="Wnl-0X-KMF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qjV-by-O8t" secondAttribute="bottom" id="XW0-jS-Gml"/>
+                <constraint firstItem="uc4-0g-Phu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="f2D-pW-8sl"/>
+                <constraint firstItem="uc4-0g-Phu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gQz-8L-LNB"/>
+                <constraint firstItem="qjV-by-O8t" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="zUC-zf-O7L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-160.80000000000001" y="-202.84857571214394"/>
+            <point key="canvasLocation" x="-160.80000000000001" y="-236.13193403298354"/>
         </view>
     </objects>
     <resources>

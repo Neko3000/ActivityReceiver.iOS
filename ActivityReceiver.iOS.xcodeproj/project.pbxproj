@@ -16,8 +16,10 @@
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
+		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
+		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +35,10 @@
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FB7852F4BD99220705EEFA77 /* Pods-ActivityReceiver.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,10 +99,12 @@
 				EB0F5CF6215B526A005E9654 /* AppDelegate.swift */,
 				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
 				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
+				EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */,
 				EB822701217CA79A003C01D7 /* LoginViewController.swift */,
 				EB0F5CFD215B526C005E9654 /* Assets.xcassets */,
 				EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */,
 				EB0F5D02215B526C005E9654 /* Info.plist */,
+				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
 			);
 			path = ActivityReceiver.iOS;
 			sourceTree = "<group>";
@@ -228,6 +234,8 @@
 			files = (
 				EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */,
 				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
+				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
+				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
 				EB052052216C9E4C00940214 /* XibUIView.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class LoginViewController: UIViewController {
 
@@ -38,12 +39,37 @@ class LoginViewController: UIViewController {
         loginBtn.layer.cornerRadius = 8.0
         loginBtn.layer.masksToBounds = true
         
-        
-        
-        
         // Do any additional setup after loading the view.
+        
+        //saveUserInfo()
+        loadUserInfo()
     }
     
+    @IBAction func loginSubmit(_ sender: Any) {
+        
+        print("login goes")
+        
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+    }
+    
+    func saveUserInfo(){
+        let myUserInfo = UserInfo(username: "jack", token: "thisIsMyToken")
+        
+        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: myUserInfo)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(codedMyUserInfo,forKey:"CurrentUserInfo")
+        userDefaults.synchronize()
+    }
+    
+    func loadUserInfo(){
+        let userDefaults = UserDefaults.standard
+        let decoded = userDefaults.object(forKey: "CurrentUserInfo") as! Data
+        let myUserInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfo
+        
+        print(myUserInfo.username)
+        print(myUserInfo.token)
+    }
 
     /*
     // MARK: - Navigation

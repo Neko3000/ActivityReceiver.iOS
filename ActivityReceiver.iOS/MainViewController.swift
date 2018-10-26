@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        words = ["man","wise","oppotunities","finds","make","than","a","he","will"]
+        //words = ["man","wise","oppotunities","finds","make","than","a","he","will"]
         
         loadWordItems(index:0)
     }
@@ -68,12 +68,6 @@ class MainViewController: UIViewController {
         print("\(view.frame.minX) - \(view.frame.minY)")
     }
     
-    var closure:(UIView?) -> () = { (view:UIView?) in
-        
-        print("i won")
-        
-    }
-    
     func generateWordItems(){
         
         // clear
@@ -85,10 +79,12 @@ class MainViewController: UIViewController {
         
         for index in 0...words!.count - 1{
             
+            let topDistance:CGFloat = 20.0
+            
             let singleWordItem = WordItem()
             
             singleWordItem.textLabel.text = words![index]
-            singleWordItem.frame = CGRect(x: 0, y: 0, width: singleWordItem.textLabel.intrinsicContentSize.width + 40, height: singleWordItem.textLabel.intrinsicContentSize.height + 10)
+            singleWordItem.frame = CGRect(x: 0, y: 0, width: singleWordItem.textLabel.intrinsicContentSize.width + 40.0, height: singleWordItem.textLabel.intrinsicContentSize.height + 10.0 + topDistance)
             wordItems.append(singleWordItem)
             
             singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandler(recongnizer:))))
@@ -104,6 +100,7 @@ class MainViewController: UIViewController {
         
         let horizontalPadding:CGFloat = 10.0
         let verticalPadding:CGFloat = 10.0
+        
         let wordItemHeight = wordItems[0].frame.height
         
         let containerLength = mainView.frame.width
@@ -152,6 +149,28 @@ class MainViewController: UIViewController {
         }
     }
     
+    func showOrderNumberForWordItems(){
+        for index in 0...wordItems.count - 1 {
+            wordItems[index].showOrderNumber()
+        }
+    }
+    
+    func hideOrderNumberForWordItems(){
+        for index in 0...wordItems.count - 1 {
+            wordItems[index].hideOrderNumber()
+        }
+    }
+    
+    func generateOrderNumber(){
+        let sortedWordItems = wordItems.sorted(by: { $0.frame.minX < $1.frame.minX })
+        
+        for index in 0...sortedWordItems.count - 1 {
+            sortedWordItems[index].orderNumberLabel.text = String(index + 1)
+        }
+
+    }
+    
+    
     func generateAnswer(){
         
         var answer:String = ""
@@ -174,20 +193,33 @@ class MainViewController: UIViewController {
     }
     
     @objc private func panGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+        
+        let currentWordItem = recongnizer.view as! WordItem
+        
         switch recongnizer.state {
             
         case .began:
             pointerBeganPositionInWordItem = recongnizer.location(in: recongnizer.view)
+            
+            generateAnswer()
+            generateOrderNumber()
+            showOrderNumberForWordItems()
+            
             break;
             
         case .changed:
             let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
             let triggeredViewSize = recongnizer.view!.frame.size
             recongnizer.view!.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
+            
+            generateOrderNumber()
             break;
             
         case .ended:
             generateAnswer()
+            
+            generateOrderNumber()
+            hideOrderNumberForWordItems()
             break;
         
         default:
