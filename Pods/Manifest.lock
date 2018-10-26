@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.6.0)
+  - JWTDecode (2.1.1)
   - "UIView+draggable (1.1.0)"
 
 DEPENDENCIES:
   - Alamofire
+  - JWTDecode
   - "UIView+draggable"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - JWTDecode
     - "UIView+draggable"
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   "UIView+draggable": ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
 
-PODFILE CHECKSUM: bede37aa03c927691afa5c4ce3dd2e7b887bacec
+PODFILE CHECKSUM: 9585412edeae7c131bcbe6549a171ed692a331ef
 
 COCOAPODS: 1.5.3
