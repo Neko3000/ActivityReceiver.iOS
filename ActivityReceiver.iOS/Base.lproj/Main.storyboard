@@ -56,7 +56,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="LoginToMainView" id="EHJ-g5-HR6"/>
+                                            <action selector="loginSubmit:" destination="eqv-xQ-0eL" eventType="touchUpInside" id="JTb-Qq-SQy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -100,6 +100,7 @@
                         <outlet property="passwordTextField" destination="opL-et-ia4" id="qWl-5i-bK0"/>
                         <outlet property="toSignUpBtn" destination="2sm-XJ-7tY" id="iZR-86-7Ri"/>
                         <outlet property="usernameTextField" destination="xhk-OF-rlw" id="OCT-C8-XEH"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="LoginToUserCenter" id="U3E-P6-Z68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKD-Eb-yeP" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,11 +8,14 @@
 
 import UIKit
 import Foundation
+import JWTDecode
+import Alamofire
 
 class LoginViewController: UIViewController {
+    
+    private var currentUserInfo:UserInfo?
 
     @IBOutlet weak var toSignUpBtn: UIButton!
-    
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -41,34 +44,101 @@ class LoginViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        //saveUserInfo()
-        loadUserInfo()
+        //initUserState()
+
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        initUserState()
     }
     
     @IBAction func loginSubmit(_ sender: Any) {
         
-        print("login goes")
-        
+    
         let username = usernameTextField.text
         let password = passwordTextField.text
+        
+        //generate json contains username and password
+        let parameters:Parameters = [
+            "Username":username,
+            "Password":password
+        ]
+
+        Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+            {
+                response in
+                
+                if let json = response.result.value {
+                    
+                    let dict = json as! NSDictionary
+                    
+                    let username = dict["username"] as! String
+                    let token = dict["token"] as! String
+                    
+                    let userInfo = UserInfo(username: username, token: token)
+                    self.saveUserInfo(userInfoObject: userInfo)
+                    
+                    //segue
+                }
+                
+        })
     }
     
-    func saveUserInfo(){
-        let myUserInfo = UserInfo(username: "jack", token: "thisIsMyToken")
+    func initUserState(){
         
-        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: myUserInfo)
+        var isUserAuthorized = false
+        
+        if let loadedUserInfo = loadUserInfo(){
+            
+            do{
+                let jwtToken = try decode(jwt: loadedUserInfo.token)
+                if(!jwtToken.expired){
+                    // test to server
+                    isUserAuthorized = true
+                }
+            }
+            catch{
+                print(error)
+            }
+        }
+
+        if(isUserAuthorized){
+            
+            performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+        }
+    }
+    
+    func saveUserInfo(userInfoObject:UserInfo){
+        
+        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: userInfoObject)
         let userDefaults = UserDefaults.standard
         userDefaults.set(codedMyUserInfo,forKey:"CurrentUserInfo")
+        
         userDefaults.synchronize()
+        
     }
     
-    func loadUserInfo(){
+    func loadUserInfo() -> UserInfo?{
         let userDefaults = UserDefaults.standard
-        let decoded = userDefaults.object(forKey: "CurrentUserInfo") as! Data
-        let myUserInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfo
         
-        print(myUserInfo.username)
-        print(myUserInfo.token)
+        if let originalObject = userDefaults.object(forKey: "CurrentUserInfo"){
+            let decodedData = originalObject as! Data
+            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decodedData) as! UserInfo
+            
+            return userInfo
+        }
+        
+        return nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "LoginToUserCenter"){
+            print("seuged")
+        }
     }
 
     /*

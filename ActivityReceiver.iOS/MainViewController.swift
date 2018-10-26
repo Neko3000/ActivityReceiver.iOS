@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     }
     
     func loadWordItems(index:Int){
-        //view.addSubview(wordItem)
+
         Alamofire.request("http://118.25.44.137/question").responseJSON(completionHandler: {
             response in
             
