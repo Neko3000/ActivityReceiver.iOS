@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FunctionListItemView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
+            <connections>
+                <outlet property="bgBlockView" destination="ZWw-j8-TJX" id="N2Q-hJ-b8f"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="529" height="122"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWw-j8-TJX">
+                    <rect key="frame" x="18" y="18" width="493" height="104"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="do-question" translatesAutoresizingMaskIntoConstraints="NO" id="hHY-ws-DZi">
+                            <rect key="frame" x="28" y="34" width="36" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="erh-rL-EsR"/>
+                                <constraint firstAttribute="height" constant="36" id="t0F-cg-vPo"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="split-line-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cya-1Z-WIQ">
+                            <rect key="frame" x="86" y="15" width="1" height="74"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="wBd-eJ-84f"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題を解答する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOT-9k-Kgi">
+                            <rect key="frame" x="107" y="15" width="98" height="16.5"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                            <color key="textColor" name="LightGrey3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="複数な英語並べ替え問題を解答し、自分の英語能力を検定しよう." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1p-OX-2nY">
+                            <rect key="frame" x="107" y="36.5" width="351.5" height="14"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                            <color key="textColor" name="LightGrey4"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="FOT-9k-Kgi" firstAttribute="top" secondItem="ZWw-j8-TJX" secondAttribute="top" constant="15" id="1vT-Fd-clM"/>
+                        <constraint firstAttribute="bottom" secondItem="cya-1Z-WIQ" secondAttribute="bottom" constant="15" id="CX2-o2-rFD"/>
+                        <constraint firstItem="cya-1Z-WIQ" firstAttribute="top" secondItem="ZWw-j8-TJX" secondAttribute="top" constant="15" id="L7Z-cD-spH"/>
+                        <constraint firstItem="FOT-9k-Kgi" firstAttribute="leading" secondItem="cya-1Z-WIQ" secondAttribute="trailing" constant="20" id="MkI-VW-aVh"/>
+                        <constraint firstItem="A1p-OX-2nY" firstAttribute="top" secondItem="FOT-9k-Kgi" secondAttribute="bottom" constant="5" id="NoZ-yd-ydW"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A1p-OX-2nY" secondAttribute="trailing" constant="20" id="YXE-Ih-ypI"/>
+                        <constraint firstItem="cya-1Z-WIQ" firstAttribute="leading" secondItem="ZWw-j8-TJX" secondAttribute="leading" constant="86" id="Ydc-2c-DgP"/>
+                        <constraint firstItem="hHY-ws-DZi" firstAttribute="leading" secondItem="ZWw-j8-TJX" secondAttribute="leading" constant="28" id="Ymi-LS-DBI"/>
+                        <constraint firstItem="A1p-OX-2nY" firstAttribute="leading" secondItem="cya-1Z-WIQ" secondAttribute="trailing" constant="20" id="dLn-Uf-quZ"/>
+                        <constraint firstItem="hHY-ws-DZi" firstAttribute="centerY" secondItem="ZWw-j8-TJX" secondAttribute="centerY" id="xyf-Z8-fbJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="LightGrey2"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZWw-j8-TJX" secondAttribute="bottom" id="Tyw-3c-MsW"/>
+                <constraint firstItem="ZWw-j8-TJX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="18" id="hKW-J4-QqP"/>
+                <constraint firstItem="ZWw-j8-TJX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="kD0-J0-tuN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZWw-j8-TJX" secondAttribute="trailing" constant="18" id="yYh-ko-qFE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="220" y="185.30734632683661"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="do-question" width="32" height="36"/>
+        <image name="split-line-vertical" width="1" height="70"/>
+        <namedColor name="LightGrey2">
+            <color red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightGrey3">
+            <color red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightGrey4">
+            <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

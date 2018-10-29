@@ -18,8 +18,15 @@
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
 		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
+		EB62565D21869B490085F376 /* SegueBehaviorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62565C21869B490085F376 /* SegueBehaviorObject.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
 		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
+		EBCA51C12185D42B001E9448 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C02185D42B001E9448 /* SketchShadow.swift */; };
+		EBCA51C32185D620001E9448 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C22185D620001E9448 /* UserCenterViewController.swift */; };
+		EBCA51C52185D814001E9448 /* ReshapableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C42185D814001E9448 /* ReshapableImageView.swift */; };
+		EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C62185D8F5001E9448 /* OutlineView.swift */; };
+		EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */; };
+		EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +44,15 @@
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
+		EB62565C21869B490085F376 /* SegueBehaviorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueBehaviorObject.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Functions/SegueBehaviorObject.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EBCA51C02185D42B001E9448 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Functions/SketchShadow.swift; sourceTree = "<group>"; };
+		EBCA51C22185D620001E9448 /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
+		EBCA51C42185D814001E9448 /* ReshapableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReshapableImageView.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Views/ReshapableImageView.swift; sourceTree = "<group>"; };
+		EBCA51C62185D8F5001E9448 /* OutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
+		EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunctionListItemView.xib; sourceTree = "<group>"; };
+		EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionListItemView.swift; sourceTree = "<group>"; };
 		FB7852F4BD99220705EEFA77 /* Pods-ActivityReceiver.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +106,7 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBCA51C02185D42B001E9448 /* SketchShadow.swift */,
 				EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */,
 				EB052051216C9E4C00940214 /* XibUIView.swift */,
 				EB05204D216C9C0900940214 /* WordItem.swift */,
@@ -99,6 +114,12 @@
 				EB0F5CF6215B526A005E9654 /* AppDelegate.swift */,
 				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
 				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
+				EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */,
+				EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */,
+				EB62565C21869B490085F376 /* SegueBehaviorObject.swift */,
+				EBCA51C62185D8F5001E9448 /* OutlineView.swift */,
+				EBCA51C42185D814001E9448 /* ReshapableImageView.swift */,
+				EBCA51C22185D620001E9448 /* UserCenterViewController.swift */,
 				EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */,
 				EB822701217CA79A003C01D7 /* LoginViewController.swift */,
 				EB0F5CFD215B526C005E9654 /* Assets.xcassets */,
@@ -172,6 +193,7 @@
 				EB052050216C9C4200940214 /* WordItem.xib in Resources */,
 				EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */,
 				EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */,
+				EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */,
 				EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,13 +257,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */,
+				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
+				EBCA51C12185D42B001E9448 /* SketchShadow.swift in Sources */,
 				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
+				EB62565D21869B490085F376 /* SegueBehaviorObject.swift in Sources */,
+				EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
 				EB052052216C9E4C00940214 /* XibUIView.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
+				EBCA51C32185D620001E9448 /* UserCenterViewController.swift in Sources */,
 				EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */,
+				EBCA51C52185D814001E9448 /* ReshapableImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
