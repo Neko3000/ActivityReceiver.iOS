@@ -11,7 +11,7 @@ import Foundation
 import JWTDecode
 import Alamofire
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
     
     private var currentUserInfo:UserInfo?
 
@@ -32,11 +32,13 @@ class LoginViewController: UIViewController {
         usernameTextField.layer.borderWidth = 1.0
         usernameTextField.layer.borderColor = UIColor(named: "LightGrey1")?.cgColor
         usernameTextField.layer.masksToBounds = true
+        usernameTextField.delegate = self
         
         passwordTextField.layer.cornerRadius = 19.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor(named: "LightGrey1")?.cgColor
         passwordTextField.layer.masksToBounds = true
+        passwordTextField.delegate = self
 
         loginBtn.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         loginBtn.layer.cornerRadius = 8.0
@@ -139,6 +141,17 @@ class LoginViewController: UIViewController {
         if(segue.identifier == "LoginToUserCenter"){
             print("seuged")
         }
+    }
+    
+    // return button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // when touch on the view
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     /*

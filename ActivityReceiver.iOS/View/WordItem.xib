@@ -34,7 +34,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" name="NormalPurple"/>
+                    <color key="backgroundColor" name="HeavyTurquoise"/>
                     <constraints>
                         <constraint firstItem="Ta7-w2-cee" firstAttribute="centerX" secondItem="qjV-by-O8t" secondAttribute="centerX" id="00E-0p-Qmo"/>
                         <constraint firstItem="Ta7-w2-cee" firstAttribute="centerY" secondItem="qjV-by-O8t" secondAttribute="centerY" id="zAw-c5-Zb1"/>
@@ -62,8 +62,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="NormalPurple">
-            <color red="0.2196078431372549" green="0.12941176470588237" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="HeavyTurquoise">
+            <color red="0.13333333333333333" green="0.16470588235294117" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -10,7 +10,6 @@
 		40A751520F1E4B2B35868731 /* Pods_ActivityReceiver_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E09A3B01C6872516E6B66A5 /* Pods_ActivityReceiver_iOS.framework */; };
 		EB05204E216C9C0900940214 /* WordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05204D216C9C0900940214 /* WordItem.swift */; };
 		EB052050216C9C4200940214 /* WordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB05204F216C9C4200940214 /* WordItem.xib */; };
-		EB052052216C9E4C00940214 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB052051216C9E4C00940214 /* XibUIView.swift */; };
 		EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF6215B526A005E9654 /* AppDelegate.swift */; };
 		EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* MainViewController.swift */; };
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
@@ -18,12 +17,13 @@
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
 		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
-		EB62565D21869B490085F376 /* SegueBehaviorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62565C21869B490085F376 /* SegueBehaviorObject.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
 		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
-		EBCA51C12185D42B001E9448 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C02185D42B001E9448 /* SketchShadow.swift */; };
-		EBCA51C32185D620001E9448 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C22185D620001E9448 /* UserCenterViewController.swift */; };
-		EBCA51C52185D814001E9448 /* ReshapableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C42185D814001E9448 /* ReshapableImageView.swift */; };
+		EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */; };
+		EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD32186EA9300460F66 /* XibUIView.swift */; };
+		EBB5EBD62186EB2400460F66 /* ReshapableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD52186EB2400460F66 /* ReshapableImageView.swift */; };
+		EBB5EBD82186EB2B00460F66 /* SegueBehaviorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD72186EB2B00460F66 /* SegueBehaviorObject.swift */; };
+		EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */; };
 		EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C62185D8F5001E9448 /* OutlineView.swift */; };
 		EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */; };
 		EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */; };
@@ -34,7 +34,6 @@
 		83591755A88A63D56EDB2E97 /* Pods-ActivityReceiver.iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.release.xcconfig"; sourceTree = "<group>"; };
 		EB05204D216C9C0900940214 /* WordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordItem.swift; sourceTree = "<group>"; };
 		EB05204F216C9C4200940214 /* WordItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordItem.xib; sourceTree = "<group>"; };
-		EB052051216C9E4C00940214 /* XibUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XibUIView.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Functions/XibUIView.swift; sourceTree = "<group>"; };
 		EB0F5CF3215B526A005E9654 /* ActivityReceiver.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityReceiver.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F5CF6215B526A005E9654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0F5CF8215B526A005E9654 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -44,12 +43,13 @@
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
-		EB62565C21869B490085F376 /* SegueBehaviorObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueBehaviorObject.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Functions/SegueBehaviorObject.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		EBCA51C02185D42B001E9448 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Functions/SketchShadow.swift; sourceTree = "<group>"; };
-		EBCA51C22185D620001E9448 /* UserCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
-		EBCA51C42185D814001E9448 /* ReshapableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReshapableImageView.swift; path = ../../Zizhi.iOS/Zizhi.iOS/Views/ReshapableImageView.swift; sourceTree = "<group>"; };
+		EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ActivityReceiver.iOS/SketchShadow.swift; sourceTree = SOURCE_ROOT; };
+		EBB5EBD32186EA9300460F66 /* XibUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIView.swift; sourceTree = "<group>"; };
+		EBB5EBD52186EB2400460F66 /* ReshapableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReshapableImageView.swift; sourceTree = "<group>"; };
+		EBB5EBD72186EB2B00460F66 /* SegueBehaviorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueBehaviorObject.swift; sourceTree = "<group>"; };
+		EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCenterViewController.swift; path = ActivityReceiver.iOS/UserCenterViewController.swift; sourceTree = SOURCE_ROOT; };
 		EBCA51C62185D8F5001E9448 /* OutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
 		EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunctionListItemView.xib; sourceTree = "<group>"; };
 		EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionListItemView.swift; sourceTree = "<group>"; };
@@ -106,28 +106,60 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
-				EBCA51C02185D42B001E9448 /* SketchShadow.swift */,
-				EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */,
-				EB052051216C9E4C00940214 /* XibUIView.swift */,
-				EB05204D216C9C0900940214 /* WordItem.swift */,
-				EB05204F216C9C4200940214 /* WordItem.xib */,
+				EBB5EBCD2186E9B000460F66 /* Function */,
+				EBB5EBCC2186E9A700460F66 /* Model */,
+				EBB5EBCB2186E99D00460F66 /* Controller */,
+				EBB5EBCA2186E99000460F66 /* View */,
 				EB0F5CF6215B526A005E9654 /* AppDelegate.swift */,
-				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
-				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
-				EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */,
-				EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */,
-				EB62565C21869B490085F376 /* SegueBehaviorObject.swift */,
-				EBCA51C62185D8F5001E9448 /* OutlineView.swift */,
-				EBCA51C42185D814001E9448 /* ReshapableImageView.swift */,
-				EBCA51C22185D620001E9448 /* UserCenterViewController.swift */,
-				EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */,
-				EB822701217CA79A003C01D7 /* LoginViewController.swift */,
 				EB0F5CFD215B526C005E9654 /* Assets.xcassets */,
 				EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */,
 				EB0F5D02215B526C005E9654 /* Info.plist */,
-				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
 			);
 			path = ActivityReceiver.iOS;
+			sourceTree = "<group>";
+		};
+		EBB5EBCA2186E99000460F66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
+				EB05204D216C9C0900940214 /* WordItem.swift */,
+				EB05204F216C9C4200940214 /* WordItem.xib */,
+				EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */,
+				EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */,
+				EBB5EBD52186EB2400460F66 /* ReshapableImageView.swift */,
+				EBCA51C62185D8F5001E9448 /* OutlineView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBB5EBCB2186E99D00460F66 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */,
+				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
+				EB822701217CA79A003C01D7 /* LoginViewController.swift */,
+				EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EBB5EBCC2186E9A700460F66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBB5EBCD2186E9B000460F66 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				EBB5EBD32186EA9300460F66 /* XibUIView.swift */,
+				EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */,
+				EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */,
+				EBB5EBD72186EB2B00460F66 /* SegueBehaviorObject.swift */,
+			);
+			path = Function;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,20 +288,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */,
 				EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
-				EBCA51C12185D42B001E9448 /* SketchShadow.swift in Sources */,
 				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
-				EB62565D21869B490085F376 /* SegueBehaviorObject.swift in Sources */,
+				EBB5EBD82186EB2B00460F66 /* SegueBehaviorObject.swift in Sources */,
 				EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
+				EBB5EBD62186EB2400460F66 /* ReshapableImageView.swift in Sources */,
 				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
-				EB052052216C9E4C00940214 /* XibUIView.swift in Sources */,
+				EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */,
+				EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
-				EBCA51C32185D620001E9448 /* UserCenterViewController.swift in Sources */,
 				EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */,
-				EBCA51C52185D814001E9448 /* ReshapableImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
