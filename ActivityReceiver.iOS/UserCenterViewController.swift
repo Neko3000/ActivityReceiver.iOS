@@ -10,6 +10,7 @@ import UIKit
 
 class UserCenterViewController: UIViewController,SegueBehaviorObject {
     
+    // Outlets
     @IBOutlet weak var userAvatarReshapableImageView: ReshapableImageView!
     
     @IBOutlet weak var assignmentFunctionListItem: FunctionListItemView!
@@ -18,14 +19,16 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Set user's information
         userAvatarReshapableImageView.setUIImage(image: UIImage(named: "user-avatar")!)
         userAvatarReshapableImageView.setCornerRadius(radius: userAvatarReshapableImageView.frame.width/2.0)
         
         assignmentFunctionListItem.setSegueBehavior(object: self, identifier: "ToStartAssignment")
     }
     
+    // Segue, called in FunctionListView when tapped its items
     func segueToAnotherScreen(withIdentifier identifier: String, sender: Any?) {
-        
         performSegue(withIdentifier: identifier, sender: sender)
         
     }

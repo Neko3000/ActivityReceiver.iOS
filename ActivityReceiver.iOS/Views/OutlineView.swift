@@ -8,6 +8,7 @@
 
 import UIKit
 
+// The view stimulates circle
 class OutlineView: UIView {
 
     /*
@@ -17,15 +18,23 @@ class OutlineView: UIView {
         // Drawing code
     }
     */
+    
+    private var isInitialized:Bool = false
 
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 1
-        
-        layer.backgroundColor = UIColor.clear.cgColor
-        
-        layer.cornerRadius = layer.frame.width/2.0
+        if(!isInitialized){
+            
+            // Styles
+            layer.borderColor = UIColor.white.cgColor
+            layer.borderWidth = 1
+            
+            layer.backgroundColor = UIColor.clear.cgColor
+            
+            layer.cornerRadius = layer.frame.width/2.0
+            
+            isInitialized = true
+        }
     }
 }

@@ -9,7 +9,8 @@
 import UIKit
 
 class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
-    
+
+    // Data - ViewModel
     var resultViewModel:ResultViewModel?
 
     private var isInitialized = false
@@ -23,11 +24,18 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     override func layoutSubviews() {
         
+        // Initialization
         if(!isInitialized){
+            
+            // Styles
             self.separatorStyle = .none
             self.allowsSelection = false
+            
+            // Register custom .xib as reusable cells
             self.register(UINib(nibName: "ResultAnswerDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultAnswerDetailTableViewCell")
             self.register(UINib(nibName: "ResultHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultHeaderTableViewCell")
+            
+            // Delegates
             self.delegate = self
             self.dataSource = self
             
@@ -46,9 +54,12 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?
         
+        // The first section is the ResultHeader cell
         if(indexPath.section == 0){
+            // Get reuseable cell
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultHeaderTableViewCell") as! ResultHeaderTableViewCell
             
+            // Settings
             specificCell.accuracyRateLabel.text = String(resultViewModel!.accuracyRate)
             
             cell = specificCell
@@ -57,7 +68,7 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultAnswerDetailTableViewCell") as! ResultAnswerDetailTableViewCell
             
             let currentResultAnswerDetail = resultViewModel?.resultAnswerDetails[indexPath.section - 1]
-            specificCell.numberLabel.text = String(indexPath.section)
+            specificCell.numberLabel.text = "No." + String(indexPath.section)
             specificCell.sentenceJPLabel.text = currentResultAnswerDetail!.sentenceJP
             specificCell.sentenceENLabel.text = currentResultAnswerDetail!.sentenceEN
             specificCell.answerLabel.text = currentResultAnswerDetail!.answer
@@ -74,23 +85,30 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        // The height of the first section(ResultHeader) is 108
         if(indexPath.section == 0){
             return 108
         }
+        
+        // The height of ResultAnswerDetail cells are determined by itself(AutoLayout)
         return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // There are only 1 row in each section
         return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
+        // The count of section are decieded by resultAnswerDetials which in the ViewModel
         return (resultViewModel?.resultAnswerDetails.count)! + 1
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        //to simulate the spacing, section's header is a transparent UIView
+        // To simulate the spacing, section's header is a transparent UIView
         let tempView = UIView()
         tempView.backgroundColor = UIColor.clear
         return tempView
@@ -103,10 +121,14 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        // Top-margin for each cell
         return 15
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        // Bottom-margin for each cell
         return 15
     }
     

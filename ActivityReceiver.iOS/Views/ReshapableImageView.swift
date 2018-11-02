@@ -18,23 +18,28 @@ class ReshapableImageView: UIView {
     }
     */
     
-    //
+    // Content image
     private let mainImageView:UIImageView = UIImageView()
+    
+    private var isInitialized = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        mainImageView.frame = bounds
-        mainImageView.layer.masksToBounds = true
-        self.addSubview(mainImageView)
+        if(!isInitialized){
+            mainImageView.frame = bounds
+            mainImageView.layer.masksToBounds = true
+            self.addSubview(mainImageView)
+            
+            isInitialized = true
+        }
     }
     
+    // These functions are used to set styles
     public func setUIImage(image:UIImage)
     {
         mainImageView.image = image

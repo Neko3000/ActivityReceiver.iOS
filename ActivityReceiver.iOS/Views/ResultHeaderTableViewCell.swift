@@ -10,6 +10,7 @@ import UIKit
 
 class ResultHeaderTableViewCell: UITableViewCell {
     
+    // Outlets
     @IBOutlet weak var accuracyRateLabel: UILabel!
     
     private var isInitialized:Bool = false

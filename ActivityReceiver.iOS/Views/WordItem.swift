@@ -18,13 +18,14 @@ class WordItem: XibUIView {
     }
     */
     
-    private var isInitialized:Bool = false
-        
+    // Outlets
     @IBOutlet weak var orderNumberLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet var mainContainerView: UIView!
     @IBOutlet weak var backgroundView: UIView!
+    
+    private var isInitialized:Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +35,12 @@ class WordItem: XibUIView {
         super.layoutSubviews()
         
         if(!isInitialized){
+            
+            // Styles
             backgroundView.layer.cornerRadius = 5.0
             backgroundView.clipsToBounds = true
             
+            // The default value of alpha of numbers is 0
             hideOrderNumber()
             
             isInitialized = true
@@ -44,6 +48,7 @@ class WordItem: XibUIView {
 
     }
     
+    // These two functions are used to set the alpha value of numbers, where are on the top of each WordItem
     public func showOrderNumber(){
         orderNumberLabel.alpha = 1.0
         

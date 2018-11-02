@@ -12,19 +12,22 @@ import Alamofire
 
 class MainViewController: UIViewController {
 
+
+    
+    // The list of all words in current question
+    var words:[String]?
+    
+    // The list of all wordItems
+    var wordItems = [WordItem]()
+    
+    // This factor records the original position value of pointer in the UIView(WordItem)
+    // It will be used in panGesetureRecongnizerHandler function
+    var pointerBeganPositionInWordItem:CGPoint?
+    
+    // Outlets
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
-    
-    // the list of all words in current question
-    var words:[String]?
-    
-    // the list of all wordItems
-    var wordItems = [WordItem]()
-    
-    // this factor records the original position value of pointer in the UIView(WordItem)
-    // it will be used in panGesetureRecongnizerHandler function
-    var pointerBeganPositionInWordItem:CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +35,13 @@ class MainViewController: UIViewController {
         
         //words = ["man","wise","oppotunities","finds","make","than","a","he","will"]
         
+        // Load
         loadWordItems(index:0)
     }
     
-    func loadWordItems(index:Int){
+    private func loadWordItems(index:Int){
 
+        // Request data from remote server
         Alamofire.request("http://118.25.44.137/question").responseJSON(completionHandler: {
             response in
             
@@ -48,9 +53,12 @@ class MainViewController: UIViewController {
             if let json = response.result.value {
                 //print("JSON: \(json)") // serialized json response
                 
+                // There are multiple questions
                 let questions = json as! NSArray
+                // Convert one question as Dictionary to get data by its key
                 let currentQuestion = questions[index] as! NSDictionary
                 
+                // Set layout
                 self.questionLabel.text = currentQuestion["sentenceJP"] as? String
                 self.words = (currentQuestion["division"] as! String).components(separatedBy: "|")
                 
@@ -68,14 +76,10 @@ class MainViewController: UIViewController {
         print("\(view.frame.minX) - \(view.frame.minY)")
     }
     
-    func generateWordItems(){
+    private func generateWordItems(){
         
-        // clear
-        for remainedWordItem in wordItems{
-            remainedWordItem.removeFromSuperview()
-        }
-        
-        wordItems.removeAll()
+        // Clear
+        clearCurrentQuestion()
         
         for index in 0...words!.count - 1{
             
@@ -96,7 +100,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    func arrangeWordItems(){
+    private func arrangeWordItems(){
         
         let horizontalPadding:CGFloat = 10.0
         let verticalPadding:CGFloat = 10.0
@@ -149,6 +153,18 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func clearCurrentQuestion(){
+        
+        for remainedWordItem in wordItems{
+            remainedWordItem.removeFromSuperview()
+        }
+        
+        wordItems.removeAll()
+        
+    }
+    
+    // These functions are related to order number
+    // Show/Hide order numbers when user is tapping on WordItem
     func showOrderNumberForWordItems(){
         for index in 0...wordItems.count - 1 {
             wordItems[index].showOrderNumber()
@@ -161,6 +177,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // Generate correct order numbers based on the current arrangement
     func generateOrderNumber(){
         let sortedWordItems = wordItems.sorted(by: { $0.frame.minX < $1.frame.minX })
         
@@ -170,10 +187,10 @@ class MainViewController: UIViewController {
 
     }
     
-    
     func generateAnswer(){
         
         var answer:String = ""
+        // Sort WordItems by their x-postion
         let sortedWordItems = wordItems.sorted(by: { $0.frame.minX < $1.frame.minX })
         
         for index in 0...sortedWordItems.count - 1{
@@ -186,36 +203,56 @@ class MainViewController: UIViewController {
             }
         }
         
+        // Format
         answer += "."
         answer.capitalizeFirstLetter()
         
         answerLabel.text = answer
     }
     
+    // WordItem's dragging behavior
     @objc private func panGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
         
         let currentWordItem = recongnizer.view as! WordItem
         
         switch recongnizer.state {
             
+        // How it works -
+        // Firstly when tap begins, record the current position of finger in the tapped WordItem(Not the mainView)
+        // So we got the relative position between tapped WordItem and user's finger
+        // Then when every movement occurs, see where the user's finger is, get its current postion in mainView
+        // By current position of user's finger in mainView and the relative position we got above, we could calculate where the tapped WordItem should be and move it
+            
+        // Formula -
+        // ThePositionOfWordItem(Where it should be now) = CurrentPositionOfFinger(In mainView) + ThePositionWhenFingerFirstTapOnTheWordItem(Positive or negative)
+            
         case .began:
+            // Record the current position in the tapped WordItem
             pointerBeganPositionInWordItem = recongnizer.location(in: recongnizer.view)
             
+            //
             generateAnswer()
+            
             generateOrderNumber()
             showOrderNumberForWordItems()
             
             break;
             
         case .changed:
+            
+            // Get finger's current postion in mainView
             let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
             let triggeredViewSize = recongnizer.view!.frame.size
+            
+            // Adjust the postion of WordItem
             recongnizer.view!.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
             
             generateOrderNumber()
             break;
             
         case .ended:
+            
+            //
             generateAnswer()
             
             generateOrderNumber()

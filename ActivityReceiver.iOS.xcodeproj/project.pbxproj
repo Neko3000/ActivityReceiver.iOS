@@ -157,11 +157,11 @@
 		EBB5EBCB2186E99D00460F66 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EBE8B966218BFABB0093E466 /* ResultViewController.swift */,
-				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
-				EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */,
 				EB822701217CA79A003C01D7 /* LoginViewController.swift */,
 				EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */,
+				EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */,
+				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
+				EBE8B966218BFABB0093E466 /* ResultViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

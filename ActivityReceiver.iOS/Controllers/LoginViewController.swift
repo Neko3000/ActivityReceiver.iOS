@@ -13,8 +13,10 @@ import Alamofire
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
+    // The information of current user
     private var currentUserInfo:UserInfo?
 
+    // Outlets
     @IBOutlet weak var toSignUpBtn: UIButton!
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -24,6 +26,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Styles
+        
         toSignUpBtn.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         toSignUpBtn.layer.cornerRadius = 8.0
         toSignUpBtn.layer.masksToBounds = true
@@ -54,6 +58,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //
         initUserState()
     }
     
@@ -91,12 +96,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     func initUserState(){
         
+        
         var isUserAuthorized = false
         
+        // Try to load UserInfo stored in bundle
         if let loadedUserInfo = loadUserInfo(){
             
+            // If UserInfo existes
             do{
+                
+                // Decode payload of JWT to get its expiration
                 let jwtToken = try decode(jwt: loadedUserInfo.token)
+
                 if(!jwtToken.expired){
                     // test to server
                     isUserAuthorized = true
@@ -107,6 +118,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             }
         }
 
+        // Auto-login
         if(isUserAuthorized){
             
             performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
@@ -115,8 +127,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     func saveUserInfo(userInfoObject:UserInfo){
         
-        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: userInfoObject)
+        // Bundle
         let userDefaults = UserDefaults.standard
+        
+        // Save UserInfo
+        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: userInfoObject)
         userDefaults.set(codedMyUserInfo,forKey:"CurrentUserInfo")
         
         userDefaults.synchronize()
@@ -124,8 +139,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     func loadUserInfo() -> UserInfo?{
+        
+        // Bundle
         let userDefaults = UserDefaults.standard
         
+        // Load UserInfo
         if let originalObject = userDefaults.object(forKey: "CurrentUserInfo"){
             let decodedData = originalObject as! Data
             let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decodedData) as! UserInfo
@@ -143,13 +161,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
-    // return button
+    // These functions are used to set the behavior of the keyboard when user try to dismiss it
+    // Tap return button to dismiss
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    // when touch on the view
+    // Tap the area on the outside of keyboard to dismiss
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
