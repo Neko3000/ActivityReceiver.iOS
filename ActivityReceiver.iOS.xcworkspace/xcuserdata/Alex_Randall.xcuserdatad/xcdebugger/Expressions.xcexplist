@@ -13,5 +13,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "ResultTableView.layoutSubviews():ResultTableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "test">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

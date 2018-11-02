@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vdr-3o-3Mb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="koz-gR-WgY">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -286,6 +286,49 @@
             </objects>
             <point key="canvasLocation" x="810" y="118"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="ONQ-eX-b0W">
+            <objects>
+                <viewController id="koz-gR-WgY" customClass="ResultViewController" customModule="ActivityReceiver_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="52n-RP-0ra">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1hH-ax-f1q" customClass="ResultTableView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
+                                <rect key="frame" x="128" y="0.0" width="411" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-CD-WsA">
+                                <rect key="frame" x="20" y="20" width="30" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="戻る">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vdr-3o-3Mb" kind="show" id="w44-Kd-U80"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="HeavyTurquoise"/>
+                        <constraints>
+                            <constraint firstItem="1hH-ax-f1q" firstAttribute="top" secondItem="swo-p5-ujw" secondAttribute="top" id="95o-Ze-O0W"/>
+                            <constraint firstItem="swo-p5-ujw" firstAttribute="bottom" secondItem="1hH-ax-f1q" secondAttribute="bottom" id="9dd-jk-vOC"/>
+                            <constraint firstItem="pj2-CD-WsA" firstAttribute="leading" secondItem="swo-p5-ujw" secondAttribute="leading" constant="20" id="HeY-C3-Kr0"/>
+                            <constraint firstItem="pj2-CD-WsA" firstAttribute="top" secondItem="swo-p5-ujw" secondAttribute="top" constant="20" id="aSz-et-7g1"/>
+                            <constraint firstItem="1hH-ax-f1q" firstAttribute="leading" secondItem="swo-p5-ujw" secondAttribute="leading" constant="128" id="gAi-fd-92A"/>
+                            <constraint firstItem="swo-p5-ujw" firstAttribute="trailing" secondItem="1hH-ax-f1q" secondAttribute="trailing" constant="128" id="xsC-wT-3TU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="swo-p5-ujw"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="1hH-ax-f1q" id="GdG-Ng-h1w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fm3-AQ-808" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1514.392803598201" y="117.59999999999999"/>
+        </scene>
         <!--User Center View Controller-->
         <scene sceneID="1dM-sY-r64">
             <objects>
@@ -409,4 +452,7 @@
             <color red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cal-sF-Lw6"/>
+    </inferredMetricsTieBreakers>
 </document>
