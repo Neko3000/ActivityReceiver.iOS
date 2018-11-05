@@ -14,6 +14,7 @@ class ResultAnswerDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var sentenceJPLabel: UILabel!
     @IBOutlet weak var sentenceENLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var leftFrameImageView: UIImageView!
     @IBOutlet weak var correctnessMarkImageView: UIImageView!
     
     @IBOutlet weak var blockBGView: UIView!
@@ -42,6 +43,11 @@ class ResultAnswerDetailTableViewCell: UITableViewCell {
     public func setCorrectnessMarkImage(image:UIImage){
         
         correctnessMarkImageView.image = image
+    }
+    
+    public func setLeftFrameImage(image:UIImage){
+        
+        leftFrameImageView.image = image
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

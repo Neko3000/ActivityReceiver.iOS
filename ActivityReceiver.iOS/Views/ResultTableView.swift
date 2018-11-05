@@ -60,7 +60,7 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultHeaderTableViewCell") as! ResultHeaderTableViewCell
             
             // Settings
-            specificCell.accuracyRateLabel.text = String(resultViewModel!.accuracyRate)
+            specificCell.accuracyRateLabel.text = String(resultViewModel!.accuracyRate) + "%"
             
             cell = specificCell
         }
@@ -75,6 +75,7 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
             
             if(!currentResultAnswerDetail!.isCorrect){
                 specificCell.setCorrectnessMarkImage(image:UIImage(named: "bg-mark-wrong")!)
+                specificCell.setLeftFrameImage(image:UIImage(named: "left-frame-rapsberry")!)
             }
             
             cell = specificCell

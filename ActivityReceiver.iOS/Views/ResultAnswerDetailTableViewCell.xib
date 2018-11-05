@@ -98,6 +98,7 @@
                 <outlet property="answerLabel" destination="Ozi-Ki-tzP" id="ygK-dU-WlA"/>
                 <outlet property="blockBGView" destination="PBw-2e-u3V" id="PHx-5f-4Xn"/>
                 <outlet property="correctnessMarkImageView" destination="uE2-No-x5h" id="oB2-Tw-mX6"/>
+                <outlet property="leftFrameImageView" destination="o0C-Jc-jtP" id="aAf-4z-QCE"/>
                 <outlet property="numberLabel" destination="FuF-Ny-A9Y" id="RsQ-yt-iq6"/>
                 <outlet property="sentenceENLabel" destination="n8e-CH-bi4" id="DYO-eK-1h7"/>
                 <outlet property="sentenceJPLabel" destination="80l-6c-6x8" id="BIn-6Y-x7Y"/>

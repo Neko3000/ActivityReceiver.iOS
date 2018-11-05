@@ -15,6 +15,8 @@
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
+		EB137632218ED08900B9FF02 /* MovementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137631218ED08900B9FF02 /* MovementDTO.swift */; };
+		EB137634218ED34500B9FF02 /* MovementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137633218ED34500B9FF02 /* MovementState.swift */; };
 		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
@@ -49,6 +51,8 @@
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB137631218ED08900B9FF02 /* MovementDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementDTO.swift; sourceTree = "<group>"; };
+		EB137633218ED34500B9FF02 /* MovementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementState.swift; sourceTree = "<group>"; };
 		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
 				EBE8B95B218AD1340093E466 /* ResultAnswerDetail.swift */,
+				EB137631218ED08900B9FF02 /* MovementDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */,
 				EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */,
 				EBB5EBD72186EB2B00460F66 /* SegueBehaviorObject.swift */,
+				EB137633218ED34500B9FF02 /* MovementState.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 			files = (
 				EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */,
 				EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */,
+				EB137634218ED34500B9FF02 /* MovementState.swift in Sources */,
 				EBE8B95A218ACEB80093E466 /* ResultTableView.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
 				EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */,
@@ -339,6 +346,7 @@
 				EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */,
 				EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */,
 				EBE8B967218BFABB0093E466 /* ResultViewController.swift in Sources */,
+				EB137632218ED08900B9FF02 /* MovementDTO.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
 				EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */,
 				EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */,

@@ -18,8 +18,8 @@ class ResultViewController: UIViewController {
         
         //mainTableView.
         
-        let resultAnswerDetail1 = ResultAnswerDetail(sentenceJP: "あなたのしっぽを触りたい.", sentenceEN: "I wanna touch your tail.", answer: "touch tail I wanna.", isCorrect: false)
-        let resultAnswerDetail2 = ResultAnswerDetail(sentenceJP: "お主と出会うために生まれたんだ.", sentenceEN: "I was borned for you.", answer: "I was borned for you.", isCorrect: true)
+        let resultAnswerDetail1 = ResultAnswerDetail(sentenceJP: "賢い人は探すより機会を作るのだ。", sentenceEN: "A wise man will make more opportunities than he finds.", answer: "A wise man will make more opportunities than he finds.", isCorrect: false)
+        let resultAnswerDetail2 = ResultAnswerDetail(sentenceJP: "この問題を解決する方法がたくさんあります。", sentenceEN: "There are many ways to solve this problem.", answer: "A wise man will make more opportunities than he finds.", isCorrect: true)
         
         var resultAnswerDetails = [ResultAnswerDetail]()
         resultAnswerDetails.append(resultAnswerDetail1)

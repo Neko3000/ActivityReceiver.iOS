@@ -12,17 +12,29 @@ import Alamofire
 
 class MainViewController: UIViewController {
 
-
-    
     // The list of all words in current question
     var words:[String]?
     
     // The list of all wordItems
     var wordItems = [WordItem]()
     
+    // Movements
+    // 20 time per second
+    var samplingFrequency:Int = 10
+    var movementCurrentIndex:Int = 0
+    var movementDTOs = [MovementDTO]()
+    
     // This factor records the original position value of pointer in the UIView(WordItem)
     // It will be used in panGesetureRecongnizerHandler function
     var pointerBeganPositionInWordItem:CGPoint?
+    
+    // Timer
+    var timer:Timer?
+    var lastRecordMillisecondTime:Int = 0
+    var currentMillisecondTime:Int = 0
+    
+    // AlertController
+    var alertDialog:UIAlertController?
     
     // Outlets
     @IBOutlet weak var mainView: UIView!
@@ -37,6 +49,26 @@ class MainViewController: UIViewController {
         
         // Load
         loadWordItems(index:0)
+        
+        alertDialog = UIAlertController(title: "確認", message: "今の解答でよろしいですか?", preferredStyle: .alert)
+        alertDialog!.addAction(UIAlertAction(title: "はい", style:.default, handler: alertActionHandler(alertAction:)))
+        alertDialog!.addAction(UIAlertAction(title: "いいえ", style:.cancel, handler: alertActionHandler(alertAction:)))
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func updateTime(){
+        
+        currentMillisecondTime += 1000/samplingFrequency
+        
+//        let d = Date()
+//        let df = DateFormatter()
+//        df.dateFormat = "y-MM-dd H:m:ss.SSSS"
+//
+//         // -> "2016-11-17 17:51:15.1720"
+//        print(String(currentMillisecondTime) + "-" +
+//            df.string(from: d))
+        
     }
     
     private func loadWordItems(index:Int){
@@ -210,10 +242,20 @@ class MainViewController: UIViewController {
         answerLabel.text = answer
     }
     
+    private func createMovementDTO(position:CGPoint,movementState:MovementState){
+        
+        if(lastRecordMillisecondTime < currentMillisecondTime){
+            let movementDTONew = MovementDTO(index: movementCurrentIndex, state: movementState.rawValue, time: currentMillisecondTime, xPosition: Int(position.x), yPostion: Int(position.y))
+            movementCurrentIndex = movementCurrentIndex + 1
+            
+            movementDTOs.append(movementDTONew)
+            
+            lastRecordMillisecondTime = currentMillisecondTime
+        }
+    }
+        
     // WordItem's dragging behavior
     @objc private func panGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
-        
-        let currentWordItem = recongnizer.view as! WordItem
         
         switch recongnizer.state {
             
@@ -227,46 +269,103 @@ class MainViewController: UIViewController {
         // ThePositionOfWordItem(Where it should be now) = CurrentPositionOfFinger(In mainView) + ThePositionWhenFingerFirstTapOnTheWordItem(Positive or negative)
             
         case .began:
+            
             // Record the current position in the tapped WordItem
             pointerBeganPositionInWordItem = recongnizer.location(in: recongnizer.view)
             
-            //
+            // auto
             generateAnswer()
             
+            // UI
             generateOrderNumber()
             showOrderNumberForWordItems()
+            
+            // Create a new MovementDTO and push it into the array
+            
+            createMovementDTO(position: recongnizer.location(in: recongnizer.view), movementState: MovementState.tapSingleBegin)
             
             break;
             
         case .changed:
             
+            // Get CurrentWordItem
+            let currentWordItem = recongnizer.view as! WordItem
+            
             // Get finger's current postion in mainView
             let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
-            let triggeredViewSize = recongnizer.view!.frame.size
+            let triggeredViewSize = currentWordItem.frame.size
             
             // Adjust the postion of WordItem
-            recongnizer.view!.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
+            currentWordItem.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
             
+            //
             generateOrderNumber()
+            
+            createMovementDTO(position: recongnizer.location(in: recongnizer.view), movementState: MovementState.tapSingleMove)
+            
             break;
             
         case .ended:
             
-            //
+            // Auto
             generateAnswer()
             
+            // UI
             generateOrderNumber()
             hideOrderNumberForWordItems()
+            
+            createMovementDTO(position: recongnizer.location(in: recongnizer.view), movementState: MovementState.tapSingleEnd)
+            
             break;
         
         default:
             break;
         }
         
+        print(movementDTOs.count)
     }
     
+    var currentID = 1
+    
+    private func loadNext(index:Int){
+        loadWordItems(index: index)
+        
+        currentID = currentID + 1
+    }
+    
+    private func alertActionHandler(alertAction:UIAlertAction){
+        
+        switch alertAction.style {
+        case .default:
+            
+            if(currentID > 1 )
+            {
+                performSegue(withIdentifier: "GenerateResult", sender: nil)
+            }
+            else{
+                clearCurrentQuestion()
+                loadNext(index: currentID)
+            }
+            break
+            
+        case .cancel:
+            print("cancel")
+            break
+            
+        case .destructive:
+            print("desturctive")
+            break
+            
+        default:
+            break
+        }
+    }
+
+    
     @IBAction func nextQuestionBtn(_ sender: Any) {
-        loadWordItems(index: 1)
+        
+        //
+        self.present(alertDialog!, animated: true, completion: nil)
     }
     
     func loadViewFromNib() -> UIView {
