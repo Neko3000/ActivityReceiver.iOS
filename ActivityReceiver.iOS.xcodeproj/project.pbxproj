@@ -37,6 +37,11 @@
 		EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */; };
 		EBE8B96B218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */; };
 		EBE8B96D218C0B9E0093E466 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B96C218C0B9E0093E466 /* ResultViewModel.swift */; };
+		EBF9C1A02190532100321174 /* ExerciseItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C19E2190532100321174 /* ExerciseItemTableViewCell.swift */; };
+		EBF9C1A12190532100321174 /* ExerciseItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF9C19F2190532100321174 /* ExerciseItemTableViewCell.xib */; };
+		EBF9C1A32190570E00321174 /* ExerciseListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */; };
+		EBF9C1A621917D2400321174 /* ActiveUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */; };
+		EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +78,11 @@
 		EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultAnswerDetailTableViewCell.swift; sourceTree = "<group>"; };
 		EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultAnswerDetailTableViewCell.xib; sourceTree = "<group>"; };
 		EBE8B96C218C0B9E0093E466 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		EBF9C19E2190532100321174 /* ExerciseItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemTableViewCell.swift; sourceTree = "<group>"; };
+		EBF9C19F2190532100321174 /* ExerciseItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseItemTableViewCell.xib; sourceTree = "<group>"; };
+		EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListTableView.swift; sourceTree = "<group>"; };
+		EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserInfo.swift; sourceTree = "<group>"; };
+		EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectorViewController.swift; sourceTree = "<group>"; };
 		FB7852F4BD99220705EEFA77 /* Pods-ActivityReceiver.iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +136,7 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBF9C1A4219174F500321174 /* DataTransferObjects */,
 				EBB5EBCD2186E9B000460F66 /* Functions */,
 				EBB5EBCC2186E9A700460F66 /* Models */,
 				EBE8B96E218C1BD70093E466 /* ViewModels */,
@@ -143,6 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
+				EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */,
+				EBF9C19E2190532100321174 /* ExerciseItemTableViewCell.swift */,
+				EBF9C19F2190532100321174 /* ExerciseItemTableViewCell.xib */,
 				EBE8B959218ACEB80093E466 /* ResultTableView.swift */,
 				EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */,
 				EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */,
@@ -166,6 +180,7 @@
 				EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */,
 				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
 				EBE8B966218BFABB0093E466 /* ResultViewController.swift */,
+				EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -174,8 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
+				EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */,
 				EBE8B95B218AD1340093E466 /* ResultAnswerDetail.swift */,
-				EB137631218ED08900B9FF02 /* MovementDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +213,14 @@
 				EBE8B96C218C0B9E0093E466 /* ResultViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EBF9C1A4219174F500321174 /* DataTransferObjects */ = {
+			isa = PBXGroup;
+			children = (
+				EB137631218ED08900B9FF02 /* MovementDTO.swift */,
+			);
+			path = DataTransferObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF9C1A12190532100321174 /* ExerciseItemTableViewCell.xib in Resources */,
 				EBE8B965218BF91E0093E466 /* ResultHeaderTableViewCell.xib in Resources */,
 				EBE8B96B218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib in Resources */,
 				EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */,
@@ -331,18 +355,22 @@
 				EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */,
 				EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */,
 				EB137634218ED34500B9FF02 /* MovementState.swift in Sources */,
+				EBF9C1A02190532100321174 /* ExerciseItemTableViewCell.swift in Sources */,
 				EBE8B95A218ACEB80093E466 /* ResultTableView.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
 				EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */,
 				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
 				EBB5EBD82186EB2B00460F66 /* SegueBehaviorObject.swift in Sources */,
+				EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */,
 				EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EBE8B95C218AD1340093E466 /* ResultAnswerDetail.swift in Sources */,
 				EBE8B96D218C0B9E0093E466 /* ResultViewModel.swift in Sources */,
 				EBB5EBD62186EB2400460F66 /* ReshapableImageView.swift in Sources */,
+				EBF9C1A621917D2400321174 /* ActiveUserInfo.swift in Sources */,
 				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
+				EBF9C1A32190570E00321174 /* ExerciseListTableView.swift in Sources */,
 				EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */,
 				EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */,
 				EBE8B967218BFABB0093E466 /* ResultViewController.swift in Sources */,

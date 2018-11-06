@@ -9,10 +9,10 @@
 import UIKit
 
 class UserCenterViewController: UIViewController,SegueBehaviorObject {
-    
+
     // Outlets
     @IBOutlet weak var userAvatarReshapableImageView: ReshapableImageView!
-    
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var assignmentFunctionListItem: FunctionListItemView!
     
     override func viewDidLoad() {

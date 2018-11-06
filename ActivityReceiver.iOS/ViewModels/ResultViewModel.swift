@@ -9,6 +9,7 @@
 import Foundation
 
 public class ResultViewModel{
+    
     private var _accuracyRate:Float = 0.0
     private var _resultAnswerDetails:[ResultAnswerDetail] = [ResultAnswerDetail]()
     

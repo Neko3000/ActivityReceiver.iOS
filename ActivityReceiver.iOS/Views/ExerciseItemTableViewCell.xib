@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="KGk-i7-Jjw" customClass="ExerciseItemTableViewCell" customModule="ActivityReceiver_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="122.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSW-YO-nxg">
+                        <rect key="frame" x="38" y="0.0" width="314" height="122.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初級" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y85-G8-8wW">
+                                <rect key="frame" x="25" y="24" width="37" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" name="LightGrey3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmk-u6-h6k">
+                                <rect key="frame" x="70" y="30" width="25" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="LightGrey4"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初めて本アプリを使う初心者ための問題集" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JS-ag-9uu">
+                                <rect key="frame" x="25" y="53" width="233" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="LightGrey4"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item-check-mark" translatesAutoresizingMaskIntoConstraints="NO" id="GF7-qg-Shq">
+                                <rect key="frame" x="292" y="100.5" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="Ghh-6h-fqT"/>
+                                    <constraint firstAttribute="width" constant="12" id="bw5-fi-r1o"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rmk-u6-h6k" firstAttribute="leading" secondItem="Y85-G8-8wW" secondAttribute="trailing" constant="8" id="6D0-sw-88F"/>
+                            <constraint firstAttribute="trailing" secondItem="GF7-qg-Shq" secondAttribute="trailing" constant="10" id="Jt3-Vq-RV4"/>
+                            <constraint firstItem="4JS-ag-9uu" firstAttribute="leading" secondItem="Y85-G8-8wW" secondAttribute="leading" id="f1R-Nq-zUE"/>
+                            <constraint firstItem="Y85-G8-8wW" firstAttribute="leading" secondItem="FSW-YO-nxg" secondAttribute="leading" constant="25" id="m5m-rr-Cpk"/>
+                            <constraint firstItem="4JS-ag-9uu" firstAttribute="top" secondItem="Y85-G8-8wW" secondAttribute="bottom" constant="7" id="nxg-L5-XbR"/>
+                            <constraint firstItem="Y85-G8-8wW" firstAttribute="top" secondItem="FSW-YO-nxg" secondAttribute="top" constant="24" id="oU6-wD-bo2"/>
+                            <constraint firstItem="rmk-u6-h6k" firstAttribute="top" secondItem="Y85-G8-8wW" secondAttribute="top" constant="6" id="r0s-vC-VJY"/>
+                            <constraint firstAttribute="bottom" secondItem="GF7-qg-Shq" secondAttribute="bottom" constant="10" id="zHe-61-cH2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="FSW-YO-nxg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="38" id="1qF-57-3so"/>
+                    <constraint firstItem="FSW-YO-nxg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Cka-z0-5n7"/>
+                    <constraint firstAttribute="trailing" secondItem="FSW-YO-nxg" secondAttribute="trailing" constant="38" id="iD8-xe-XO9"/>
+                    <constraint firstAttribute="bottom" secondItem="FSW-YO-nxg" secondAttribute="bottom" id="ziV-vy-WPI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="blockBGView" destination="FSW-YO-nxg" id="Xbw-iA-fLe"/>
+                <outlet property="checkedImageView" destination="GF7-qg-Shq" id="9ZQ-5c-cTN"/>
+                <outlet property="currentStateLabel" destination="rmk-u6-h6k" id="bak-15-OVf"/>
+                <outlet property="descriptionLable" destination="4JS-ag-9uu" id="vu3-ty-zcw"/>
+                <outlet property="nameLabel" destination="Y85-G8-8wW" id="olX-sj-t0A"/>
+            </connections>
+            <point key="canvasLocation" x="193.59999999999999" y="189.3553223388306"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="item-check-mark" width="12" height="12"/>
+        <namedColor name="LightGrey3">
+            <color red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightGrey4">
+            <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

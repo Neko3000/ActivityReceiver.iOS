@@ -49,32 +49,28 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         loginBtn.layer.masksToBounds = true
         
         // Do any additional setup after loading the view.
-        
-        //initUserState()
-
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //
+        // Try to login automatically
         initUserState()
     }
     
     @IBAction func loginSubmit(_ sender: Any) {
-        
     
         let username = usernameTextField.text
         let password = passwordTextField.text
         
         //generate json contains username and password
         let parameters:Parameters = [
-            "Username":username,
-            "Password":password
+            "Username":username ?? "",
+            "Password":password ?? ""
         ]
 
-        Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+        Alamofire.request("http://118.25.44.137/UserToken/GetToken", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
             {
                 response in
                 
@@ -88,16 +84,17 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     let userInfo = UserInfo(username: username, token: token)
                     self.saveUserInfo(userInfoObject: userInfo)
                     
-                    //segue
+                    ActiveUserInfo.username = username
+                    ActiveUserInfo.userToken = token
+                    
+                    // Segue to UserCenter
+                    self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
                 }
                 
         })
     }
     
     func initUserState(){
-        
-        
-        var isUserAuthorized = false
         
         // Try to load UserInfo stored in bundle
         if let loadedUserInfo = loadUserInfo(){
@@ -106,22 +103,41 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             do{
                 
                 // Decode payload of JWT to get its expiration
-                let jwtToken = try decode(jwt: loadedUserInfo.token)
+                let jwtDecodedToken = try decode(jwt: loadedUserInfo.token)
 
-                if(!jwtToken.expired){
-                    // test to server
-                    isUserAuthorized = true
+                if(!jwtDecodedToken.expired){
+                    
+                    Alamofire.request("http://118.25.44.137/UserToken/Authorize").responseJSON(completionHandler: {
+                        response in
+                        
+                        switch(response.result){
+                            
+                        case .success(let json):
+                            
+                            let dict = json as! NSDictionary
+                        
+                            ActiveUserInfo.username = dict["Username"] as! String
+                            ActiveUserInfo.userToken = loadedUserInfo.token
+                            
+                            // AutoLogin
+                            self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+                            
+                            break
+                            
+                        case .failure(let error):
+                            print(error)
+                            
+                            break
+                        }
+                        
+                        
+                    })
+                    
                 }
             }
             catch{
                 print(error)
             }
-        }
-
-        // Auto-login
-        if(isUserAuthorized){
-            
-            performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
         }
     }
     
@@ -157,7 +173,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "LoginToUserCenter"){
-            print("seuged")
+            let dest = segue.destination as! UserCenterViewController
+            
+            dest.usernameLabel.text = ActiveUserInfo.username
         }
     }
     
