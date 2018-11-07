@@ -8,8 +8,8 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
-    @IBOutlet weak var mainTableView: ResultTableView!
+    
+    @IBOutlet weak var resultTableView: ResultTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class ResultViewController: UIViewController {
         resultVM.accuracyRate = 79.3
         resultVM.resultAnswerDetails = resultAnswerDetails
         
-        mainTableView.resultViewModel = resultVM
+        resultTableView.resultViewModel = resultVM
     }
     
 

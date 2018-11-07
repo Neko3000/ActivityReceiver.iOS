@@ -8,26 +8,33 @@
 
 import Foundation
 
+public class ResultAnswerDetail
+{
+    public var sentenceJP:String = ""
+    public var sentenceEN:String = ""
+    public var answer:String = ""
+    public var isCorrect:Bool = false
+    
+    
+    init(sentenceJP:String,sentenceEN:String,answer:String,isCorrect:Bool) {
+        self.sentenceJP = sentenceJP
+        self.sentenceEN = sentenceEN
+        self.answer = answer
+        self.isCorrect = isCorrect
+    }
+}
+
 public class ResultViewModel{
     
-    private var _accuracyRate:Float = 0.0
-    private var _resultAnswerDetails:[ResultAnswerDetail] = [ResultAnswerDetail]()
+    public var accuracyRate:Float = 0.0
+    public var resultAnswerDetails:[ResultAnswerDetail] = [ResultAnswerDetail]()
     
-    public var accuracyRate:Float{
-        get{
-            return _accuracyRate
-        }
-        set(value){
-            _accuracyRate = value
-        }
+    init(accuracyRate:Float,resultAnswerDetails:[ResultAnswerDetail]) {
+        
+        self.resultAnswerDetails = resultAnswerDetails
     }
     
-    public var resultAnswerDetails:[ResultAnswerDetail]{
-        get{
-            return _resultAnswerDetails
-        }
-        set(value){
-            _resultAnswerDetails = value
-        }
+    init() {
+        
     }
 }

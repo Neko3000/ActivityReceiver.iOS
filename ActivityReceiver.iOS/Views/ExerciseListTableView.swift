@@ -31,7 +31,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
             self.allowsSelection = false
             
             // Register custom .xib as reusable cells
-            self.register(UINib(nibName: "ExerciseItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseItemTableViewCell")
+            self.register(UINib(nibName: "ExerciseListItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseListItemTableViewCell")
             
             // Delegates
             
@@ -46,7 +46,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?
         
-        let specificCell = self.dequeueReusableCell(withIdentifier: "ExerciseItemTableViewCell") as! ExerciseItemTableViewCell
+        let specificCell = self.dequeueReusableCell(withIdentifier: "ExerciseListItemTableViewCell") as! ExerciseListItemTableViewCell
         specificCell.layer.zPosition = CGFloat(indexPath.section)
         
         cell = specificCell

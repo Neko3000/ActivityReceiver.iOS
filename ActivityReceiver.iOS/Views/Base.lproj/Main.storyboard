@@ -325,7 +325,7 @@
                         <viewLayoutGuide key="safeArea" id="swo-p5-ujw"/>
                     </view>
                     <connections>
-                        <outlet property="mainTableView" destination="1hH-ax-f1q" id="GdG-Ng-h1w"/>
+                        <outlet property="resultTableView" destination="1hH-ax-f1q" id="qEp-7B-qN1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm3-AQ-808" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -469,7 +469,7 @@
                                     <constraint firstAttribute="width" constant="261" id="wuG-T7-tWO"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X8g-oh-cJE" customClass="AssignmentListTableView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X8g-oh-cJE" customClass="ExerciseListTableView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
                                 <rect key="frame" x="261" y="0.0" width="406" height="375"/>
                                 <color key="backgroundColor" name="HeavyTurquoise"/>
                             </tableView>
@@ -486,6 +486,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qHx-Cj-m3N"/>
                     </view>
+                    <connections>
+                        <outlet property="exerciseListTableView" destination="X8g-oh-cJE" id="MC4-pc-DEV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hm-TG-rgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

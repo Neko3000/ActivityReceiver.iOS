@@ -10,6 +10,7 @@ import UIKit
 
 class ExerciseSelectorViewController: UIViewController {
 
+    @IBOutlet weak var exerciseListTableView: ExerciseListTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

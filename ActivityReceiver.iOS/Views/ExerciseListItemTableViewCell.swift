@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExerciseItemTableViewCell: UITableViewCell {
+class ExerciseListItemTableViewCell: UITableViewCell {
     
     // Outlets
     @IBOutlet weak var nameLabel: UILabel!
