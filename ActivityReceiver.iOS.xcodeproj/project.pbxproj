@@ -310,7 +310,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/UIView+draggable/UIView_draggable.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -318,7 +317,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIView_draggable.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import JWTDecode
 import Alamofire
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
@@ -99,45 +98,31 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         // Try to load UserInfo stored in bundle
         if let loadedUserInfo = loadUserInfo(){
             
-            // If UserInfo existes
-            do{
+            Alamofire.request("http://118.25.44.137/UserToken/Authorize").responseJSON(completionHandler: {
+                response in
                 
-                // Decode payload of JWT to get its expiration
-                let jwtDecodedToken = try decode(jwt: loadedUserInfo.token)
-
-                if(!jwtDecodedToken.expired){
+                switch(response.result){
                     
-                    Alamofire.request("http://118.25.44.137/UserToken/Authorize").responseJSON(completionHandler: {
-                        response in
-                        
-                        switch(response.result){
-                            
-                        case .success(let json):
-                            
-                            let dict = json as! NSDictionary
-                        
-                            ActiveUserInfo.username = dict["Username"] as! String
-                            ActiveUserInfo.userToken = loadedUserInfo.token
-                            
-                            // AutoLogin
-                            self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
-                            
-                            break
-                            
-                        case .failure(let error):
-                            print(error)
-                            
-                            break
-                        }
-                        
-                        
-                    })
+                case .success(let json):
                     
+                    let dict = json as! NSDictionary
+                
+                    ActiveUserInfo.username = dict["Username"] as! String
+                    ActiveUserInfo.userToken = loadedUserInfo.token
+                    
+                    // AutoLogin
+                    self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+                    
+                    break
+                    
+                case .failure(let error):
+                    print(error)
+                    
+                    break
                 }
-            }
-            catch{
-                print(error)
-            }
+                
+                
+            })
         }
     }
     

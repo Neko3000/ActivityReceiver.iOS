@@ -9,6 +9,5 @@ target 'ActivityReceiver.iOS' do
 
   pod 'UIView+draggable'
   pod 'Alamofire'
-  pod 'JWTDecode'
 
 end
