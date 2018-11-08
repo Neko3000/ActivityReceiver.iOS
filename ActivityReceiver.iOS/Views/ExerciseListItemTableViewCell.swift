@@ -10,13 +10,15 @@ import UIKit
 
 class ExerciseListItemTableViewCell: UITableViewCell {
     
+    // ID
+    public var id:Int = 0
+    
     // Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var currentStateLabel: UILabel!
     @IBOutlet weak var descriptionLable: UILabel!
     @IBOutlet weak var checkedImageView: UIImageView!
     @IBOutlet weak var blockBGView: UIView!
-    
     
     private var isInitialized:Bool = false
 
@@ -32,6 +34,15 @@ class ExerciseListItemTableViewCell: UITableViewCell {
             isInitialized = true
         }
         
+    }
+    
+    // These functions are for controlling show/hide behavior of the checked image
+    public func showCheckedImage(){
+        checkedImageView.isHidden = false
+    }
+    
+    public func hideCheckedImage(){
+        checkedImageView.isHidden = true
     }
     
     override func awakeFromNib() {

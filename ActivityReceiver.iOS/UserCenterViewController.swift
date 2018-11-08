@@ -9,7 +9,7 @@
 import UIKit
 
 class UserCenterViewController: UIViewController,SegueBehaviorObject {
-
+    
     // Outlets
     @IBOutlet weak var userAvatarReshapableImageView: ReshapableImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -24,13 +24,21 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
         userAvatarReshapableImageView.setUIImage(image: UIImage(named: "user-avatar")!)
         userAvatarReshapableImageView.setCornerRadius(radius: userAvatarReshapableImageView.frame.width/2.0)
         
-        assignmentFunctionListItem.setSegueBehavior(object: self, identifier: "ToStartAssignment")
+        assignmentFunctionListItem.setSegueBehavior(object: self, identifier: "ToSelectExercise")
     }
     
     // Segue, called in FunctionListView when tapped its items
     func segueToAnotherScreen(withIdentifier identifier: String, sender: Any?) {
+        
         performSegue(withIdentifier: identifier, sender: sender)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "ToSelectExercise"){
+            
+            
+        }
     }
     
     /*

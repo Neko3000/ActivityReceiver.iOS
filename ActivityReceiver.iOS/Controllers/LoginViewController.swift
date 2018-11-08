@@ -103,25 +103,22 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 
                 switch(response.result){
                     
-                case .success(let json):
+                    // Json data is not needed here
+                    case .success(_):
+                        
+                        ActiveUserInfo.username = loadedUserInfo.username
+                        ActiveUserInfo.userToken = loadedUserInfo.token
+                        
+                        // Auto-Login
+                        self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+                        
+                        break
                     
-                    let dict = json as! NSDictionary
-                
-                    ActiveUserInfo.username = dict["Username"] as! String
-                    ActiveUserInfo.userToken = loadedUserInfo.token
-                    
-                    // AutoLogin
-                    self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
-                    
-                    break
-                    
-                case .failure(let error):
-                    print(error)
-                    
-                    break
-                }
-                
-                
+                    case .failure(let error):
+                        print(error)
+                        
+                        break
+                    }
             })
         }
     }

@@ -12,7 +12,12 @@ import Alamofire
 
 class MainViewController: UIViewController {
 
+    // Exercise's ID
+    var exerciseID:Int = 0
+    
+    
     // The list of all words in current question
+    var currentQuestionDetail:QuestionDetail?
     var words:[String]?
     
     // The list of all wordItems
@@ -45,62 +50,61 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //words = ["man","wise","oppotunities","finds","make","than","a","he","will"]
-        
-        // Load
-        loadWordItems(index:0)
-        
+        //
+        showQuestionInfo()
+        generateWordItems()
+        arrangeWordItems()
+ 
+        // AlertDialog
         alertDialog = UIAlertController(title: "確認", message: "今の解答でよろしいですか?", preferredStyle: .alert)
         alertDialog!.addAction(UIAlertAction(title: "はい", style:.default, handler: alertActionHandler(alertAction:)))
         alertDialog!.addAction(UIAlertAction(title: "いいえ", style:.cancel, handler: alertActionHandler(alertAction:)))
         
+        // Timer
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
     @objc private func updateTime(){
-        
         currentMillisecondTime += 1000/samplingFrequency
-        
-//        let d = Date()
-//        let df = DateFormatter()
-//        df.dateFormat = "y-MM-dd H:m:ss.SSSS"
-//
-//         // -> "2016-11-17 17:51:15.1720"
-//        print(String(currentMillisecondTime) + "-" +
-//            df.string(from: d))
         
     }
     
-    private func loadWordItems(index:Int){
+    private func loadQuestion(){
 
+        let parameters:Parameters = [
+            "exerciseID":exerciseID,
+            ]
+        
         // Request data from remote server
-        Alamofire.request("http://118.25.44.137/question").responseJSON(completionHandler: {
-            response in
-            
-            //print("Request: \(String(describing: response.request))")   // original url request
-            //print("Response: \(String(describing: response.response))") // http url response
-            //print("Result: \(response.result)")                         // response serialization result
-            
-            
-            if let json = response.result.value {
-                //print("JSON: \(json)") // serialized json response
+        Alamofire.request("http://118.25.44.137/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+            {
+                response in
                 
-                // There are multiple questions
-                let questions = json as! NSArray
-                // Convert one question as Dictionary to get data by its key
-                let currentQuestion = questions[index] as! NSDictionary
+                switch(response.result){
+                    
+                case .success(let json):
+                    
+                    //if return 404, then go to result page
+                    
+                    let question = json as! NSDictionary
+                    
+                    self.currentQuestionDetail = QuestionDetail(id: question["id"] as? Int ?? 0, sentenceJP: question["sentenceJP"] as? String ?? "", division: question["division"] as? String ?? "")
+                    
+                    self.showQuestionInfo()
+                    self.generateWordItems()
+                    self.arrangeWordItems()
+                    
+                    
+                    //
+                    
+                    break
+                    
+                case .failure(let error):
+                    print(error)
+                    
+                    break
+                }
                 
-                // Set layout
-                self.questionLabel.text = currentQuestion["sentenceJP"] as? String
-                self.words = (currentQuestion["division"] as! String).components(separatedBy: "|")
-                
-                self.answerLabel.text = "-"
-                
-                self.generateWordItems()
-                self.arrangeWordItems()
-            }
-            
-            
         })
     }
     
@@ -108,10 +112,20 @@ class MainViewController: UIViewController {
         print("\(view.frame.minX) - \(view.frame.minY)")
     }
     
+    private func showQuestionInfo(){
+        
+        // Set layout
+        self.questionLabel.text = currentQuestionDetail?.sentenceJP
+        self.answerLabel.text = "-"
+    }
+    
     private func generateWordItems(){
         
         // Clear
         clearCurrentQuestion()
+        
+        // Generate words from division
+        words = currentQuestionDetail?.division.components(separatedBy: "|")
         
         for index in 0...words!.count - 1{
             
@@ -119,7 +133,7 @@ class MainViewController: UIViewController {
             
             let singleWordItem = WordItem()
             
-            singleWordItem.textLabel.text = words![index]
+            singleWordItem.textLabel.text = words?[index]
             singleWordItem.frame = CGRect(x: 0, y: 0, width: singleWordItem.textLabel.intrinsicContentSize.width + 40.0, height: singleWordItem.textLabel.intrinsicContentSize.height + 10.0 + topDistance)
             wordItems.append(singleWordItem)
             
@@ -325,27 +339,12 @@ class MainViewController: UIViewController {
         print(movementDTOs.count)
     }
     
-    var currentID = 1
-    
-    private func loadNext(index:Int){
-        loadWordItems(index: index)
-        
-        currentID = currentID + 1
-    }
-    
     private func alertActionHandler(alertAction:UIAlertAction){
         
         switch alertAction.style {
         case .default:
             
-            if(currentID > 1 )
-            {
-                performSegue(withIdentifier: "GenerateResult", sender: nil)
-            }
-            else{
-                clearCurrentQuestion()
-                loadNext(index: currentID)
-            }
+            loadQuestion()
             break
             
         case .cancel:

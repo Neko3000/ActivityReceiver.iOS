@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ResultAnswerDetail
+public class AssignmentResultAnswerDetail
 {
     public var sentenceJP:String = ""
     public var sentenceEN:String = ""
@@ -24,14 +24,14 @@ public class ResultAnswerDetail
     }
 }
 
-public class ResultViewModel{
+public class AssignmentResultViewModel{
     
     public var accuracyRate:Float = 0.0
-    public var resultAnswerDetails:[ResultAnswerDetail] = [ResultAnswerDetail]()
+    public var assignmentResultAnswerDetails:[AssignmentResultAnswerDetail] = [AssignmentResultAnswerDetail]()
     
-    init(accuracyRate:Float,resultAnswerDetails:[ResultAnswerDetail]) {
+    init(accuracyRate:Float,assignmentResultAnswerDetails:[AssignmentResultAnswerDetail]) {
         
-        self.resultAnswerDetails = resultAnswerDetails
+        self.assignmentResultAnswerDetails = assignmentResultAnswerDetails
     }
     
     init() {

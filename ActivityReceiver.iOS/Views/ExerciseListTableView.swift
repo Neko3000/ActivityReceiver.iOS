@@ -10,6 +10,13 @@ import UIKit
 
 class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
 
+    // The reference of the ViewContrller which contains this view
+    private var functionExecuteTarget:FunctionExecuteTarget?
+    
+    // Data - ViewModel
+    public var exerciseListViewModel:ExerciseListViewModel?
+    
+    private var isInitialized:Bool = false
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -18,8 +25,6 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
         // Drawing code
     }
     */
-    
-    private var isInitialized:Bool = false
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -44,15 +49,29 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         var cell:UITableViewCell?
         
         let specificCell = self.dequeueReusableCell(withIdentifier: "ExerciseListItemTableViewCell") as! ExerciseListItemTableViewCell
+        
+        // Z-Postion for each cell, this is for the shadows
         specificCell.layer.zPosition = CGFloat(indexPath.section)
+        
+        let currentExerciseDetail = exerciseListViewModel?.exerciseDetails[indexPath.section]
+        specificCell.id = currentExerciseDetail?.id ?? 0
+        specificCell.nameLabel.text = currentExerciseDetail?.name
+        specificCell.descriptionLable.text = currentExerciseDetail?.description
+        specificCell.currentStateLabel.text = "\(String(describing: currentExerciseDetail?.currentNumber))/\(String(describing: currentExerciseDetail?.totalNumber))"
+        
+        if(!(currentExerciseDetail?.isFinished ?? false)){
+            specificCell.hideCheckedImage()
+        }
         
         cell = specificCell
         
         return cell!
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
@@ -60,10 +79,18 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        
+        // The count of section are decieded by resultAnswerDetials which in the ViewModel
+        if(exerciseListViewModel != nil){
+            return exerciseListViewModel!.exerciseDetails.count + 1
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // There are only 1 row in each section
         return 1
     }
     
@@ -91,6 +118,18 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
         
         // Bottom-margin for each cell
         return 10
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        functionExecuteTarget?.executedFunction(sender: exerciseListViewModel?.exerciseDetails[indexPath.section].id)
+        
+    }
+    
+    public func setFunctionExecuteTarget(target:FunctionExecuteTarget){
+        
+        // Function called in ViewController
+        functionExecuteTarget = target
     }
     
     override func awakeFromNib() {

@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
+class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     // Data - ViewModel
-    var resultViewModel:ResultViewModel?
+    var assignmentResultViewModel:AssignmentResultViewModel?
 
     private var isInitialized = false
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -60,20 +61,20 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultHeaderTableViewCell") as! ResultHeaderTableViewCell
             
             // Settings
-            specificCell.accuracyRateLabel.text = String(resultViewModel!.accuracyRate) + "%"
+            specificCell.accuracyRateLabel.text = String(assignmentResultViewModel!.accuracyRate) + "%"
             
             cell = specificCell
         }
         else{
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultAnswerDetailTableViewCell") as! ResultAnswerDetailTableViewCell
             
-            let currentResultAnswerDetail = resultViewModel?.resultAnswerDetails[indexPath.section - 1]
+            let currentResultAnswerDetail = assignmentResultViewModel?.assignmentResultAnswerDetails[indexPath.section - 1]
             specificCell.numberLabel.text = "No." + String(indexPath.section)
-            specificCell.sentenceJPLabel.text = currentResultAnswerDetail!.sentenceJP
-            specificCell.sentenceENLabel.text = currentResultAnswerDetail!.sentenceEN
-            specificCell.answerLabel.text = currentResultAnswerDetail!.answer
+            specificCell.sentenceJPLabel.text = currentResultAnswerDetail?.sentenceJP
+            specificCell.sentenceENLabel.text = currentResultAnswerDetail?.sentenceEN
+            specificCell.answerLabel.text = currentResultAnswerDetail?.answer
             
-            if(!currentResultAnswerDetail!.isCorrect){
+            if(!(currentResultAnswerDetail?.isCorrect ?? false)){
                 specificCell.setCorrectnessMarkImage(image:UIImage(named: "bg-mark-wrong")!)
                 specificCell.setLeftFrameImage(image:UIImage(named: "left-frame-rapsberry")!)
             }
@@ -104,7 +105,11 @@ class ResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         
         // The count of section are decieded by resultAnswerDetials which in the ViewModel
-        return (resultViewModel?.resultAnswerDetails.count)! + 1
+        if(assignmentResultViewModel != nil){
+            return assignmentResultViewModel!.assignmentResultAnswerDetails.count + 1
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
