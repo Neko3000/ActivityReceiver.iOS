@@ -418,7 +418,7 @@ class MainViewController: UIViewController {
     }
 
     
-    @IBAction func nextQuestionBtn(_ sender: Any) {
+    @IBAction func nextQuestionBtnTap(_ sender: Any) {
         
         //
         self.present(alertDialog!, animated: true, completion: nil)

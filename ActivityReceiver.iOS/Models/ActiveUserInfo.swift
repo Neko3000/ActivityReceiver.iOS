@@ -12,4 +12,10 @@ class ActiveUserInfo{
     
     public static var username:String = ""
     public static var userToken:String = ""
+    
+    public static func clear(){
+        
+        username = ""
+        userToken = ""
+    }
 }

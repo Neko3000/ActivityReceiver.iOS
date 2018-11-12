@@ -239,7 +239,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="right-arrow"/>
                                         <connections>
-                                            <action selector="nextQuestionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Avo-YI-HHm"/>
+                                            <action selector="nextQuestionBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dkq-Mu-yUH"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A wise man will make more opportunities than he finds." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94b-On-noq">
@@ -291,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="15"/>
+            <point key="canvasLocation" x="1579" y="668"/>
         </scene>
         <!--Assignment Result View Controller-->
         <scene sceneID="ONQ-eX-b0W">
@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm3-AQ-808" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="118"/>
+            <point key="canvasLocation" x="2340" y="118"/>
         </scene>
         <!--User Center View Controller-->
         <scene sceneID="1dM-sY-r64">
@@ -348,7 +348,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="190" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gr1-12-3zq" customClass="OutlineView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="45" y="39" width="100" height="100"/>
+                                        <rect key="frame" x="45" y="58" width="100" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZb-mO-jOZ" customClass="ReshapableImageView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="80" height="80"/>
@@ -368,34 +368,47 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr.Jackson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THe-89-RTs">
-                                        <rect key="frame" x="59.5" y="159" width="71" height="17"/>
+                                        <rect key="frame" x="59.5" y="178" width="71" height="17"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正解率：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZU-8g-eMU">
-                                        <rect key="frame" x="42" y="209" width="56" height="17"/>
+                                        <rect key="frame" x="42" y="228" width="56" height="17"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="87.3%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7S-Hi-bsD">
-                                        <rect key="frame" x="98" y="204" width="57" height="23"/>
+                                        <rect key="frame" x="98" y="223" width="57" height="23"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kj6-ih-6wZ">
+                                        <rect key="frame" x="20" y="20" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="0gv-uO-E5m"/>
+                                            <constraint firstAttribute="width" constant="16" id="Rtu-Cx-qdT"/>
+                                        </constraints>
+                                        <state key="normal" image="cross-logout"/>
+                                        <connections>
+                                            <action selector="logoutBtnTap:" destination="vdr-3o-3Mb" eventType="touchUpInside" id="XC8-KM-fes"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="HeavyTurquoise"/>
                                 <constraints>
+                                    <constraint firstItem="kj6-ih-6wZ" firstAttribute="leading" secondItem="ze3-qX-YYf" secondAttribute="leading" constant="20" id="1sb-Y6-Vuu"/>
                                     <constraint firstItem="zZU-8g-eMU" firstAttribute="bottom" secondItem="s7S-Hi-bsD" secondAttribute="bottom" constant="-1" id="4j9-E5-II0"/>
                                     <constraint firstItem="THe-89-RTs" firstAttribute="top" secondItem="gr1-12-3zq" secondAttribute="bottom" constant="20" id="Bx0-Vk-vOA"/>
                                     <constraint firstItem="THe-89-RTs" firstAttribute="centerX" secondItem="ze3-qX-YYf" secondAttribute="centerX" id="D1d-rp-YgW"/>
+                                    <constraint firstItem="kj6-ih-6wZ" firstAttribute="top" secondItem="ze3-qX-YYf" secondAttribute="top" constant="20" id="ITE-ZP-cFT"/>
                                     <constraint firstAttribute="width" constant="190" id="L4S-lK-6mF"/>
                                     <constraint firstItem="zZU-8g-eMU" firstAttribute="top" secondItem="THe-89-RTs" secondAttribute="bottom" constant="33" id="UWg-5S-aYQ"/>
                                     <constraint firstItem="s7S-Hi-bsD" firstAttribute="leading" secondItem="zZU-8g-eMU" secondAttribute="trailing" id="dQ5-ET-pJv"/>
                                     <constraint firstItem="gr1-12-3zq" firstAttribute="centerX" secondItem="ze3-qX-YYf" secondAttribute="centerX" id="qEz-YJ-2xE"/>
-                                    <constraint firstItem="gr1-12-3zq" firstAttribute="top" secondItem="ze3-qX-YYf" secondAttribute="top" constant="39" id="vFj-Iq-30c"/>
+                                    <constraint firstItem="gr1-12-3zq" firstAttribute="top" secondItem="ze3-qX-YYf" secondAttribute="top" constant="58" id="vFj-Iq-30c"/>
                                     <constraint firstItem="zZU-8g-eMU" firstAttribute="leading" secondItem="ze3-qX-YYf" secondAttribute="leading" constant="42" id="x4y-x8-e8c"/>
                                 </constraints>
                             </view>
@@ -437,6 +450,7 @@
                         <outlet property="userAvatarReshapableImageView" destination="TZb-mO-jOZ" id="0nH-gi-CCf"/>
                         <outlet property="usernameLabel" destination="THe-89-RTs" id="aMz-d3-O51"/>
                         <segue destination="FPc-5g-bcf" kind="show" identifier="ToSelectExercise" id="VGU-Ln-p4a"/>
+                        <segue destination="eqv-xQ-0eL" kind="show" identifier="LogoutFromUserCenter" id="F5d-Hf-XmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Od4-Z7-TOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,7 +476,6 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="left-arrow"/>
                                         <connections>
-                                            <action selector="nextQuestionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="twh-1X-Sc4"/>
                                             <segue destination="vdr-3o-3Mb" kind="show" id="sCX-pk-W20"/>
                                         </connections>
                                     </button>
@@ -503,6 +516,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cross-logout" width="16" height="16"/>
         <image name="left-arrow" width="28" height="16"/>
         <image name="right-arrow" width="28" height="16"/>
         <namedColor name="HeavyTurquoise">
@@ -519,7 +533,9 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="86X-BY-5Yd"/>
-        <segue reference="Nmw-x0-KAx"/>
+        <segue reference="VGU-Ln-p4a"/>
+        <segue reference="sCX-pk-W20"/>
+        <segue reference="1xT-Nf-KXo"/>
+        <segue reference="F5d-Hf-XmF"/>
     </inferredMetricsTieBreakers>
 </document>

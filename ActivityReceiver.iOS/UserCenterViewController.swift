@@ -33,6 +33,19 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
     }
     
     // Segue, called in FunctionListView when tapped its items
+
+    @IBAction func logoutBtnTap(_ sender: Any) {
+        
+        // Bundle
+        let userDefaults = UserDefaults.standard
+        
+        userDefaults.removeObject(forKey: "CurrentUserInfo")
+        
+        ActiveUserInfo.clear()
+        
+        performSegue(withIdentifier: "LogoutFromUserCenter", sender: nil)
+    }
+    
     func segueToAnotherScreen(withIdentifier identifier: String, sender: Any?) {
         
         performSegue(withIdentifier: identifier, sender: sender)
@@ -42,6 +55,8 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "ToSelectExercise"){
             
+        }
+        else if(segue.identifier == "LogoutFromUserCenter"){
             
         }
     }
