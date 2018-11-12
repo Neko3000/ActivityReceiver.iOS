@@ -65,8 +65,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         //generate json contains username and password
         let parameters:Parameters = [
-            "Username":username ?? "",
-            "Password":password ?? ""
+            "username":username ?? "",
+            "password":password ?? ""
         ]
 
         Alamofire.request("http://118.25.44.137/UserToken/GetToken", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
@@ -88,8 +88,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     
                     // Segue to UserCenter
                     self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+                    
                 }
-                
         })
     }
     
@@ -98,27 +98,21 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         // Try to load UserInfo stored in bundle
         if let loadedUserInfo = loadUserInfo(){
             
-            Alamofire.request("http://118.25.44.137/UserToken/Authorize").responseJSON(completionHandler: {
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + loadedUserInfo.token,
+            ]
+            
+            Alamofire.request("http://118.25.44.137/UserToken/Authorize", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
                 response in
-                
-                switch(response.result){
+                                
+                if(response.response?.statusCode == 200){
                     
-                    // Json data is not needed here
-                    case .success(_):
-                        
-                        ActiveUserInfo.username = loadedUserInfo.username
-                        ActiveUserInfo.userToken = loadedUserInfo.token
-                        
-                        // Auto-Login
-                        self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
-                        
-                        break
+                    ActiveUserInfo.username = loadedUserInfo.username
+                    ActiveUserInfo.userToken = loadedUserInfo.token
                     
-                    case .failure(let error):
-                        print(error)
-                        
-                        break
-                    }
+                    // Auto-Login
+                    self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+                }
             })
         }
     }
@@ -133,7 +127,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         userDefaults.set(codedMyUserInfo,forKey:"CurrentUserInfo")
         
         userDefaults.synchronize()
-        
     }
     
     func loadUserInfo() -> UserInfo?{
@@ -157,7 +150,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if(segue.identifier == "LoginToUserCenter"){
             let dest = segue.destination as! UserCenterViewController
             
-            dest.usernameLabel.text = ActiveUserInfo.username
+            dest.username = ActiveUserInfo.username
         }
     }
     

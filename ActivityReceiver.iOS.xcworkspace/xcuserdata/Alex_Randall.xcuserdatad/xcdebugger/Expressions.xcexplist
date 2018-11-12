@@ -21,5 +21,49 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "LoginViewController.initUserState():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ActiveUserInfo.userToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AssignmentResultAnswerDetail.init(dict:):AssignmentResultViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginViewController.initUserState():LoginViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.arrangeWordItems():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "wordItems">
+            </PersistentString>
+            <PersistentString
+               value = "wordItems[index].textLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AssignmentResultViewController.loadAssignmentResult():AssignmentResultViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.assignmentResultTableView.assignmentResultViewModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AssignmentResultTableView.tableView(_:cellForRowAt:):AssignmentResultTableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "assignmentResultViewModel!.accuracyRate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginViewController.loginSubmit(_:):LoginViewController.swift">
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

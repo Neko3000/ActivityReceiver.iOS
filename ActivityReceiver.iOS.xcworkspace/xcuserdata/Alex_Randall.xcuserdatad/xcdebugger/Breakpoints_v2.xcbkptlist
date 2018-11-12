@@ -9,14 +9,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ActivityReceiver.iOS/LoginViewController.swift"
-            timestampString = "562489436.624475"
+            filePath = "ActivityReceiver.iOS/Controllers/LoginViewController.swift"
+            timestampString = "563624568.941684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "initUserState()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ActivityReceiver_iOS.LoginViewController.initUserState() -&gt; ()"
+                  moduleName = "ActivityReceiver.iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alex_Randall/Projects/ActivityReceiver.iOS/ActivityReceiver.iOS/Controllers/LoginViewController.swift"
+                  timestampString = "563624538.1174639"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "440">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in ActivityReceiver_iOS.LoginViewController.initUserState() -&gt; ()"
+                  moduleName = "ActivityReceiver.iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Alex_Randall/Projects/ActivityReceiver.iOS/ActivityReceiver.iOS/Controllers/LoginViewController.swift"
+                  timestampString = "563624538.11962"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ActivityReceiver.iOS/View/ResultTableView.swift"
-            timestampString = "562820844.515052"
+            filePath = "ActivityReceiver.iOS/Controllers/MainViewController.swift"
+            timestampString = "563624568.942857"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "layoutSubviews()"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "submitQuestionAnswer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

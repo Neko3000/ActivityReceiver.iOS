@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqv-xQ-0eL">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,6 +55,9 @@
                                         <state key="normal" title="ログイン">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginSubmit:" destination="eqv-xQ-0eL" eventType="touchUpInside" id="CBa-Wf-tFs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -281,8 +284,9 @@
                     <connections>
                         <outlet property="answerLabel" destination="94b-On-noq" id="QWR-VE-PK9"/>
                         <outlet property="mainView" destination="dks-m8-EDV" id="0CF-x3-b0t"/>
+                        <outlet property="numberLabel" destination="JkI-X1-JnM" id="qH3-fI-Ybb"/>
                         <outlet property="questionLabel" destination="mnP-b4-jhl" id="Ibg-xf-A2Q"/>
-                        <segue destination="koz-gR-WgY" kind="show" identifier="GenerateResult" id="Nmw-x0-KAx"/>
+                        <segue destination="koz-gR-WgY" kind="show" identifier="GenerateAssignmentResult" id="Nmw-x0-KAx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -490,6 +494,7 @@
                     <connections>
                         <outlet property="exerciseListTableView" destination="X8g-oh-cJE" id="MC4-pc-DEV"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="BeginToDoAssignment" id="2KE-hC-BCA"/>
+                        <segue destination="koz-gR-WgY" kind="show" identifier="ShowAssignmentResult" id="1xT-Nf-KXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hm-TG-rgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -514,7 +519,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cal-sF-Lw6"/>
-        <segue reference="w44-Kd-U80"/>
+        <segue reference="86X-BY-5Yd"/>
+        <segue reference="Nmw-x0-KAx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,10 +14,10 @@ class MainViewController: UIViewController {
 
     // Exercise's ID
     var exerciseID:Int = 0
-    
+    // CurrentQuestion's information
+    var currentQuestionDetail:QuestionDetail?
     
     // The list of all words in current question
-    var currentQuestionDetail:QuestionDetail?
     var words:[String]?
     
     // The list of all wordItems
@@ -38,11 +38,15 @@ class MainViewController: UIViewController {
     var lastRecordMillisecondTime:Int = 0
     var currentMillisecondTime:Int = 0
     
+    // Date
+    var currentQuestionStartDate:Date?
+    
     // AlertController
     var alertDialog:UIAlertController?
     
     // Outlets
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
@@ -54,6 +58,7 @@ class MainViewController: UIViewController {
         showQuestionInfo()
         generateWordItems()
         arrangeWordItems()
+        currentQuestionStartDate = Date()
  
         // AlertDialog
         alertDialog = UIAlertController(title: "確認", message: "今の解答でよろしいですか?", preferredStyle: .alert)
@@ -71,12 +76,16 @@ class MainViewController: UIViewController {
     
     private func loadQuestion(){
 
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            ]
+        
         let parameters:Parameters = [
             "exerciseID":exerciseID,
             ]
         
         // Request data from remote server
-        Alamofire.request("http://118.25.44.137/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+        Alamofire.request("http://118.25.44.137/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
                 
@@ -84,18 +93,23 @@ class MainViewController: UIViewController {
                     
                 case .success(let json):
                     
-                    //if return 404, then go to result page
-                    
-                    let question = json as! NSDictionary
-                    
-                    self.currentQuestionDetail = QuestionDetail(id: question["id"] as? Int ?? 0, sentenceJP: question["sentenceJP"] as? String ?? "", division: question["division"] as? String ?? "")
-                    
-                    self.showQuestionInfo()
-                    self.generateWordItems()
-                    self.arrangeWordItems()
-                    
-                    
-                    //
+                    // If return No-Content(204), take the user to the AssignmentResult page
+                    if(response.response?.statusCode == 204){
+                        
+                        self.performSegue(withIdentifier: "GenerateAssignmentResult", sender: self.exerciseID)
+                    }
+                    else{
+                        
+                        let questionDict = json as! NSDictionary
+                        
+                        self.currentQuestionDetail = QuestionDetail(dict: questionDict)
+                        
+                        self.showQuestionInfo()
+                        self.generateWordItems()
+                        self.arrangeWordItems()
+                        self.currentQuestionStartDate = Date()
+                        
+                    }
                     
                     break
                     
@@ -115,8 +129,9 @@ class MainViewController: UIViewController {
     private func showQuestionInfo(){
         
         // Set layout
-        self.questionLabel.text = currentQuestionDetail?.sentenceJP
-        self.answerLabel.text = "-"
+        numberLabel.text = "\(currentQuestionDetail?.currentNumber ?? 0)"
+        questionLabel.text = currentQuestionDetail?.sentenceJP
+        answerLabel.text = "-"
     }
     
     private func generateWordItems(){
@@ -135,6 +150,7 @@ class MainViewController: UIViewController {
             
             singleWordItem.textLabel.text = words?[index]
             singleWordItem.frame = CGRect(x: 0, y: 0, width: singleWordItem.textLabel.intrinsicContentSize.width + 40.0, height: singleWordItem.textLabel.intrinsicContentSize.height + 10.0 + topDistance)
+
             wordItems.append(singleWordItem)
             
             singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandler(recongnizer:))))
@@ -181,15 +197,15 @@ class MainViewController: UIViewController {
             
         }
         
-        //arrage
+        // Arrage
         
         for lineNumber in 0...lines.count - 1{
-            
             var currentXPosition:CGFloat = 0.0
             
             for wordItemNumber in 0...lines[lineNumber].count - 1{
                 
                 lines[lineNumber][wordItemNumber].frame = CGRect(x: currentXPosition + horizontalPadding, y: containerHeight - CGFloat(lines.count - lineNumber) * (wordItemHeight + verticalPadding), width: lines[lineNumber][wordItemNumber].frame.width, height: lines[lineNumber][wordItemNumber].frame.height)
+
                 
                 mainView.addSubview(lines[lineNumber][wordItemNumber])
                 
@@ -257,15 +273,18 @@ class MainViewController: UIViewController {
     }
     
     private func createMovementDTO(position:CGPoint,movementState:MovementState){
-        
-        if(lastRecordMillisecondTime < currentMillisecondTime){
-            let movementDTONew = MovementDTO(index: movementCurrentIndex, state: movementState.rawValue, time: currentMillisecondTime, xPosition: Int(position.x), yPostion: Int(position.y))
-            movementCurrentIndex = movementCurrentIndex + 1
-            
-            movementDTOs.append(movementDTONew)
-            
-            lastRecordMillisecondTime = currentMillisecondTime
+
+        // The samplingFrequency only affects Move state
+        if(movementState == .tapSingleMove && lastRecordMillisecondTime >= currentMillisecondTime){
+            return
         }
+        
+        let movementDTONew = MovementDTO(index: movementCurrentIndex, state: movementState.rawValue, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
+        movementCurrentIndex = movementCurrentIndex + 1
+        
+        movementDTOs.append(movementDTONew)
+        
+        lastRecordMillisecondTime = currentMillisecondTime
     }
         
     // WordItem's dragging behavior
@@ -296,7 +315,7 @@ class MainViewController: UIViewController {
             
             // Create a new MovementDTO and push it into the array
             
-            createMovementDTO(position: recongnizer.location(in: recongnizer.view), movementState: MovementState.tapSingleBegin)
+            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin)
             
             break;
             
@@ -315,7 +334,7 @@ class MainViewController: UIViewController {
             //
             generateOrderNumber()
             
-            createMovementDTO(position: recongnizer.location(in: recongnizer.view), movementState: MovementState.tapSingleMove)
+            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove)
             
             break;
             
@@ -328,7 +347,7 @@ class MainViewController: UIViewController {
             generateOrderNumber()
             hideOrderNumberForWordItems()
             
-            createMovementDTO(position: recongnizer.location(in: recongnizer.view), movementState: MovementState.tapSingleEnd)
+            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd)
             
             break;
         
@@ -336,7 +355,44 @@ class MainViewController: UIViewController {
             break;
         }
         
-        print(movementDTOs.count)
+    }
+    
+    private func submitQuestionAnswer(){
+        
+        let stringArray = QuestionHandler.getStringArrayFromWordItems(wordItems: wordItems)
+        let content = QuestionHandler.convertStringArrayToDivision(stringArray: stringArray)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            ]
+        
+        let parameters:Parameters = [
+            "assignmentRecordID":currentQuestionDetail?.assignmentRecordID ?? 0,
+            "questionID":currentQuestionDetail?.questionID ?? 0,
+            "answer":content,
+            "startDate":DateConverter.convertToStandardDateString(date: currentQuestionStartDate!),
+            "endDate":DateConverter.convertToStandardDateString(date: Date()),
+            
+            "movementDTOs":QuestionHandler.convertMovementDTOsToDictionaries(movementDTOs: movementDTOs)
+            ]
+        
+        Alamofire.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).response(completionHandler:
+            {
+                response in
+                
+                if(response.response?.statusCode == 200){
+                    
+                    self.loadQuestion()
+                }
+                else if(response.response?.statusCode == 204){
+                    
+                    self.performSegue(withIdentifier: "GenerateAssignmentResult", sender: self.exerciseID)
+                }
+                else{
+                    print(response.error.debugDescription)
+                }
+        })
+        
     }
     
     private func alertActionHandler(alertAction:UIAlertAction){
@@ -344,7 +400,8 @@ class MainViewController: UIViewController {
         switch alertAction.style {
         case .default:
             
-            loadQuestion()
+            submitQuestionAnswer()
+
             break
             
         case .cancel:
@@ -365,6 +422,15 @@ class MainViewController: UIViewController {
         
         //
         self.present(alertDialog!, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "GenerateAssignmentResult"){
+            
+            let dest = segue.destination as! AssignmentResultViewController
+            // Sender is ExerciseID
+            dest.exerciseID = sender as! Int
+        }
     }
     
     func loadViewFromNib() -> UIView {

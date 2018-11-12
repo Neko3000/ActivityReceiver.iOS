@@ -24,20 +24,24 @@ class AssignmentResultViewController: UIViewController {
     
     func loadAssignmentResult(){
         
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            ]
+        
         let parameters:Parameters = [
             "exerciseID":exerciseID,
             ]
         
-        Alamofire.request("http://118.25.44.137/Question/GetAssignmentResult", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
-            {
+        Alamofire.request("http://118.25.44.137/Question/GetAssignmentResult", method: .post, parameters: parameters, encoding: JSONEncoding.default,headers:headers).responseJSON(completionHandler:{
                 response in
-                
+                        
                 switch(response.result){
                     
                 case .success(let json):
                     
-                    let assignmentResult = json as! NSDictionary
-                    self.assignmentResultTableView.assignmentResultViewModel = AssignmentResultViewModel(accuracyRate: assignmentResult["accuracyRate"] as? Float ?? 0, assignmentResultAnswerDetails: assignmentResult["assignmentResultAnswerDetails"] as! [AssignmentResultAnswerDetail])
+                    let assignmentResultDict = json as! NSDictionary
+                    
+                    self.assignmentResultTableView.assignmentResultViewModel = AssignmentResultViewModel(accuracyRate: (assignmentResultDict["accuracyRate"] as! NSNumber).floatValue, assignmentResultAnswerDetails: QuestionHandler.getAssignmentResultAnswerDetailsFromNSDictionary(array:assignmentResultDict["answerDetails"] as! NSArray))
                     
                     self.assignmentResultTableView.reloadData()
                     break

@@ -28,6 +28,17 @@ class ExerciseDetail{
         
     }
     
+    init(dict:NSDictionary){
+        
+        self.id = dict["id"] as! Int
+        self.name = dict["name"] as! String
+        self.description = dict["description"] as! String
+        self.currentNumber = dict["currentNumber"] as! Int
+        self.totalNumber = dict["totalNumber"] as! Int
+        self.isFinished = dict["isFinished"] as! Bool
+        
+    }
+    
 }
 
 class ExerciseListViewModel{

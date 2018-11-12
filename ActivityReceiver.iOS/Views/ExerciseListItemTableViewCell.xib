@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,19 +24,19 @@
                         <rect key="frame" x="38" y="0.0" width="314" height="122.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初級" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y85-G8-8wW">
-                                <rect key="frame" x="25" y="24" width="37" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="25" y="23" width="33" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="LightGrey3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmk-u6-h6k">
-                                <rect key="frame" x="70" y="30" width="25" height="15"/>
+                                <rect key="frame" x="66" y="26" width="25" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="LightGrey4"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初めて本アプリを使う初心者ための問題集" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JS-ag-9uu">
-                                <rect key="frame" x="25" y="53" width="233" height="15"/>
+                                <rect key="frame" x="25" y="47.5" width="233" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="LightGrey4"/>
                                 <nil key="highlightedColor"/>
@@ -53,11 +53,12 @@
                         <constraints>
                             <constraint firstItem="rmk-u6-h6k" firstAttribute="leading" secondItem="Y85-G8-8wW" secondAttribute="trailing" constant="8" id="6D0-sw-88F"/>
                             <constraint firstAttribute="trailing" secondItem="GF7-qg-Shq" secondAttribute="trailing" constant="10" id="Jt3-Vq-RV4"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4JS-ag-9uu" secondAttribute="trailing" constant="25" id="cYE-x3-udY"/>
                             <constraint firstItem="4JS-ag-9uu" firstAttribute="leading" secondItem="Y85-G8-8wW" secondAttribute="leading" id="f1R-Nq-zUE"/>
                             <constraint firstItem="Y85-G8-8wW" firstAttribute="leading" secondItem="FSW-YO-nxg" secondAttribute="leading" constant="25" id="m5m-rr-Cpk"/>
-                            <constraint firstItem="4JS-ag-9uu" firstAttribute="top" secondItem="Y85-G8-8wW" secondAttribute="bottom" constant="7" id="nxg-L5-XbR"/>
-                            <constraint firstItem="Y85-G8-8wW" firstAttribute="top" secondItem="FSW-YO-nxg" secondAttribute="top" constant="24" id="oU6-wD-bo2"/>
-                            <constraint firstItem="rmk-u6-h6k" firstAttribute="top" secondItem="Y85-G8-8wW" secondAttribute="top" constant="6" id="r0s-vC-VJY"/>
+                            <constraint firstItem="4JS-ag-9uu" firstAttribute="top" secondItem="Y85-G8-8wW" secondAttribute="bottom" constant="5" id="nxg-L5-XbR"/>
+                            <constraint firstItem="Y85-G8-8wW" firstAttribute="top" secondItem="FSW-YO-nxg" secondAttribute="top" constant="23" id="oU6-wD-bo2"/>
+                            <constraint firstItem="rmk-u6-h6k" firstAttribute="top" secondItem="Y85-G8-8wW" secondAttribute="top" constant="3" id="r0s-vC-VJY"/>
                             <constraint firstAttribute="bottom" secondItem="GF7-qg-Shq" secondAttribute="bottom" constant="10" id="zHe-61-cH2"/>
                         </constraints>
                     </view>

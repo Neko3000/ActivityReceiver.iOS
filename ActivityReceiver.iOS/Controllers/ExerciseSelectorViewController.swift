@@ -12,7 +12,10 @@ import Alamofire
 class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
 
     //
-    var firstQuestionDetail:QuestionDetail?
+    var nextQuestionDetail:QuestionDetail?
+    
+    //
+    var selectedExerciseDetail:ExerciseDetail?
     
     // AlertController
     var alertDialog:UIAlertController?
@@ -37,16 +40,27 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
     
     private func loadExercises(){
         
-        Alamofire.request("http://118.25.44.137/Question/GetExerciseList").responseJSON(completionHandler: {
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            ]
+        
+        Alamofire.request("http://118.25.44.137/Question/GetExerciseList", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
             response in
             
             switch(response.result){
                 
-            // Json data is not needed here
             case .success(let json):
                 
-                let exerciseDetails = json as! NSArray
-                self.exerciseListTableView.exerciseListViewModel = ExerciseListViewModel(exerciseDetails: exerciseDetails as! [ExerciseDetail])
+                let dict = json as! NSDictionary
+                let exerciseDetailsDict = dict["exerciseDetails"] as! [NSDictionary]
+                
+                var exerciseDetails = [ExerciseDetail]()
+                for i in 0...exerciseDetailsDict.count - 1{
+                    
+                    exerciseDetails.append(ExerciseDetail(dict:exerciseDetailsDict[i]))
+                }
+                
+                self.exerciseListTableView.exerciseListViewModel = ExerciseListViewModel(exerciseDetails: exerciseDetails)
                 self.exerciseListTableView.reloadData()
                 
                 break
@@ -65,6 +79,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
             
         case .default:
             
+            // Call segue when tap on yes
             self.performSegue(withIdentifier: "BeginToDoAssignment", sender: nil)
 
             break
@@ -82,42 +97,66 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
         }
     }
     
+    // Sender is the chosen ExerciseDetail
     func executedFunction(sender: Any?) {
         
-        // Sender is the ID of the exercise
-        //generate json contains username and password
-        let parameters:Parameters = [
-            "exerciseID":sender as! Int,
-            ]
+        // Convert
+        let exerciseDetail = sender as! ExerciseDetail
+        selectedExerciseDetail = exerciseDetail
         
-        Alamofire.request("http://118.25.44.137/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
-            {
-                response in
-                
-                switch(response.result){
+        if(exerciseDetail.isFinished){
+            
+            performSegue(withIdentifier: "ShowAssignmentResult", sender: nil)
+        }
+        else{
+            
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + ActiveUserInfo.userToken,
+                ]
+            
+            // Generate json contains ExerciseID
+            let parameters:Parameters = [
+                "exerciseID":exerciseDetail.id,
+                ]
+            
+            Alamofire.request("http://118.25.44.137/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+                {
+                    response in
                     
-                case .success(let json):
+                    switch(response.result){
+                    case .success(let json):
+                        
+                        let dict = json as! NSDictionary
+                        self.nextQuestionDetail = QuestionDetail(dict: dict)
+                        
+                        self.present(self.alertDialog!, animated: true, completion: nil)
+                        break
+                        
+                    case .failure(let error):
+                        print(error)
+                        
+                        break
+                    }
                     
-                    let dict = json as! NSDictionary
-                    self.firstQuestionDetail = QuestionDetail(id: dict["id"] as! Int, sentenceJP: dict["sentenceJP"] as! String, division: dict["division"] as! String)
-                    
-                    self.present(self.alertDialog!, animated: true, completion: nil)
-                    break
-                    
-                case .failure(let error):
-                    print(error)
-                    
-                    break
-                }
-                
-        })
+            })
+        }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        // Fill data in question for MainViewController
         if(segue.identifier == "BeginToDoAssignment"){
             let dest = segue.destination as! MainViewController
-            dest.currentQuestionDetail = firstQuestionDetail
+            
+            dest.exerciseID = selectedExerciseDetail?.id ?? 0
+            dest.currentQuestionDetail = nextQuestionDetail
+        }
+        else if(segue.identifier == "ShowAssignmentResult"){
+            let dest = segue.destination as! AssignmentResultViewController
+            
+            // Sender is the chosen ExerciseDetail
+            dest.exerciseID = selectedExerciseDetail?.id ?? 0
         }
     }
     

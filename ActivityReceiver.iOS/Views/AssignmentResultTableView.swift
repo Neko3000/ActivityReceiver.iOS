@@ -57,15 +57,17 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
         
         // The first section is the ResultHeader cell
         if(indexPath.section == 0){
+            
             // Get reuseable cell
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultHeaderTableViewCell") as! ResultHeaderTableViewCell
             
             // Settings
-            specificCell.accuracyRateLabel.text = String(assignmentResultViewModel!.accuracyRate) + "%"
+            specificCell.accuracyRateLabel.text = "\(assignmentResultViewModel!.accuracyRate * 100)%"
             
             cell = specificCell
         }
         else{
+            
             let specificCell = self.dequeueReusableCell(withIdentifier: "ResultAnswerDetailTableViewCell") as! ResultAnswerDetailTableViewCell
             
             let currentResultAnswerDetail = assignmentResultViewModel?.assignmentResultAnswerDetails[indexPath.section - 1]
@@ -74,15 +76,39 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
             specificCell.sentenceENLabel.text = currentResultAnswerDetail?.sentenceEN
             specificCell.answerLabel.text = currentResultAnswerDetail?.answer
             
+            
+            // If the answer is wrong, change images
+            // NOTE: cause cells are reusable, if there is only one if without else
+            // A right answer cell will use a old wrong answer cell's image and will never be set to right cell
             if(!(currentResultAnswerDetail?.isCorrect ?? false)){
+                
                 specificCell.setCorrectnessMarkImage(image:UIImage(named: "bg-mark-wrong")!)
                 specificCell.setLeftFrameImage(image:UIImage(named: "left-frame-rapsberry")!)
+            }
+            else{
+                
+                specificCell.setCorrectnessMarkImage(image:UIImage(named: "bg-mark-right")!)
+                specificCell.setLeftFrameImage(image:UIImage(named: "left-frame-aquamarine")!)
             }
             
             cell = specificCell
         }
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if(indexPath.section != 0){
+            
+            let specificCell = cell as! ResultAnswerDetailTableViewCell
+            let currentResultAnswerDetail = assignmentResultViewModel?.assignmentResultAnswerDetails[indexPath.section - 1]
+            
+            if(!(currentResultAnswerDetail?.isCorrect ?? false)){
+                specificCell.setCorrectnessMarkImage(image:UIImage(named: "bg-mark-wrong")!)
+                specificCell.setLeftFrameImage(image:UIImage(named: "left-frame-rapsberry")!)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -129,6 +155,7 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         // Top-margin for each cell
+    
         return 15
     }
     

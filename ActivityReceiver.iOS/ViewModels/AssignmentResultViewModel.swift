@@ -15,12 +15,22 @@ public class AssignmentResultAnswerDetail
     public var answer:String = ""
     public var isCorrect:Bool = false
     
-    
     init(sentenceJP:String,sentenceEN:String,answer:String,isCorrect:Bool) {
         self.sentenceJP = sentenceJP
         self.sentenceEN = sentenceEN
         self.answer = answer
         self.isCorrect = isCorrect
+    }
+    
+    init() {
+        
+    }
+    
+    init(dict:NSDictionary) {
+        self.sentenceJP = dict["sentenceJP"] as! String
+        self.sentenceEN = dict["sentenceEN"] as! String
+        self.answer = dict["answerSentence"] as! String
+        self.isCorrect = dict["isCorrect"] as! Bool
     }
 }
 
@@ -31,6 +41,7 @@ public class AssignmentResultViewModel{
     
     init(accuracyRate:Float,assignmentResultAnswerDetails:[AssignmentResultAnswerDetail]) {
         
+        self.accuracyRate = accuracyRate
         self.assignmentResultAnswerDetails = assignmentResultAnswerDetails
     }
     

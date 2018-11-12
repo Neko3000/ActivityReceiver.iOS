@@ -33,7 +33,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
             
             // Styles
             self.separatorStyle = .none
-            self.allowsSelection = false
+            //self.allowsSelection = false
             
             // Register custom .xib as reusable cells
             self.register(UINib(nibName: "ExerciseListItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseListItemTableViewCell")
@@ -61,7 +61,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
         specificCell.id = currentExerciseDetail?.id ?? 0
         specificCell.nameLabel.text = currentExerciseDetail?.name
         specificCell.descriptionLable.text = currentExerciseDetail?.description
-        specificCell.currentStateLabel.text = "\(String(describing: currentExerciseDetail?.currentNumber))/\(String(describing: currentExerciseDetail?.totalNumber))"
+        specificCell.currentStateLabel.text = "\(currentExerciseDetail?.currentNumber ?? 0)/\(currentExerciseDetail?.totalNumber ?? 0)"
         
         if(!(currentExerciseDetail?.isFinished ?? false)){
             specificCell.hideCheckedImage()
@@ -82,7 +82,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
         
         // The count of section are decieded by resultAnswerDetials which in the ViewModel
         if(exerciseListViewModel != nil){
-            return exerciseListViewModel!.exerciseDetails.count + 1
+            return exerciseListViewModel!.exerciseDetails.count
         }
         
         return 0
@@ -111,6 +111,11 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         // Top-margin for each cell
+        
+        if(section == 0){
+            return 20
+        }
+        
         return 10
     }
     
@@ -122,7 +127,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        functionExecuteTarget?.executedFunction(sender: exerciseListViewModel?.exerciseDetails[indexPath.section].id)
+        functionExecuteTarget?.executedFunction(sender: exerciseListViewModel?.exerciseDetails[indexPath.section])
         
     }
     

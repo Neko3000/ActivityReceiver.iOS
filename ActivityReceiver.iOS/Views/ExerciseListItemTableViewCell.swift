@@ -28,6 +28,8 @@ class ExerciseListItemTableViewCell: UITableViewCell {
         if(!isInitialized){
             
             // Styles
+            selectionStyle = .none
+            
             blockBGView.layer.cornerRadius = 8
             blockBGView.layer.applySketchShadow(color: UIColor(named: "Shadow-LightTurquoise")!, alpha: 1.0, x: 2.0, y: 10.0, blur: 30.0, spread: 0)
             

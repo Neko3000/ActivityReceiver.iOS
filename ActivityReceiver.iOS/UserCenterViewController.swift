@@ -10,6 +10,9 @@ import UIKit
 
 class UserCenterViewController: UIViewController,SegueBehaviorObject {
     
+    //
+    public var username:String = ""
+    
     // Outlets
     @IBOutlet weak var userAvatarReshapableImageView: ReshapableImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -21,6 +24,8 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
         // Do any additional setup after loading the view.
         
         // Set user's information
+        usernameLabel.text = username
+        
         userAvatarReshapableImageView.setUIImage(image: UIImage(named: "user-avatar")!)
         userAvatarReshapableImageView.setCornerRadius(radius: userAvatarReshapableImageView.frame.width/2.0)
         
