@@ -39,10 +39,11 @@ class AssignmentResultViewController: UIViewController {
                     
                 case .success(let json):
                     
-                    let assignmentResultDict = json as! NSDictionary
+                    let dict = json as! NSDictionary
                     
-                    self.assignmentResultTableView.assignmentResultViewModel = AssignmentResultViewModel(accuracyRate: (assignmentResultDict["accuracyRate"] as! NSNumber).floatValue, assignmentResultAnswerDetails: QuestionHandler.getAssignmentResultAnswerDetailsFromNSDictionary(array:assignmentResultDict["answerDetails"] as! NSArray))
-                    
+                    self.assignmentResultTableView.assignmentResultViewModel = AssignmentResultViewModel(accuracyRate: (dict["accuracyRate"] as! NSNumber).floatValue, assignmentResultAnswerDetails:
+                        DictionaryHandler.convertFromDictionaryArray(dictionaryArray: dict["answerDetails"] as! NSArray))
+
                     self.assignmentResultTableView.reloadData()
                     break
                     

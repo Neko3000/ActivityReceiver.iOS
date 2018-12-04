@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     // Exercise's ID
     var exerciseID:Int = 0
     // CurrentQuestion's information
-    var currentQuestionDetail:QuestionDetail?
+    var assignmentQuestionVM:AssignmentQuestionViewModel?
     
     // The list of all words in current question
     var words:[String]?
@@ -99,9 +99,9 @@ class MainViewController: UIViewController {
                     }
                     else{
                         
-                        let questionDict = json as! NSDictionary
+                        let dict = json as! [String:Any]
                         
-                        self.currentQuestionDetail = QuestionDetail(dict: questionDict)
+                        self.assignmentQuestionVM = AssignmentQuestionViewModel(dict: dict)
                         
                         self.showQuestionInfo()
                         self.generateWordItems()
@@ -128,8 +128,8 @@ class MainViewController: UIViewController {
     private func showQuestionInfo(){
         
         // Set layout
-        numberLabel.text = "\(currentQuestionDetail?.currentNumber ?? 0)"
-        questionLabel.text = currentQuestionDetail?.sentenceJP
+        numberLabel.text = "\(assignmentQuestionVM?.currentNumber ?? 0)"
+        questionLabel.text = assignmentQuestionVM?.sentenceJP
         answerLabel.text = "-"
     }
     
@@ -139,7 +139,7 @@ class MainViewController: UIViewController {
         clearCurrentQuestion()
         
         // Generate words from division
-        words = currentQuestionDetail?.division.components(separatedBy: "|")
+        words = assignmentQuestionVM?.division.components(separatedBy: "|")
         
         for index in 0...words!.count - 1{
             
@@ -366,24 +366,11 @@ class MainViewController: UIViewController {
             "Authorization": "Bearer " + ActiveUserInfo.userToken,
             ]
         
-        let parameters:Parameters = [
-            "assignmentRecordID":currentQuestionDetail?.assignmentRecordID ?? 0,
-            "questionID":currentQuestionDetail?.questionID ?? 0,
-            
-            "sentenceEN":currentQuestionDetail?.sentenceEN ?? "",
-            "sentenceJP":currentQuestionDetail?.sentenceJP ?? "",
-            "division":currentQuestionDetail?.division ?? "",
-            "answerDivision":currentQuestionDetail?.answerDivision ?? "",
-            
-            "answer":content,
-            "startDate":DateConverter.convertToStandardDateString(date: currentQuestionStartDate!),
-            "endDate":DateConverter.convertToStandardDateString(date: Date()),
-            
-            "movementDTOs":QuestionHandler.convertMovementDTOsToDictionaries(movementDTOs: movementDTOs)
-            ]
+
+        let params = SubmitQuestionAnswerPostViewModel(questionDetail: assignmentQuestionVM!, movementDTOs: movementDTOs, answer: content, startDate: currentQuestionStartDate!, endDate: Date())
         
         
-        Alamofire.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).response(completionHandler:
+        Alamofire.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).response(completionHandler:
             {
                 response in
                 

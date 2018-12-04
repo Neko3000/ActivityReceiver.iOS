@@ -20,6 +20,9 @@
 		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
+		EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */; };
+		EB83514F21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */; };
+		EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */; };
 		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
 		EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */; };
 		EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD32186EA9300460F66 /* XibUIView.swift */; };
@@ -42,7 +45,7 @@
 		EBF9C1A621917D2400321174 /* ActiveUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */; };
 		EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */; };
 		EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */; };
-		EBFC7C982193D9BB006323FC /* QuestionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C972193D9BB006323FC /* QuestionDetail.swift */; };
+		EBFC7C982193D9BB006323FC /* AssignmentQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C972193D9BB006323FC /* AssignmentQuestionViewModel.swift */; };
 		EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */; };
 		EBFC7C9C21957CD6006323FC /* QuestionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */; };
 		EBFC7C9E2196A6AB006323FC /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C9D2196A6AB006323FC /* DateConverter.swift */; };
@@ -65,6 +68,9 @@
 		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionAnswerPostViewModel.swift; sourceTree = "<group>"; };
+		EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDictionaryProtocols.swift; sourceTree = "<group>"; };
+		EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHandler.swift; sourceTree = "<group>"; };
 		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ActivityReceiver.iOS/SketchShadow.swift; sourceTree = SOURCE_ROOT; };
 		EBB5EBD32186EA9300460F66 /* XibUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIView.swift; sourceTree = "<group>"; };
@@ -87,7 +93,7 @@
 		EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserInfo.swift; sourceTree = "<group>"; };
 		EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectorViewController.swift; sourceTree = "<group>"; };
 		EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModel.swift; sourceTree = "<group>"; };
-		EBFC7C972193D9BB006323FC /* QuestionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetail.swift; sourceTree = "<group>"; };
+		EBFC7C972193D9BB006323FC /* AssignmentQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentQuestionViewModel.swift; sourceTree = "<group>"; };
 		EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionExecuteTarget.swift; sourceTree = "<group>"; };
 		EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHandler.swift; sourceTree = "<group>"; };
 		EBFC7C9D2196A6AB006323FC /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
@@ -158,6 +164,14 @@
 			path = ActivityReceiver.iOS;
 			sourceTree = "<group>";
 		};
+		EB83514921B64EB800E9FD16 /* PostViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */,
+			);
+			path = PostViewModels;
+			sourceTree = "<group>";
+		};
 		EBB5EBCA2186E99000460F66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +227,8 @@
 				EB137633218ED34500B9FF02 /* MovementState.swift */,
 				EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */,
 				EBFC7C9D2196A6AB006323FC /* DateConverter.swift */,
+				EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */,
+				EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -220,7 +236,8 @@
 		EBE8B96E218C1BD70093E466 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				EBFC7C972193D9BB006323FC /* QuestionDetail.swift */,
+				EB83514921B64EB800E9FD16 /* PostViewModels */,
+				EBFC7C972193D9BB006323FC /* AssignmentQuestionViewModel.swift */,
 				EBE8B96C218C0B9E0093E466 /* AssignmentResultViewModel.swift */,
 				EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */,
 			);
@@ -368,13 +385,14 @@
 				EBFC7C9C21957CD6006323FC /* QuestionHandler.swift in Sources */,
 				EBF9C1A02190532100321174 /* ExerciseListItemTableViewCell.swift in Sources */,
 				EBE8B95A218ACEB80093E466 /* AssignmentResultTableView.swift in Sources */,
-				EBFC7C982193D9BB006323FC /* QuestionDetail.swift in Sources */,
+				EBFC7C982193D9BB006323FC /* AssignmentQuestionViewModel.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
 				EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */,
 				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
 				EBB5EBD82186EB2B00460F66 /* SegueBehaviorObject.swift in Sources */,
 				EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */,
 				EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */,
+				EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */,
@@ -383,11 +401,13 @@
 				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
 				EBF9C1A32190570E00321174 /* ExerciseListTableView.swift in Sources */,
 				EBFC7C9E2196A6AB006323FC /* DateConverter.swift in Sources */,
+				EB83514F21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift in Sources */,
 				EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */,
 				EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */,
 				EBE8B967218BFABB0093E466 /* AssignmentResultViewController.swift in Sources */,
 				EB137632218ED08900B9FF02 /* SubmitQuestionAnswerDTO.swift in Sources */,
 				EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */,
+				EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
 				EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */,
 				EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */,

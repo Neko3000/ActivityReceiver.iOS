@@ -36,29 +36,4 @@ class QuestionHandler{
         
         return stringArray
     }
-    
-    
-    
-    public static func convertMovementDTOsToDictionaries(movementDTOs:[MovementDTO]) -> [NSDictionary]{
-        
-        var movementDTODicts = [NSDictionary]()
-        for i in 0...movementDTOs.count - 1{
-            
-            let movementDTO = movementDTOs[i]
-            movementDTODicts.append(movementDTO.convertToNSDictionary())
-        }
-        return movementDTODicts
-    }
-    
-    public static func getAssignmentResultAnswerDetailsFromNSDictionary(array:NSArray) -> [AssignmentResultAnswerDetail]{
-        
-        var assignmentResultAnswerDetails = [AssignmentResultAnswerDetail]()
-        for i in 0...array.count - 1{
-            
-            let assignmentResultAnswerDetail = AssignmentResultAnswerDetail(dict: array[i] as! NSDictionary)
-            assignmentResultAnswerDetails.append(assignmentResultAnswerDetail)
-        }
-        
-        return assignmentResultAnswerDetails
-    }
 }

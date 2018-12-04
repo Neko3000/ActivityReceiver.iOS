@@ -8,7 +8,7 @@
 
 import Foundation
 
-class QuestionDetail{
+class AssignmentQuestionViewModel:ObjectFromDictionary{
     public var assignmentRecordID:Int = 0
     public var questionID:Int = 0
     
@@ -36,7 +36,7 @@ class QuestionDetail{
         
     }
     
-    init(dict:NSDictionary) {
+    required init(dict:[String:Any]) {
         
         self.assignmentRecordID = dict["assignmentRecordID"] as! Int
         self.questionID = dict["questionID"] as! Int

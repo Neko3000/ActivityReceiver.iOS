@@ -8,12 +8,16 @@
 
 import Foundation
 
-public class AssignmentResultAnswerDetail
+public class AssignmentResultAnswerDetail:ObjectFromDictionary
 {
     public var sentenceJP:String = ""
     public var sentenceEN:String = ""
     public var answer:String = ""
     public var isCorrect:Bool = false
+    
+    init() {
+        
+    }
     
     init(sentenceJP:String,sentenceEN:String,answer:String,isCorrect:Bool) {
         self.sentenceJP = sentenceJP
@@ -22,15 +26,22 @@ public class AssignmentResultAnswerDetail
         self.isCorrect = isCorrect
     }
     
-    init() {
-        
-    }
-    
-    init(dict:NSDictionary) {
+    required init(dict:[String:Any]) {
         self.sentenceJP = dict["sentenceJP"] as! String
         self.sentenceEN = dict["sentenceEN"] as! String
         self.answer = dict["answerSentence"] as! String
         self.isCorrect = dict["isCorrect"] as! Bool
+    }
+    
+    public func toDictionary() -> [String:Any] {
+        let dict:[String:Any] = [
+            "sentenceJP":sentenceJP,
+            "sentenceEN":sentenceEN,
+            "answer":answer,
+            "isCorrect":isCorrect,
+        ]
+        
+        return dict
     }
 }
 
@@ -39,13 +50,14 @@ public class AssignmentResultViewModel{
     public var accuracyRate:Float = 0.0
     public var assignmentResultAnswerDetails:[AssignmentResultAnswerDetail] = [AssignmentResultAnswerDetail]()
     
+    init() {
+        
+    }
+    
     init(accuracyRate:Float,assignmentResultAnswerDetails:[AssignmentResultAnswerDetail]) {
         
         self.accuracyRate = accuracyRate
         self.assignmentResultAnswerDetails = assignmentResultAnswerDetails
     }
     
-    init() {
-        
-    }
 }

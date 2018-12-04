@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ExerciseDetail{
+class ExerciseDetail:ObjectFromDictionary{
     
     public var id:Int = 0
     public var name:String = ""
@@ -28,7 +28,7 @@ class ExerciseDetail{
         
     }
     
-    init(dict:NSDictionary){
+    required init(dict:[String:Any]){
         
         self.id = dict["id"] as! Int
         self.name = dict["name"] as! String
