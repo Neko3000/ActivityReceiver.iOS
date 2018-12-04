@@ -12,15 +12,18 @@ class MovementDTO{
     
     public var index:Int = 0
     public var state:Int = 0
+    public var targetElement:Int = 0
     public var time:Int = 0
     
     public var xPosition:Int = 0
     public var yPosition:Int = 0
     
-    init(index:Int,state:Int,time:Int,xPosition:Int,yPosition:Int) {
+    init(index:Int,state:Int,targetElement:Int,time:Int,xPosition:Int,yPosition:Int) {
         
         self.index = index
         self.state = state
+        self.targetElement = targetElement
+        
         self.time = time
         
         self.xPosition = xPosition
@@ -33,6 +36,7 @@ class MovementDTO{
             
             "index":index,
             "state":state,
+            "targetElement":targetElement,
             "time":time,
             "xPosition":xPosition,
             "yPosition":yPosition

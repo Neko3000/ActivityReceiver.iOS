@@ -18,6 +18,8 @@ class WordItem: XibUIView {
     }
     */
     
+    public var index:Int = 0
+    
     // Outlets
     @IBOutlet weak var orderNumberLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!

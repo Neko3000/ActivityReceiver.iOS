@@ -34,7 +34,7 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
     
     // Segue, called in FunctionListView when tapped its items
 
-    @IBAction func logoutBtnTap(_ sender: Any) {
+    @IBAction func logout(_ sender: Any) {
         
         // Bundle
         let userDefaults = UserDefaults.standard

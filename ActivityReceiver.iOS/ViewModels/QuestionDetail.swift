@@ -12,17 +12,23 @@ class QuestionDetail{
     public var assignmentRecordID:Int = 0
     public var questionID:Int = 0
     
+    public var sentenceEN:String = ""
     public var sentenceJP:String = ""
     public var division:String = ""
+    public var answerDivision:String = ""
     
     public var currentNumber:Int = 0
     
-    init(assignmentRecordID:Int,questionID:Int,sentenceJP:String,division:String,currentNumber:Int) {
+    init(assignmentRecordID:Int,questionID:Int,sentenceEN:String,sentenceJP:String,division:String,answerDivision:String,currentNumber:Int) {
         
         self.assignmentRecordID = assignmentRecordID
         self.questionID = questionID
+        
+        self.sentenceEN = sentenceEN
         self.sentenceJP = sentenceJP
         self.division = division
+        self.answerDivision = answerDivision
+        
         self.currentNumber = currentNumber
     }
     
@@ -34,8 +40,12 @@ class QuestionDetail{
         
         self.assignmentRecordID = dict["assignmentRecordID"] as! Int
         self.questionID = dict["questionID"] as! Int
+        
+        self.sentenceEN = dict["sentenceEN"] as! String
         self.sentenceJP = dict["sentenceJP"] as! String
         self.division = dict["division"] as! String
+        self.answerDivision = dict["answerDivision"] as! String
+        
         self.currentNumber = dict["currentNumber"] as! Int
     }
 }

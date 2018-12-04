@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
+    
+    //
+    var alertDialog:UIAlertController?
 
     // Outlets
     @IBOutlet weak var usernameTextField: UITextField!
@@ -29,24 +33,107 @@ class RegisterViewController: UIViewController {
         usernameTextField.layer.borderWidth = 1.0
         usernameTextField.layer.borderColor = UIColor(named: "LightGrey1")?.cgColor
         usernameTextField.layer.masksToBounds = true
+        usernameTextField.delegate = self
         
         passwordTextField.layer.cornerRadius = 19.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor(named: "LightGrey1")?.cgColor
         passwordTextField.layer.masksToBounds = true
+        passwordTextField.delegate = self
         
         passwordConfirmTextField.layer.cornerRadius = 19.0
         passwordConfirmTextField.layer.borderWidth = 1.0
         passwordConfirmTextField.layer.borderColor = UIColor(named: "LightGrey1")?.cgColor
         passwordConfirmTextField.layer.masksToBounds = true
-        
+        passwordConfirmTextField.delegate = self
         
         // Do any additional setup after loading the view.
+        alertDialog = UIAlertController(title: "確認", message: "-", preferredStyle: .alert)
+        alertDialog!.addAction(UIAlertAction(title: "はい", style:.default, handler: nil))
+        
     }
     
     @IBAction func registerSubmit(_ sender: Any) {
         
-        print("register goes")
+        if(!validateInput()){
+            return
+        }
+        
+        let username = usernameTextField.text
+        let password = passwordTextField.text
+        
+        //generate json contains username and password
+        let parameters:Parameters = [
+            "username":username ?? "",
+            "password":password ?? ""
+        ]
+        
+        Alamofire.request("http://118.25.44.137/UserToken/Register", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+            {
+                response in
+                
+                switch(response.result){
+                    
+                case .success(_):
+                    
+                    self.performSegue(withIdentifier: "RegisterToLogin", sender: nil)
+                    
+                    break
+                    
+                case .failure(let json):
+                    
+                    let dict = json as! NSDictionary
+                    print(dict["message"] as! String)
+                    
+                    break
+                }
+        })
+    }
+    
+    private func validateInput() -> Bool{
+        
+        var isValiadated = true
+        
+        if(usernameTextField.text == "" || passwordTextField.text == ""){
+            
+            isValiadated = false
+            
+            alertDialog?.message = "username/password can not be empty"
+            
+            self.present(alertDialog!, animated: true, completion: nil)
+            
+        }
+        else if(passwordTextField.text != passwordConfirmTextField.text){
+            
+            isValiadated = false
+            
+            alertDialog?.message = "password is not matched"
+            
+            self.present(alertDialog!, animated: true, completion: nil)
+            
+        }
+        else if(passwordTextField.text!.count < 6){
+            
+            isValiadated = false
+            
+            alertDialog?.message = "password should be longer than 6"
+            
+            self.present(alertDialog!, animated: true, completion: nil)
+        }
+        
+        return isValiadated
+    }
+    
+    // These functions are used to set the behavior of the keyboard when user try to dismiss it
+    // Tap return button to dismiss
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Tap the area on the outside of keyboard to dismiss
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     /*

@@ -152,7 +152,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="registerSubmit:" destination="EwA-1A-26v" eventType="touchUpInside" id="Jx0-Hj-NXL"/>
+                                            <action selector="registerSubmit:" destination="EwA-1A-26v" eventType="touchUpInside" id="mWy-rK-8wl"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pc5-df-TwZ">
@@ -187,10 +187,10 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="rBx-Q1-Njl"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="left-arrow"/>
+                                <state key="normal" title="Button" image="left-arrow-white"/>
                                 <connections>
                                     <action selector="nextQuestionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fyi-g8-PgB"/>
-                                    <segue destination="eqv-xQ-0eL" kind="show" id="0Zr-WD-mOJ"/>
+                                    <segue destination="eqv-xQ-0eL" kind="show" identifier="RegisterToLogin" id="0Zr-WD-mOJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -206,7 +206,7 @@
                     <connections>
                         <outlet property="passwordConfirmTextField" destination="xv5-Ys-jTu" id="Ftb-1d-f4C"/>
                         <outlet property="passwordTextField" destination="RfL-3c-CIf" id="SK0-WN-onZ"/>
-                        <outlet property="registerBtn" destination="nYV-lC-3V4" id="mrw-tm-MhK"/>
+                        <outlet property="registerBtn" destination="nYV-lC-3V4" id="DdY-Hz-jbD"/>
                         <outlet property="usernameTextField" destination="pc5-df-TwZ" id="BwQ-kP-9nh"/>
                     </connections>
                 </viewController>
@@ -239,7 +239,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="right-arrow"/>
                                         <connections>
-                                            <action selector="nextQuestionBtnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dkq-Mu-yUH"/>
+                                            <action selector="moveToNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAu-EA-koi"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A wise man will make more opportunities than he finds." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94b-On-noq">
@@ -393,7 +393,7 @@
                                         </constraints>
                                         <state key="normal" image="cross-logout"/>
                                         <connections>
-                                            <action selector="logoutBtnTap:" destination="vdr-3o-3Mb" eventType="touchUpInside" id="XC8-KM-fes"/>
+                                            <action selector="logout:" destination="vdr-3o-3Mb" eventType="touchUpInside" id="I5Y-b5-1ZS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -518,6 +518,7 @@
     <resources>
         <image name="cross-logout" width="16" height="16"/>
         <image name="left-arrow" width="28" height="16"/>
+        <image name="left-arrow-white" width="28" height="16"/>
         <image name="right-arrow" width="28" height="16"/>
         <namedColor name="HeavyTurquoise">
             <color red="0.13333333333333333" green="0.16470588235294117" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -533,9 +534,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VGU-Ln-p4a"/>
         <segue reference="sCX-pk-W20"/>
-        <segue reference="1xT-Nf-KXo"/>
+        <segue reference="Nmw-x0-KAx"/>
         <segue reference="F5d-Hf-XmF"/>
     </inferredMetricsTieBreakers>
 </document>

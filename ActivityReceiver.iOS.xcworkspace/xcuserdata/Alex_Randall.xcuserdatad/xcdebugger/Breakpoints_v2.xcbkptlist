@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ActivityReceiver.iOS/Controllers/LoginViewController.swift"
-            timestampString = "563624568.941684"
+            timestampString = "564855800.055884"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
-            landmarkName = "initUserState()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ActivityReceiver.iOS/Controllers/MainViewController.swift"
-            timestampString = "563691986.8490781"
+            timestampString = "565503473.364313"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "submitQuestionAnswer()"
             landmarkType = "7">
          </BreakpointContent>

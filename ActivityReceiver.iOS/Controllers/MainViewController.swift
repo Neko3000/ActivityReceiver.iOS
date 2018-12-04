@@ -19,13 +19,12 @@ class MainViewController: UIViewController {
     
     // The list of all words in current question
     var words:[String]?
-    
     // The list of all wordItems
     var wordItems = [WordItem]()
     
     // Movements
     // 20 time per second
-    var samplingFrequency:Int = 10
+    var samplingFrequency:Int = 20
     var movementCurrentIndex:Int = 0
     var movementDTOs = [MovementDTO]()
     
@@ -66,7 +65,7 @@ class MainViewController: UIViewController {
         alertDialog!.addAction(UIAlertAction(title: "いいえ", style:.cancel, handler: alertActionHandler(alertAction:)))
         
         // Timer
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0/Double(samplingFrequency), target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     
     @objc private func updateTime(){
@@ -148,6 +147,7 @@ class MainViewController: UIViewController {
             
             let singleWordItem = WordItem()
             
+            singleWordItem.index = index
             singleWordItem.textLabel.text = words?[index]
             singleWordItem.frame = CGRect(x: 0, y: 0, width: singleWordItem.textLabel.intrinsicContentSize.width + 40.0, height: singleWordItem.textLabel.intrinsicContentSize.height + 10.0 + topDistance)
 
@@ -272,14 +272,14 @@ class MainViewController: UIViewController {
         answerLabel.text = answer
     }
     
-    private func createMovementDTO(position:CGPoint,movementState:MovementState){
+    private func createMovementDTO(position:CGPoint,movementState:MovementState,targetElement:Int){
 
         // The samplingFrequency only affects Move state
         if(movementState == .tapSingleMove && lastRecordMillisecondTime >= currentMillisecondTime){
             return
         }
         
-        let movementDTONew = MovementDTO(index: movementCurrentIndex, state: movementState.rawValue, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
+        let movementDTONew = MovementDTO(index: movementCurrentIndex, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
         movementCurrentIndex = movementCurrentIndex + 1
         
         movementDTOs.append(movementDTONew)
@@ -289,6 +289,9 @@ class MainViewController: UIViewController {
         
     // WordItem's dragging behavior
     @objc private func panGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+        
+        // Get CurrentWordItem
+        let currentWordItem = recongnizer.view as! WordItem
         
         switch recongnizer.state {
             
@@ -315,14 +318,11 @@ class MainViewController: UIViewController {
             
             // Create a new MovementDTO and push it into the array
             
-            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin)
+            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
             
             break;
             
         case .changed:
-            
-            // Get CurrentWordItem
-            let currentWordItem = recongnizer.view as! WordItem
             
             // Get finger's current postion in mainView
             let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
@@ -334,7 +334,7 @@ class MainViewController: UIViewController {
             //
             generateOrderNumber()
             
-            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove)
+            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:currentWordItem.index)
             
             break;
             
@@ -347,7 +347,7 @@ class MainViewController: UIViewController {
             generateOrderNumber()
             hideOrderNumberForWordItems()
             
-            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd)
+            createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
             
             break;
         
@@ -369,12 +369,19 @@ class MainViewController: UIViewController {
         let parameters:Parameters = [
             "assignmentRecordID":currentQuestionDetail?.assignmentRecordID ?? 0,
             "questionID":currentQuestionDetail?.questionID ?? 0,
+            
+            "sentenceEN":currentQuestionDetail?.sentenceEN ?? "",
+            "sentenceJP":currentQuestionDetail?.sentenceJP ?? "",
+            "division":currentQuestionDetail?.division ?? "",
+            "answerDivision":currentQuestionDetail?.answerDivision ?? "",
+            
             "answer":content,
             "startDate":DateConverter.convertToStandardDateString(date: currentQuestionStartDate!),
             "endDate":DateConverter.convertToStandardDateString(date: Date()),
             
             "movementDTOs":QuestionHandler.convertMovementDTOsToDictionaries(movementDTOs: movementDTOs)
             ]
+        
         
         Alamofire.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).response(completionHandler:
             {
@@ -418,7 +425,7 @@ class MainViewController: UIViewController {
     }
 
     
-    @IBAction func nextQuestionBtnTap(_ sender: Any) {
+    @IBAction func moveToNextQuestion(_ sender: Any) {
         
         //
         self.present(alertDialog!, animated: true, completion: nil)
