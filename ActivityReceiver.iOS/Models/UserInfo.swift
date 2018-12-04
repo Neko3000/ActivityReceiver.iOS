@@ -13,13 +13,9 @@ class UserInfo: NSObject,NSCoding {
     var username:String
     var token:String
     
-    func getUsername() -> String{
-        return username
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(username, forKey: "username")
-        aCoder.encode(token, forKey: "token")
+    init(username:String,token:String) {
+        self.username = username
+        self.token = token
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -29,8 +25,52 @@ class UserInfo: NSObject,NSCoding {
         self.init(username: username, token: token)
     }
     
-    init(username:String,token:String) {
-        self.username = username
-        self.token = token
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(username, forKey: "username")
+        aCoder.encode(token, forKey: "token")
+    }
+    
+    func getUsername() -> String{
+        return username
+    }
+    
+    func getToken() -> String {
+        return token
+    }
+    
+    static func saveUserInfo(userInfoObject:UserInfo){
+        
+        // Bundle
+        let userDefaults = UserDefaults.standard
+        
+        // Save UserInfo
+        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: userInfoObject)
+        userDefaults.set(codedMyUserInfo,forKey:"CurrentUserInfo")
+        
+        userDefaults.synchronize()
+    }
+    
+    static func loadUserInfo() -> UserInfo?{
+        
+        // Bundle
+        let userDefaults = UserDefaults.standard
+        
+        // Load UserInfo
+        if let originalObject = userDefaults.object(forKey: "CurrentUserInfo"){
+            let decodedData = originalObject as! Data
+            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decodedData) as! UserInfo
+            
+            return userInfo
+        }
+        
+        return nil
+    }
+    
+    static func clearStoredUserInfo(){
+        
+        // Bundle
+        let userDefaults = UserDefaults.standard
+        
+        userDefaults.removeObject(forKey: "CurrentUserInfo")
     }
 }

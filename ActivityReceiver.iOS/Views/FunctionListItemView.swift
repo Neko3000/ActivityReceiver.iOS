@@ -33,28 +33,6 @@ class FunctionListItemView: XibUIView {
     
     private var isInitialized = false
     
-    public func setSegueBehavior(object:SegueBehaviorObject,identifier:String){
-        
-        // Function called in ViewController
-        segueBehaviorObject = object
-        segueIdentifier = identifier
-    }
-    
-    @objc private func tapGestureRecongnizerHandler(reconginzer:UIPanGestureRecognizer){
-        
-        // Tap behaviors
-        switch reconginzer.state {
-        case .began:
-            break
-        case .changed:
-            break
-        case .ended:
-            segueBehaviorObject?.segueToAnotherScreen(withIdentifier: segueIdentifier, sender: nil)
-        default:
-            break
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -77,5 +55,31 @@ class FunctionListItemView: XibUIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    public func setSegueBehavior(object:SegueBehaviorObject,identifier:String){
+        
+        // Function called in ViewController
+        segueBehaviorObject = object
+        segueIdentifier = identifier
+    }
+    
+    @objc private func tapGestureRecongnizerHandler(reconginzer:UIPanGestureRecognizer){
+        
+        // Tap behaviors
+        switch reconginzer.state {
+            
+        case .began:
+            break
+            
+        case .changed:
+            break
+            
+        case .ended:
+            segueBehaviorObject?.segueToAnotherScreen(withIdentifier: segueIdentifier, sender: nil)
+            
+        default:
+            break
+        }
     }
 }

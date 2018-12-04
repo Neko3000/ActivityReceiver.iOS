@@ -15,8 +15,8 @@ class ExerciseListItemTableViewCell: UITableViewCell {
     
     // Outlets
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var currentStateLabel: UILabel!
-    @IBOutlet weak var descriptionLable: UILabel!
+    @IBOutlet weak var currentStatusLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var checkedImageView: UIImageView!
     @IBOutlet weak var blockBGView: UIView!
     

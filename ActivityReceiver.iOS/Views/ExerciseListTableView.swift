@@ -60,8 +60,8 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
         let currentExerciseDetail = exerciseListViewModel?.exerciseDetails[indexPath.section]
         specificCell.id = currentExerciseDetail?.id ?? 0
         specificCell.nameLabel.text = currentExerciseDetail?.name
-        specificCell.descriptionLable.text = currentExerciseDetail?.description
-        specificCell.currentStateLabel.text = "\(currentExerciseDetail?.currentNumber ?? 0)/\(currentExerciseDetail?.totalNumber ?? 0)"
+        specificCell.descriptionLabel.text = currentExerciseDetail?.description
+        specificCell.currentStatusLabel.text = "\(currentExerciseDetail?.currentNumber ?? 0)/\(currentExerciseDetail?.totalNumber ?? 0)"
         
         if(!(currentExerciseDetail?.isFinished ?? false)){
             specificCell.hideCheckedImage()

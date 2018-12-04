@@ -17,6 +17,11 @@ class ResultHeaderTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        if(!isInitialized){
+            
+            isInitialized = true
+        }
     }
     
     override func awakeFromNib() {

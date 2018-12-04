@@ -55,7 +55,43 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidAppear(animated)
         
         // Try to login automatically
-        initUserState()
+        initUserStatus()
+    }
+    
+    func initUserStatus(){
+        
+        // Try to load UserInfo stored in bundle
+        if let loadedUserInfo = UserInfo.loadUserInfo(){
+            
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + loadedUserInfo.token,
+                ]
+            
+            Alamofire.request("http://118.25.44.137/UserToken/Authorize", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
+                response in
+                
+                switch(response.result){
+                    
+                case .success(_):
+                    
+                    ActiveUserInfo.setUsername(username: loadedUserInfo.username)
+                    ActiveUserInfo.setToken(token: loadedUserInfo.token)
+                    
+                    // Auto-Login
+                    self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
+                    
+                    break
+                    
+                case .failure(let json):
+                    
+                    let dict = json as! [String:Any]
+                    print(dict["message"] as! String)
+                    
+                    break
+                }
+                
+            })
+        }
     }
     
     @IBAction func loginSubmit(_ sender: Any) {
@@ -73,76 +109,34 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             {
                 response in
                 
-                if let json = response.result.value {
+                switch(response.result){
                     
-                    let dict = json as! NSDictionary
+                case .success(let json):
+                    
+                    let dict = json as! [String:Any]
                     
                     let username = dict["username"] as! String
                     let token = dict["token"] as! String
                     
                     let userInfo = UserInfo(username: username, token: token)
-                    self.saveUserInfo(userInfoObject: userInfo)
+                    UserInfo.saveUserInfo(userInfoObject: userInfo)
                     
-                    ActiveUserInfo.username = username
-                    ActiveUserInfo.userToken = token
+                    ActiveUserInfo.setUsername(username: username)
+                    ActiveUserInfo.setToken(token: token)
                     
                     // Segue to UserCenter
                     self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
                     
+                    break
+                    
+                case .failure(let json):
+                    
+                    let dict = json as! [String:Any]
+                    print(dict["message"] as! String)
+                    
+                    break
                 }
         })
-    }
-    
-    func initUserState(){
-        
-        // Try to load UserInfo stored in bundle
-        if let loadedUserInfo = loadUserInfo(){
-            
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer " + loadedUserInfo.token,
-            ]
-            
-            Alamofire.request("http://118.25.44.137/UserToken/Authorize", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
-                response in
-                                
-                if(response.response?.statusCode == 200){
-                    
-                    ActiveUserInfo.username = loadedUserInfo.username
-                    ActiveUserInfo.userToken = loadedUserInfo.token
-                    
-                    // Auto-Login
-                    self.performSegue(withIdentifier: "LoginToUserCenter", sender: nil)
-                }
-            })
-        }
-    }
-    
-    func saveUserInfo(userInfoObject:UserInfo){
-        
-        // Bundle
-        let userDefaults = UserDefaults.standard
-        
-        // Save UserInfo
-        let codedMyUserInfo:Data = NSKeyedArchiver.archivedData(withRootObject: userInfoObject)
-        userDefaults.set(codedMyUserInfo,forKey:"CurrentUserInfo")
-        
-        userDefaults.synchronize()
-    }
-    
-    func loadUserInfo() -> UserInfo?{
-        
-        // Bundle
-        let userDefaults = UserDefaults.standard
-        
-        // Load UserInfo
-        if let originalObject = userDefaults.object(forKey: "CurrentUserInfo"){
-            let decodedData = originalObject as! Data
-            let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decodedData) as! UserInfo
-            
-            return userInfo
-        }
-        
-        return nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -150,7 +144,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if(segue.identifier == "LoginToUserCenter"){
             let dest = segue.destination as! UserCenterViewController
             
-            dest.username = ActiveUserInfo.username
+            dest.username = ActiveUserInfo.getUsername()
         }
     }
     

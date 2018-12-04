@@ -45,10 +45,11 @@ class ExerciseListViewModel{
     
     public var exerciseDetails:[ExerciseDetail] = [ExerciseDetail]()
     
-    init(exerciseDetails:[ExerciseDetail]) {
-        self.exerciseDetails = exerciseDetails
+    init() {
+        
     }
     
-    init() {
+    init(exerciseDetails:[ExerciseDetail]) {
+        self.exerciseDetails = exerciseDetails
     }
 }

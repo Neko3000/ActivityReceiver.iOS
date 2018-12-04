@@ -57,7 +57,6 @@ class MainViewController: UIViewController {
         showQuestionInfo()
         generateWordItems()
         arrangeWordItems()
-        currentQuestionStartDate = Date()
  
         // AlertDialog
         alertDialog = UIAlertController(title: "確認", message: "今の解答でよろしいですか?", preferredStyle: .alert)
@@ -66,6 +65,7 @@ class MainViewController: UIViewController {
         
         // Timer
         timer = Timer.scheduledTimer(timeInterval: 1.0/Double(samplingFrequency), target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        currentQuestionStartDate = Date()
     }
     
     @objc private func updateTime(){
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
     private func loadQuestion(){
 
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
         let parameters:Parameters = [
@@ -112,17 +112,15 @@ class MainViewController: UIViewController {
                     
                     break
                     
-                case .failure(let error):
-                    print(error)
+                case .failure(let json):
+                    
+                    let dict = json as! [String:Any]
+                    print(dict["message"] as! String)
                     
                     break
                 }
                 
         })
-    }
-    
-    func printPosition(view:UIView){
-        print("\(view.frame.minX) - \(view.frame.minY)")
     }
     
     private func showQuestionInfo(){
@@ -156,9 +154,6 @@ class MainViewController: UIViewController {
             singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandler(recongnizer:))))
             singleWordItem.isUserInteractionEnabled = true
             
-            //mainView.addSubview(singleWordItem)
-            
-            //answerLabel.text = "\(singleWordItem.textLabel.intrinsicContentSize.width) x \(singleWordItem.textLabel.intrinsicContentSize.height)"
         }
     }
 
@@ -222,7 +217,6 @@ class MainViewController: UIViewController {
         }
         
         wordItems.removeAll()
-        
     }
     
     // These functions are related to order number
@@ -363,7 +357,7 @@ class MainViewController: UIViewController {
         let content = QuestionHandler.convertStringArrayToDivision(stringArray: stringArray)
         
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
 
@@ -419,20 +413,13 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if(segue.identifier == "GenerateAssignmentResult"){
             
             let dest = segue.destination as! AssignmentResultViewController
             // Sender is ExerciseID
             dest.exerciseID = sender as! Int
         }
-    }
-    
-    func loadViewFromNib() -> UIView {
-        
-        let nib = UINib(nibName: "WordItem", bundle: Bundle.main)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        
-        return view
     }
     
     override func didReceiveMemoryWarning() {

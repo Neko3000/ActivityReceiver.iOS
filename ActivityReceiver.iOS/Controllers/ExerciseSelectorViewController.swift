@@ -41,7 +41,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
     private func loadExercises(){
         
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
         Alamofire.request("http://118.25.44.137/Question/GetExerciseList", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
@@ -59,36 +59,15 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
                 
                 break
                 
-            case .failure(let error):
-                print(error)
+            case .failure(let json):
+                
+                let dict = json as! [String:Any]
+                print(dict["message"] as! String)
                 
                 break
+ 
             }
         })
-    }
-    
-    private func alertActionHandler(alertAction:UIAlertAction){
-        
-        switch alertAction.style {
-            
-        case .default:
-            
-            // Call segue when tap on yes
-            self.performSegue(withIdentifier: "BeginToDoAssignment", sender: nil)
-
-            break
-            
-        case .cancel:
-            print("cancel")
-            break
-            
-        case .destructive:
-            print("desturctive")
-            break
-            
-        default:
-            break
-        }
     }
     
     // Sender is the chosen ExerciseDetail
@@ -105,7 +84,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
         else{
             
             let headers: HTTPHeaders = [
-                "Authorization": "Bearer " + ActiveUserInfo.userToken,
+                "Authorization": "Bearer " + ActiveUserInfo.getToken(),
                 ]
             
             // Generate json contains ExerciseID
@@ -126,8 +105,10 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
                         self.present(self.alertDialog!, animated: true, completion: nil)
                         break
                         
-                    case .failure(let error):
-                        print(error)
+                    case .failure(let json):
+                        
+                        let dict = json as! [String:Any]
+                        print(dict["message"] as! String)
                         
                         break
                     }
@@ -135,6 +116,33 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
             })
         }
 
+    }
+    
+    
+    private func alertActionHandler(alertAction:UIAlertAction){
+        
+        switch alertAction.style {
+            
+        case .default:
+            
+            // Call segue when tap on yes
+            self.performSegue(withIdentifier: "BeginToDoAssignment", sender: nil)
+            
+            break
+            
+        case .cancel:
+            
+            print("cancel")
+            break
+            
+        case .destructive:
+            
+            print("desturctive")
+            break
+            
+        default:
+            break
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

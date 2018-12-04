@@ -25,7 +25,7 @@ class AssignmentResultViewController: UIViewController {
     func loadAssignmentResult(){
         
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + ActiveUserInfo.userToken,
+            "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
         let parameters:Parameters = [
@@ -39,7 +39,7 @@ class AssignmentResultViewController: UIViewController {
                     
                 case .success(let json):
                     
-                    let dict = json as! NSDictionary
+                    let dict = json as! [String:Any]
                     
                     self.assignmentResultTableView.assignmentResultViewModel = AssignmentResultViewModel(accuracyRate: (dict["accuracyRate"] as! NSNumber).floatValue, assignmentResultAnswerDetails:
                         DictionaryHandler.convertFromDictionaryArray(dictionaryArray: dict["answerDetails"] as! NSArray))
@@ -47,8 +47,10 @@ class AssignmentResultViewController: UIViewController {
                     self.assignmentResultTableView.reloadData()
                     break
                     
-                case .failure(let error):
-                    print(error)
+                case .failure(let json):
+                    
+                    let dict = json as! [String:Any]
+                    print(dict["message"] as! String)
                     
                     break
                 }

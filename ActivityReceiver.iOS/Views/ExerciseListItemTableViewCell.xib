@@ -76,8 +76,8 @@
             <connections>
                 <outlet property="blockBGView" destination="FSW-YO-nxg" id="Xbw-iA-fLe"/>
                 <outlet property="checkedImageView" destination="GF7-qg-Shq" id="9ZQ-5c-cTN"/>
-                <outlet property="currentStateLabel" destination="rmk-u6-h6k" id="bak-15-OVf"/>
-                <outlet property="descriptionLable" destination="4JS-ag-9uu" id="vu3-ty-zcw"/>
+                <outlet property="currentStatusLabel" destination="rmk-u6-h6k" id="UNv-Xc-78g"/>
+                <outlet property="descriptionLabel" destination="4JS-ag-9uu" id="Shq-OL-kMJ"/>
                 <outlet property="nameLabel" destination="Y85-G8-8wW" id="olX-sj-t0A"/>
             </connections>
             <point key="canvasLocation" x="193.59999999999999" y="189.3553223388306"/>

@@ -36,13 +36,11 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
 
     @IBAction func logout(_ sender: Any) {
         
-        // Bundle
-        let userDefaults = UserDefaults.standard
-        
-        userDefaults.removeObject(forKey: "CurrentUserInfo")
-        
+        // Clear user's information stored in Bundle
+        UserInfo.clearStoredUserInfo()
         ActiveUserInfo.clear()
         
+        // Back to login page
         performSegue(withIdentifier: "LogoutFromUserCenter", sender: nil)
     }
     
@@ -53,6 +51,7 @@ class UserCenterViewController: UIViewController,SegueBehaviorObject {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if(segue.identifier == "ToSelectExercise"){
             
         }

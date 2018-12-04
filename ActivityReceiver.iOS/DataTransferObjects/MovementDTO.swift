@@ -45,27 +45,3 @@ class MovementDTO:ObjectToDictionary{
         return movementDTODict
     }
 }
-
-class SubmitQuestionAnswerDTO{
-    
-    public var questionID:Int = 0
-    public var assignmentRecordID:Int = 0
-    
-    public var answer:String = ""
-    public var startDate:Date = Date()
-    public var endDate:Date = Date()
-    
-    public var movementDTOs:[MovementDTO] = [MovementDTO]()
-    
-    init(questionID:Int,assignmentRecordID:Int,answer:String,startDate:Date,endDate:Date,movementDTOs:[MovementDTO]) {
-        self.questionID = questionID
-        self.assignmentRecordID = assignmentRecordID
-        
-        self.answer = answer
-        self.startDate = startDate
-        self.endDate = endDate
-        
-        self.movementDTOs = movementDTOs
-    }
-    
-}
