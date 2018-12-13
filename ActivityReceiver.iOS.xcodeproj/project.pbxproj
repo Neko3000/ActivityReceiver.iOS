@@ -10,6 +10,8 @@
 		40A751520F1E4B2B35868731 /* Pods_ActivityReceiver_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E09A3B01C6872516E6B66A5 /* Pods_ActivityReceiver_iOS.framework */; };
 		EB05204E216C9C0900940214 /* WordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB05204D216C9C0900940214 /* WordItem.swift */; };
 		EB052050216C9C4200940214 /* WordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB05204F216C9C4200940214 /* WordItem.xib */; };
+		EB0765B721C21E2200144FC5 /* ActivityIndicatorOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */; };
+		EB0765B921C21E3800144FC5 /* ActivityIndicatorOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */; };
 		EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF6215B526A005E9654 /* AppDelegate.swift */; };
 		EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* MainViewController.swift */; };
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 		83591755A88A63D56EDB2E97 /* Pods-ActivityReceiver.iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ActivityReceiver.iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ActivityReceiver.iOS/Pods-ActivityReceiver.iOS.release.xcconfig"; sourceTree = "<group>"; };
 		EB05204D216C9C0900940214 /* WordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordItem.swift; sourceTree = "<group>"; };
 		EB05204F216C9C4200940214 /* WordItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordItem.xib; sourceTree = "<group>"; };
+		EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityIndicatorOverlayView.xib; sourceTree = "<group>"; };
+		EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorOverlayView.swift; sourceTree = "<group>"; };
 		EB0F5CF3215B526A005E9654 /* ActivityReceiver.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityReceiver.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F5CF6215B526A005E9654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0F5CF8215B526A005E9654 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 		EBB5EBCA2186E99000460F66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */,
+				EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */,
 				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
 				EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */,
 				EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */,
@@ -329,6 +335,7 @@
 				EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */,
 				EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */,
 				EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */,
+				EB0765B721C21E2200144FC5 /* ActivityIndicatorOverlayView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +402,7 @@
 				EBF9C1A02190532100321174 /* ExerciseListItemTableViewCell.swift in Sources */,
 				EBE8B95A218ACEB80093E466 /* AssignmentResultTableView.swift in Sources */,
 				EB72C20A21B773A600C616C6 /* ActivityFrameDTO.swift in Sources */,
+				EB0765B921C21E3800144FC5 /* ActivityIndicatorOverlayView.swift in Sources */,
 				EBFC7C982193D9BB006323FC /* AssignmentQuestionViewModel.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
 				EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */,

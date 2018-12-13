@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import UIView_draggable
 import Alamofire
+import NVActivityIndicatorView
 import CoreMotion
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController{
 
     // Exercise's ID
     var exerciseID:Int = 0
@@ -54,6 +54,9 @@ class MainViewController: UIViewController {
     // AlertController
     var alertDialog:UIAlertController?
     
+    // NVActivityIndicatorView
+    var activityIndicatorOverlayView:ActivityIndicatorOverlayView?
+    
     // Outlets
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
@@ -73,6 +76,10 @@ class MainViewController: UIViewController {
         alertDialog = UIAlertController(title: "確認", message: "今の解答でよろしいですか?", preferredStyle: .alert)
         alertDialog!.addAction(UIAlertAction(title: "はい", style:.default, handler: alertActionHandler(alertAction:)))
         alertDialog!.addAction(UIAlertAction(title: "いいえ", style:.cancel, handler: alertActionHandler(alertAction:)))
+        
+        // ActivityIndicatorOverlayView
+        activityIndicatorOverlayView = ActivityIndicatorOverlayView()
+        activityIndicatorOverlayView?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         
         // Acceleration
         if(motionManager.isAccelerometerAvailable){
@@ -450,10 +457,13 @@ class MainViewController: UIViewController {
         
         let params = SubmitQuestionAnswerPostViewModel(questionDetail: assignmentQuestionVM!,resolution:getResoultion(),movementDTOs: movementDTOCollection,deviceAccelerationDTOs:deviceAccelerationDTOCollection, answer: content, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
         
+        showActivityIndicatorOverlay()
         
         Alamofire.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
+                
+                self.hideActivityIndicatorOverlay()
                 
                 switch(response.result){
                     
@@ -509,6 +519,14 @@ class MainViewController: UIViewController {
         
         //
         self.present(alertDialog!, animated: true, completion: nil)
+    }
+    
+    private func showActivityIndicatorOverlay(){
+        view.addSubview(activityIndicatorOverlayView!)
+        view.bringSubview(toFront: activityIndicatorOverlayView!)
+    }
+    private func hideActivityIndicatorOverlay(){
+        activityIndicatorOverlayView?.removeFromSuperview()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
