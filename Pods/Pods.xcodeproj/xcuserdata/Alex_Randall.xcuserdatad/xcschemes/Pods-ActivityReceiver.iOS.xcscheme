@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93A8FA0359010353EF5944DDD6C8E1D5"
+               BlueprintIdentifier = "6DAA8CF8D88129713798A3DE6DC73073"
                BuildableName = "Pods_ActivityReceiver_iOS.framework"
                BlueprintName = "Pods-ActivityReceiver.iOS"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "93A8FA0359010353EF5944DDD6C8E1D5"
+            BlueprintIdentifier = "6DAA8CF8D88129713798A3DE6DC73073"
             BuildableName = "Pods_ActivityReceiver_iOS.framework"
             BlueprintName = "Pods-ActivityReceiver.iOS"
             ReferencedContainer = "container:Pods.xcodeproj">

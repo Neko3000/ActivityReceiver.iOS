@@ -7,7 +7,7 @@ target 'ActivityReceiver.iOS' do
 
   # Pods for ActivityReceiver.iOS
 
-  pod 'UIView+draggable'
   pod 'Alamofire'
-
+  pod 'NVActivityIndicatorView'
+  
 end

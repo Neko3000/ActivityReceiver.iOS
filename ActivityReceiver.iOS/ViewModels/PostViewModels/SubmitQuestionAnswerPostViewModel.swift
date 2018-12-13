@@ -17,14 +17,17 @@ class SubmitQuestionAnswerPostViewModel{
     var division:String = ""
     var answerDivision:String = ""
     
+    var resolution:String = ""
+    
     var answer:String = ""
     
     var startDate:String = ""
     var endDate:String = ""
     
     var movementDTOs:[[String:Any]] = [[String:Any]]()
+    var deviceAccelerationDTOs:[[String:Any]]  = [[String:Any]] ()
     
-    init(questionDetail:AssignmentQuestionViewModel,movementDTOs:[MovementDTO],answer:String,startDate:Date,endDate:Date) {
+    init(questionDetail:AssignmentQuestionViewModel,resolution:String,movementDTOs:[MovementDTO],deviceAccelerationDTOs:[DeviceAccelerationDTO] ,answer:String,startDate:Date,endDate:Date) {
         self.assignmentRecordID = questionDetail.assignmentRecordID
         
         self.sentenceEN = questionDetail.sentenceEN
@@ -32,12 +35,15 @@ class SubmitQuestionAnswerPostViewModel{
         self.division = questionDetail.division
         self.answerDivision = questionDetail.answerDivision
         
+        self.resolution = resolution
+        
         self.answer = answer
         
         self.startDate = DateConverter.convertToStandardDateString(date: startDate)
         self.endDate = DateConverter.convertToStandardDateString(date: endDate)
         
         self.movementDTOs = DictionaryHandler.convertToDictonaryArray(objectArray: movementDTOs)
+        self.deviceAccelerationDTOs = DictionaryHandler.convertToDictonaryArray(objectArray: deviceAccelerationDTOs)
     }
     
     public func toDictionary() -> [String:Any]{
@@ -50,12 +56,14 @@ class SubmitQuestionAnswerPostViewModel{
             "sentenceJP":sentenceJP,
             "division":division,
             "answerDivision":answerDivision,
+            "resolution":resolution,
             
             "answer":answer,
             "startDate":startDate,
             "endDate":endDate,
             
-            "movementDTOs":movementDTOs
+            "movementDTOs":movementDTOs,
+            "deviceAccelerationDTOs":deviceAccelerationDTOs,
         ]
         
         return dict

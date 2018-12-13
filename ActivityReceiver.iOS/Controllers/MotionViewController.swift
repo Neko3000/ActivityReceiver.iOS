@@ -7,13 +7,51 @@
 //
 
 import UIKit
+import CoreMotion
 
 class MotionViewController: UIViewController {
+    
+    let motionManager = CMMotionManager()
 
+    @IBOutlet weak var vectorX: UILabel!
+    @IBOutlet weak var vectorY: UILabel!
+    @IBOutlet weak var vectorZ: UILabel!
+    
+    var timer:Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if(motionManager.isAccelerometerAvailable){
+            motionManager.accelerometerUpdateInterval = 0.2
+            
+            motionManager.startAccelerometerUpdates()
+            //motionManager.startAccelerometerUpdates(to:OperationQueue.current!,withHandler:updateAccelerometer)
+            
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
+        
+    }
+    
+    func updateAccelerometer(accelData: CMAccelerometerData?, errorOC: Error?){
+    
+        var joke = accelData!.acceleration.x
+        
+        vectorX.text = String(format: "%06f", accelData!.acceleration.x)
+        vectorY.text = String(format: "%06f", accelData!.acceleration.y)
+        vectorZ.text = String(format: "%06f", accelData!.acceleration.z)
+        
+    }
+    
+    @objc func updateData(){
+        
+        vectorX.text = String(format: "%06f", motionManager.accelerometerData!.acceleration.x)
+        vectorY.text = String(format: "%06f", motionManager.accelerometerData!.acceleration.y)
+        vectorZ.text = String(format: "%06f", motionManager.accelerometerData!.acceleration.z)
+        
     }
     
 

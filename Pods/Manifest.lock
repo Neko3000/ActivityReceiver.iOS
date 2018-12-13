@@ -1,20 +1,22 @@
 PODS:
   - Alamofire (4.6.0)
-  - "UIView+draggable (1.1.0)"
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
 
 DEPENDENCIES:
   - Alamofire
-  - "UIView+draggable"
+  - NVActivityIndicatorView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - "UIView+draggable"
+    - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  "UIView+draggable": ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
 
-PODFILE CHECKSUM: bede37aa03c927691afa5c4ce3dd2e7b887bacec
+PODFILE CHECKSUM: f23325214993ec63ae258f90f5b355ca72f38eec
 
 COCOAPODS: 1.5.3
