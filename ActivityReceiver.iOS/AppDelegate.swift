@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func configureAlamofire() {
+        Alamofire.SessionManager.default.session.configuration.timeoutIntervalForRequest = 15 // in seconds
+        Alamofire.SessionManager.default.session.configuration.timeoutIntervalForResource = 15 // in seconds
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        configureAlamofire()
          
         return true
     }

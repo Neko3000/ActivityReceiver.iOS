@@ -14,18 +14,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainViewController.sampling():MainViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "items">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "closure #1 in LoginViewController.loginSubmit(_:):LoginViewController.swift">
       </ContextState>
       <ContextState
          contextName = "ResultTableView.layoutSubviews():ResultTableView.swift">
          <PersistentStrings>
             <PersistentString
                value = "test">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MainViewController.submitQuestionAnswer():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.response?.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -55,6 +58,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MainViewController.sampling():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in AssignmentResultViewController.loadAssignmentResult():AssignmentResultViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -69,9 +80,6 @@
                value = "assignmentResultViewModel!.accuracyRate">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in LoginViewController.loginSubmit(_:):LoginViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

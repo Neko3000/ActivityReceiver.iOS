@@ -13,7 +13,7 @@ class DateConverter{
     public static func convertToStandardDateString(date:Date) -> String{
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         
         return dateFormatter.string(from: date)
     }

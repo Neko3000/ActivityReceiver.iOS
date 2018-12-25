@@ -37,6 +37,7 @@
 		EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51C62185D8F5001E9448 /* OutlineView.swift */; };
 		EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */; };
 		EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */; };
+		EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA705421CA3665007DDD9D /* AlamofireManager.swift */; };
 		EBE8B95A218ACEB80093E466 /* AssignmentResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */; };
 		EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */; };
 		EBE8B965218BF91E0093E466 /* ResultHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */; };
@@ -90,6 +91,7 @@
 		EBCA51C62185D8F5001E9448 /* OutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
 		EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunctionListItemView.xib; sourceTree = "<group>"; };
 		EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionListItemView.swift; sourceTree = "<group>"; };
+		EBDA705421CA3665007DDD9D /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultTableView.swift; sourceTree = "<group>"; };
 		EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			children = (
 				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
 				EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */,
+				EBDA705421CA3665007DDD9D /* AlamofireManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */,
 				EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */,
 				EBE8B967218BFABB0093E466 /* AssignmentResultViewController.swift in Sources */,
+				EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */,
 				EB137632218ED08900B9FF02 /* MovementDTO.swift in Sources */,
 				EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */,
 				EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */,

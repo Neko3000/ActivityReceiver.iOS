@@ -459,7 +459,7 @@ class MainViewController: UIViewController{
         
         showActivityIndicatorOverlay()
         
-        Alamofire.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+        AlamofireManager.sharedSessionManager.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
                 
