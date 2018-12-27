@@ -137,7 +137,7 @@ class MainViewController: UIViewController{
             ]
         
         // Request data from remote server
-        Alamofire.request("http://118.25.44.137/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
                 
@@ -459,7 +459,7 @@ class MainViewController: UIViewController{
         
         showActivityIndicatorOverlay()
         
-        AlamofireManager.sharedSessionManager.request("http://118.25.44.137/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
                 

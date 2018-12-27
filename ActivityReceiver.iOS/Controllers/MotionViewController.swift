@@ -37,9 +37,7 @@ class MotionViewController: UIViewController {
     }
     
     func updateAccelerometer(accelData: CMAccelerometerData?, errorOC: Error?){
-    
-        var joke = accelData!.acceleration.x
-        
+            
         vectorX.text = String(format: "%06f", accelData!.acceleration.x)
         vectorY.text = String(format: "%06f", accelData!.acceleration.y)
         vectorZ.text = String(format: "%06f", accelData!.acceleration.z)

@@ -28,6 +28,7 @@
 		EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */; };
 		EB83514F21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */; };
 		EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */; };
+		EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */; };
 		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
 		EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */; };
 		EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD32186EA9300460F66 /* XibUIView.swift */; };
@@ -82,6 +83,7 @@
 		EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionAnswerPostViewModel.swift; sourceTree = "<group>"; };
 		EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDictionaryProtocols.swift; sourceTree = "<group>"; };
 		EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHandler.swift; sourceTree = "<group>"; };
+		EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceManager.swift; sourceTree = "<group>"; };
 		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ActivityReceiver.iOS/SketchShadow.swift; sourceTree = SOURCE_ROOT; };
 		EBB5EBD32186EA9300460F66 /* XibUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIView.swift; sourceTree = "<group>"; };
@@ -187,9 +189,9 @@
 		EBB5EBCA2186E99000460F66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
 				EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */,
 				EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */,
-				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
 				EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */,
 				EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */,
 				EBF9C19F2190532100321174 /* ExerciseListItemTableViewCell.xib */,
@@ -228,6 +230,7 @@
 				EB28F9862182CD5C004DC1A9 /* UserInfo.swift */,
 				EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */,
 				EBDA705421CA3665007DDD9D /* AlamofireManager.swift */,
+				EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */,
 				EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
+				EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */,
 				EBB5EBD62186EB2400460F66 /* ReshapableImageView.swift in Sources */,

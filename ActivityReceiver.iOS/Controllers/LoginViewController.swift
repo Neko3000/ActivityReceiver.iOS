@@ -67,7 +67,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 "Authorization": "Bearer " + loadedUserInfo.token,
                 ]
             
-            Alamofire.request("http://118.25.44.137/UserToken/Authorize", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
+            AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/UserToken/Authorize", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
                 response in
                 
                 switch(response.result){
@@ -105,7 +105,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             "password":password ?? ""
         ]
 
-        Alamofire.request("http://118.25.44.137/UserToken/GetToken", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/UserToken/GetToken", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
             {
                 response in
                 

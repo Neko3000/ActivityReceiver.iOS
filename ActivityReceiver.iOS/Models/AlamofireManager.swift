@@ -10,9 +10,14 @@ import Foundation
 import Alamofire
 
 class AlamofireManager{
+    
     static let sharedSessionManager: Alamofire.SessionManager = {
+        
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 120
+        // Timeout in 180s
+        configuration.timeoutIntervalForRequest = 180
+        
         return Alamofire.SessionManager(configuration: configuration)
     }()
+    
 }

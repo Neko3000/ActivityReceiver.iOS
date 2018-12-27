@@ -68,7 +68,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             "password":password ?? ""
         ]
         
-        Alamofire.request("http://118.25.44.137/UserToken/Register", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
+        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/UserToken/Register", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler:
             {
                 response in
                 

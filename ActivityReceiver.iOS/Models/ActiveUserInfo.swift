@@ -10,6 +10,8 @@ import Foundation
 
 class ActiveUserInfo{
     
+    // Single-Skeleton for UserInfo
+    
     private static var username:String = ""
     private static var token:String = ""
     
