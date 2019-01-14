@@ -30,6 +30,8 @@ class MainViewController: UIViewController{
     // 20 time per second
     var samplingFrequency:Int = 20
     
+    var isTappingNow:Bool = false
+    
     var movementDTOQueue = [MovementDTO]()
     var movementDTOCollection = [MovementDTO]()
     var movementDTOCollectionCurrentIndex:Int = 0
@@ -120,9 +122,11 @@ class MainViewController: UIViewController{
     
     @objc private func samplingHandler(){
         
-        storeMovementDTO()
-        storeDeviceAcceleration()
-
+        if(isTappingNow){
+            storeMovementDTO()
+            storeDeviceAcceleration()
+        }
+        
         updateTime()
     }
     
@@ -398,6 +402,8 @@ class MainViewController: UIViewController{
             
             addMovementDTOToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
             
+            isTappingNow = true
+            
             break;
             
         case .changed:
@@ -430,6 +436,8 @@ class MainViewController: UIViewController{
             //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
             
             addMovementDTOToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
+            
+            isTappingNow = false
             
             break;
         
