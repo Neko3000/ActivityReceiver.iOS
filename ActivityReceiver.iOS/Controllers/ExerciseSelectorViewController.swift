@@ -44,7 +44,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
             "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
-        Alamofire.request(RemoteServiceManager.domain + "/Question/GetExerciseList", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
+        Alamofire.request(RemoteServiceManager.domain + "/MobileApplication/GetExerciseList", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: {
             response in
             
             switch(response.result){
@@ -92,7 +92,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
                 "exerciseID":exerciseDetail.id,
                 ]
             
-            Alamofire.request(RemoteServiceManager.domain + "/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+            Alamofire.request(RemoteServiceManager.domain + "/MobileApplication/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
                 {
                     response in
                     

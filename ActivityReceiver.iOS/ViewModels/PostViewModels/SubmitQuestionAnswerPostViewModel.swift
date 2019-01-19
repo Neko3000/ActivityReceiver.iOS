@@ -15,35 +15,35 @@ class SubmitQuestionAnswerPostViewModel{
     var sentenceEN:String = ""
     var sentenceJP:String = ""
     var division:String = ""
-    var answerDivision:String = ""
+    var standardAnswerDivision:String = ""
     
     var resolution:String = ""
     
-    var answer:String = ""
+    var answerDivision:String = ""
     
     var startDate:String = ""
     var endDate:String = ""
     
-    var movementDTOs:[[String:Any]] = [[String:Any]]()
-    var deviceAccelerationDTOs:[[String:Any]]  = [[String:Any]] ()
+    var movementCollection:[[String:Any]] = [[String:Any]]()
+    var deviceAccelerationCollection:[[String:Any]]  = [[String:Any]] ()
     
-    init(questionDetail:AssignmentQuestionViewModel,resolution:String,movementDTOs:[MovementDTO],deviceAccelerationDTOs:[DeviceAccelerationDTO] ,answer:String,startDate:Date,endDate:Date) {
+    init(questionDetail:AssignmentQuestionViewModel,resolution:String,movementCollection:[Movement],deviceAccelerationCollection:[DeviceAcceleration] ,answerDivision:String,startDate:Date,endDate:Date) {
         self.assignmentRecordID = questionDetail.assignmentRecordID
         
         self.sentenceEN = questionDetail.sentenceEN
         self.sentenceJP = questionDetail.sentenceJP
         self.division = questionDetail.division
-        self.answerDivision = questionDetail.answerDivision
+        self.standardAnswerDivision = questionDetail.standardAnswerDivision
         
         self.resolution = resolution
         
-        self.answer = answer
+        self.answerDivision = answerDivision
         
         self.startDate = DateConverter.convertToStandardDateString(date: startDate)
         self.endDate = DateConverter.convertToStandardDateString(date: endDate)
         
-        self.movementDTOs = DictionaryHandler.convertToDictonaryArray(objectArray: movementDTOs)
-        self.deviceAccelerationDTOs = DictionaryHandler.convertToDictonaryArray(objectArray: deviceAccelerationDTOs)
+        self.movementCollection = DictionaryHandler.convertToDictonaryArray(objectArray: movementCollection)
+        self.deviceAccelerationCollection = DictionaryHandler.convertToDictonaryArray(objectArray: deviceAccelerationCollection)
     }
     
     public func toDictionary() -> [String:Any]{
@@ -55,15 +55,15 @@ class SubmitQuestionAnswerPostViewModel{
             "sentenceEN":sentenceEN,
             "sentenceJP":sentenceJP,
             "division":division,
-            "answerDivision":answerDivision,
+            "standardAnswerDivision":standardAnswerDivision,
             "resolution":resolution,
             
-            "answer":answer,
+            "answerDivision":answerDivision,
             "startDate":startDate,
             "endDate":endDate,
             
-            "movementDTOs":movementDTOs,
-            "deviceAccelerationDTOs":deviceAccelerationDTOs,
+            "movementCollection":movementCollection,
+            "deviceAccelerationCollection":deviceAccelerationCollection,
         ]
         
         return dict

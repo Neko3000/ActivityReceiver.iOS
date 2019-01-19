@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovementDTO:ObjectToDictionary{
+class Movement:ObjectToDictionary{
     
     public var index:Int = 0
     public var state:Int = 0
@@ -32,7 +32,7 @@ class MovementDTO:ObjectToDictionary{
     
     public func toDictionary() -> [String:Any] {
         
-        let movementDTODict:[String:Any] = [
+        let dict:[String:Any] = [
             
             "index":index,
             "state":state,
@@ -42,6 +42,6 @@ class MovementDTO:ObjectToDictionary{
             "yPosition":yPosition
         ]
         
-        return movementDTODict
+        return dict
     }
 }

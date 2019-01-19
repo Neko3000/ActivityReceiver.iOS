@@ -12,15 +12,15 @@ class ActivityFrameDTO:ObjectToDictionary{
     
     public var index:Int = 0
     public var time:Int = 0
-    public var movementDTO:MovementDTO?
-    public var deviceAccelerationDTO:DeviceAccelerationDTO?
+    public var movement:Movement?
+    public var deviceAcceleration:DeviceAcceleration?
     
-    init(index:Int,time:Int,movementDTO:MovementDTO,deviceAccelerationDTO:DeviceAccelerationDTO) {
+    init(index:Int,time:Int,movement:Movement,deviceAcceleration:DeviceAcceleration) {
         
         self.index = index
         self.time = time
-        self.movementDTO = movementDTO
-        self.deviceAccelerationDTO = deviceAccelerationDTO
+        self.movement = movement
+        self.deviceAcceleration = deviceAcceleration
     }
     
     public func toDictionary() -> [String:Any] {
@@ -29,8 +29,8 @@ class ActivityFrameDTO:ObjectToDictionary{
             
             "index":index,
             "time":time,
-            "movementDTO":movementDTO?.toDictionary() ?? "",
-            "deviceAccelerationDTO":deviceAccelerationDTO?.toDictionary() ?? "",
+            "movement":movement?.toDictionary() ?? "",
+            "deviceAcceleration":deviceAcceleration?.toDictionary() ?? "",
             ]
         
         return dict

@@ -17,12 +17,12 @@
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
-		EB137632218ED08900B9FF02 /* MovementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137631218ED08900B9FF02 /* MovementDTO.swift */; };
+		EB137632218ED08900B9FF02 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137631218ED08900B9FF02 /* Movement.swift */; };
 		EB137634218ED34500B9FF02 /* MovementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137633218ED34500B9FF02 /* MovementState.swift */; };
 		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
 		EB72C20621B75D4900C616C6 /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20521B75D4900C616C6 /* MotionViewController.swift */; };
-		EB72C20821B772F100C616C6 /* DeviceAccelerationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20721B772F100C616C6 /* DeviceAccelerationDTO.swift */; };
+		EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20721B772F100C616C6 /* DeviceAcceleration.swift */; };
 		EB72C20A21B773A600C616C6 /* ActivityFrameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20921B773A600C616C6 /* ActivityFrameDTO.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
 		EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */; };
@@ -72,12 +72,12 @@
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB137631218ED08900B9FF02 /* MovementDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementDTO.swift; sourceTree = "<group>"; };
+		EB137631218ED08900B9FF02 /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		EB137633218ED34500B9FF02 /* MovementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementState.swift; sourceTree = "<group>"; };
 		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
 		EB72C20521B75D4900C616C6 /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
-		EB72C20721B772F100C616C6 /* DeviceAccelerationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAccelerationDTO.swift; sourceTree = "<group>"; };
+		EB72C20721B772F100C616C6 /* DeviceAcceleration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAcceleration.swift; sourceTree = "<group>"; };
 		EB72C20921B773A600C616C6 /* ActivityFrameDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFrameDTO.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionAnswerPostViewModel.swift; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EB36F18021ECAC220031CED7 /* Enums */,
 				EBF9C1A4219174F500321174 /* DataTransferObjects */,
 				EBB5EBCD2186E9B000460F66 /* Functions */,
 				EBB5EBCC2186E9A700460F66 /* Models */,
@@ -176,6 +177,14 @@
 				EB0F5D02215B526C005E9654 /* Info.plist */,
 			);
 			path = ActivityReceiver.iOS;
+			sourceTree = "<group>";
+		};
+		EB36F18021ECAC220031CED7 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EB137633218ED34500B9FF02 /* MovementState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		EB83514921B64EB800E9FD16 /* PostViewModels */ = {
@@ -243,7 +252,6 @@
 				EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */,
 				EBB5EBD72186EB2B00460F66 /* SegueBehaviorObject.swift */,
 				EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */,
-				EB137633218ED34500B9FF02 /* MovementState.swift */,
 				EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */,
 				EBFC7C9D2196A6AB006323FC /* DateConverter.swift */,
 				EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */,
@@ -267,8 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				EB72C20921B773A600C616C6 /* ActivityFrameDTO.swift */,
-				EB137631218ED08900B9FF02 /* MovementDTO.swift */,
-				EB72C20721B772F100C616C6 /* DeviceAccelerationDTO.swift */,
+				EB137631218ED08900B9FF02 /* Movement.swift */,
+				EB72C20721B772F100C616C6 /* DeviceAcceleration.swift */,
 			);
 			path = DataTransferObjects;
 			sourceTree = "<group>";
@@ -431,13 +439,13 @@
 				EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */,
 				EBE8B967218BFABB0093E466 /* AssignmentResultViewController.swift in Sources */,
 				EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */,
-				EB137632218ED08900B9FF02 /* MovementDTO.swift in Sources */,
+				EB137632218ED08900B9FF02 /* Movement.swift in Sources */,
 				EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */,
 				EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
 				EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */,
 				EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */,
-				EB72C20821B772F100C616C6 /* DeviceAccelerationDTO.swift in Sources */,
+				EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */,
 				EB72C20621B75D4900C616C6 /* MotionViewController.swift in Sources */,
 				EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DeviceAccelerationDTO:ObjectToDictionary{
+class DeviceAcceleration:ObjectToDictionary{
     
     public var index:Int = 0
     

@@ -32,12 +32,12 @@ class MainViewController: UIViewController{
     
     var isTappingNow:Bool = false
     
-    var movementDTOQueue = [MovementDTO]()
-    var movementDTOCollection = [MovementDTO]()
-    var movementDTOCollectionCurrentIndex:Int = 0
+    var movementQueue = [Movement]()
+    var movementCollection = [Movement]()
+    var movementCollectionCurrentIndex:Int = 0
     
-    var deviceAccelerationDTOCollection = [DeviceAccelerationDTO]()
-    var deviceAccelerationDTOCollectionCurrentIndex:Int = 0
+    var deviceAccelerationCollection = [DeviceAcceleration]()
+    var deviceAccelerationCollectionCurrentIndex:Int = 0
     
     
     // This factor records the original position value of pointer in the UIView(WordItem)
@@ -123,7 +123,7 @@ class MainViewController: UIViewController{
     @objc private func samplingHandler(){
         
         if(isTappingNow){
-            storeMovementDTO()
+            storeMovement()
             storeDeviceAcceleration()
         }
         
@@ -141,7 +141,7 @@ class MainViewController: UIViewController{
             ]
         
         // Request data from remote server
-        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/Question/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/MobileApplication/GetNextQuestion", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
                 
@@ -276,11 +276,11 @@ class MainViewController: UIViewController{
         
         wordItems.removeAll()
         
-        movementDTOCollection.removeAll()
-        movementDTOCollectionCurrentIndex = 0
+        movementCollection.removeAll()
+        movementCollectionCurrentIndex = 0
         
-        deviceAccelerationDTOCollection.removeAll()
-        deviceAccelerationDTOCollectionCurrentIndex = 0
+        deviceAccelerationCollection.removeAll()
+        deviceAccelerationCollectionCurrentIndex = 0
     }
     
     // These functions are related to order number
@@ -337,34 +337,34 @@ class MainViewController: UIViewController{
         let accelerationY:Float = Float(motionManager.accelerometerData?.acceleration.y ?? 0)
         let accelerationZ:Float = Float(motionManager.accelerometerData?.acceleration.z ?? 0)
         
-        deviceAccelerationDTOCollection.append(DeviceAccelerationDTO(index:deviceAccelerationDTOCollectionCurrentIndex, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
+        deviceAccelerationCollection.append(DeviceAcceleration(index:deviceAccelerationCollectionCurrentIndex, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
         
-        deviceAccelerationDTOCollectionCurrentIndex += 1
+        deviceAccelerationCollectionCurrentIndex += 1
     }
     
-    private func storeMovementDTO(){
+    private func storeMovement(){
         
-        if(movementDTOQueue.isEmpty){
+        if(movementQueue.isEmpty){
             return
         }
         
-        for i in 0...movementDTOQueue.count - 1{
+        for i in 0...movementQueue.count - 1{
             
-            if(i == 0 || movementDTOQueue[i].state != MovementState.tapSingleMove.rawValue){
+            if(i == 0 || movementQueue[i].state != MovementState.tapSingleMove.rawValue){
                 
-                movementDTOCollection.append(movementDTOQueue[i])
+                movementCollection.append(movementQueue[i])
             }
         }
         
-        movementDTOQueue.removeAll()
+        movementQueue.removeAll()
     }
     
-    private func addMovementDTOToQueue(position:CGPoint,movementState:MovementState,targetElement:Int){
+    private func addMovementToQueue(position:CGPoint,movementState:MovementState,targetElement:Int){
         
-        let movementDTO = MovementDTO(index: movementDTOCollectionCurrentIndex, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
-        movementDTOCollectionCurrentIndex += 1
+        let movement = Movement(index: movementCollectionCurrentIndex, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
+        movementCollectionCurrentIndex += 1
         
-        movementDTOQueue.append(movementDTO)
+        movementQueue.append(movement)
     }
         
     // WordItem's dragging behavior
@@ -400,7 +400,7 @@ class MainViewController: UIViewController{
             
             //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
             
-            addMovementDTOToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
+            addMovementToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
             
             isTappingNow = true
             
@@ -420,7 +420,7 @@ class MainViewController: UIViewController{
             
             //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:currentWordItem.index)
             
-            addMovementDTOToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:currentWordItem.index)
+            addMovementToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:currentWordItem.index)
             
             break;
             
@@ -435,7 +435,7 @@ class MainViewController: UIViewController{
             
             //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
             
-            addMovementDTOToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
+            addMovementToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
             
             isTappingNow = false
             
@@ -463,11 +463,15 @@ class MainViewController: UIViewController{
             "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
-        let params = SubmitQuestionAnswerPostViewModel(questionDetail: assignmentQuestionVM!,resolution:getResoultion(),movementDTOs: movementDTOCollection,deviceAccelerationDTOs:deviceAccelerationDTOCollection, answer: content, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
+        let params = SubmitQuestionAnswerPostViewModel(questionDetail: assignmentQuestionVM!,resolution:getResoultion(),movementCollection: movementCollection,deviceAccelerationCollection:deviceAccelerationCollection, answerDivision: content, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
         
         showActivityIndicatorOverlay()
         
-        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/Question/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
+//        for i in 0...movementCollection.count - 1{
+//            print("index:\(movementCollection[i].index),targetElement:\(movementCollection[i].targetElement),state:\(movementCollection[i].state ),time:\(movementCollection[i].time)")
+//        }
+        
+        AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/MobileApplication/SubmitQuestionAnswer", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
                 response in
                 

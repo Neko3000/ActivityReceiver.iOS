@@ -32,7 +32,7 @@ class AssignmentResultViewController: UIViewController {
             "exerciseID":exerciseID,
             ]
         
-        Alamofire.request(RemoteServiceManager.domain + "/Question/GetAssignmentResult", method: .post, parameters: parameters, encoding: JSONEncoding.default,headers:headers).responseJSON(completionHandler:{
+        Alamofire.request(RemoteServiceManager.domain + "/MobileApplication/GetAssignmentResult", method: .post, parameters: parameters, encoding: JSONEncoding.default,headers:headers).responseJSON(completionHandler:{
                 response in
                         
                 switch(response.result){

@@ -15,7 +15,7 @@ class AssignmentQuestionViewModel:ObjectFromDictionary{
     public var sentenceEN:String = ""
     public var sentenceJP:String = ""
     public var division:String = ""
-    public var answerDivision:String = ""
+    public var standardAnswerDivision:String = ""
     
     public var currentNumber:Int = 0
     
@@ -27,7 +27,7 @@ class AssignmentQuestionViewModel:ObjectFromDictionary{
         self.sentenceEN = sentenceEN
         self.sentenceJP = sentenceJP
         self.division = division
-        self.answerDivision = answerDivision
+        self.standardAnswerDivision = answerDivision
         
         self.currentNumber = currentNumber
     }
@@ -44,7 +44,7 @@ class AssignmentQuestionViewModel:ObjectFromDictionary{
         self.sentenceEN = dict["sentenceEN"] as! String
         self.sentenceJP = dict["sentenceJP"] as! String
         self.division = dict["division"] as! String
-        self.answerDivision = dict["answerDivision"] as! String
+        self.standardAnswerDivision = dict["standardAnswerDivision"] as! String
         
         self.currentNumber = dict["currentNumber"] as! Int
     }
