@@ -61,4 +61,12 @@ class WordItem: XibUIView {
         
     }
     
+    // For group selection
+    public func toActive(){
+        backgroundView.backgroundColor = UIColor(named: "NormalAquamarine")!
+    }
+    
+    public func cancelActive(){
+        backgroundView.backgroundColor = UIColor(named: "HeavyTurquoise")!
+    }
 }

@@ -13,7 +13,7 @@
 		EB0765B721C21E2200144FC5 /* ActivityIndicatorOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */; };
 		EB0765B921C21E3800144FC5 /* ActivityIndicatorOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */; };
 		EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF6215B526A005E9654 /* AppDelegate.swift */; };
-		EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* MainViewController.swift */; };
+		EB0F5CF9215B526A005E9654 /* DoAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* DoAssignmentViewController.swift */; };
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
@@ -39,6 +39,7 @@
 		EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */; };
 		EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */; };
 		EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA705421CA3665007DDD9D /* AlamofireManager.swift */; };
+		EBE224CF21F2F0A700B4C160 /* RectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */; };
 		EBE8B95A218ACEB80093E466 /* AssignmentResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */; };
 		EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */; };
 		EBE8B965218BF91E0093E466 /* ResultHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */; };
@@ -67,7 +68,7 @@
 		EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorOverlayView.swift; sourceTree = "<group>"; };
 		EB0F5CF3215B526A005E9654 /* ActivityReceiver.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityReceiver.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F5CF6215B526A005E9654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB0F5CF8215B526A005E9654 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EB0F5CF8215B526A005E9654 /* DoAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAssignmentViewController.swift; sourceTree = "<group>"; };
 		EB0F5CFB215B526A005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FunctionListItemView.xib; sourceTree = "<group>"; };
 		EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionListItemView.swift; sourceTree = "<group>"; };
 		EBDA705421CA3665007DDD9D /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectSelectionView.swift; sourceTree = "<group>"; };
 		EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultTableView.swift; sourceTree = "<group>"; };
 		EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBE224CD21F2F05800B4C160 /* Components */,
 				EB36F18021ECAC220031CED7 /* Enums */,
 				EBF9C1A4219174F500321174 /* DataTransferObjects */,
 				EBB5EBCD2186E9B000460F66 /* Functions */,
@@ -225,7 +228,7 @@
 				EB822701217CA79A003C01D7 /* LoginViewController.swift */,
 				EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */,
 				EBB5EBD92186EB7C00460F66 /* UserCenterViewController.swift */,
-				EB0F5CF8215B526A005E9654 /* MainViewController.swift */,
+				EB0F5CF8215B526A005E9654 /* DoAssignmentViewController.swift */,
 				EBE8B966218BFABB0093E466 /* AssignmentResultViewController.swift */,
 				EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */,
 				EB72C20521B75D4900C616C6 /* MotionViewController.swift */,
@@ -258,6 +261,14 @@
 				EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		EBE224CD21F2F05800B4C160 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		EBE8B96E218C1BD70093E466 /* ViewModels */ = {
@@ -420,12 +431,13 @@
 				EBFC7C982193D9BB006323FC /* AssignmentQuestionViewModel.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
 				EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */,
-				EB0F5CF9215B526A005E9654 /* MainViewController.swift in Sources */,
+				EB0F5CF9215B526A005E9654 /* DoAssignmentViewController.swift in Sources */,
 				EBB5EBD82186EB2B00460F66 /* SegueBehaviorObject.swift in Sources */,
 				EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */,
 				EBCA51C72185D8F5001E9448 /* OutlineView.swift in Sources */,
 				EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
+				EBE224CF21F2F0A700B4C160 /* RectSelectionView.swift in Sources */,
 				EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */,

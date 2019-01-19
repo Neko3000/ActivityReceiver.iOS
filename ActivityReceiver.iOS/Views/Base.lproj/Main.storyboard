@@ -189,7 +189,6 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="left-arrow-white"/>
                                 <connections>
-                                    <action selector="nextQuestionBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fyi-g8-PgB"/>
                                     <segue destination="eqv-xQ-0eL" kind="show" identifier="RegisterToLogin" id="0Zr-WD-mOJ"/>
                                 </connections>
                             </button>
@@ -257,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="-621.13943028485767" y="1927.2"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Do Assignment View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ActivityReceiver_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DoAssignmentViewController" customModule="ActivityReceiver_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

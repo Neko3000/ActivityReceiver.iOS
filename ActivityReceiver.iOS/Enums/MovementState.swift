@@ -10,13 +10,19 @@ import Foundation
 
 enum MovementState:Int{
     
-    // Cases here are for single WordItem tapped behaviors
+    // Cases for the behavoir tapping single WordItem
     case tapSingleBegin = 0
     case tapSingleMove = 1
     case tapSingleEnd = 2
     
-    // Cases here are for grouping WordItem tapped behaviors
-    case tapGroupBegin = 3
-    case tapGroupMove = 4
-    case tapGroupEnd = 5
+    // Cases for the behavior making group for multiple WordItem
+    case makeGroupBegin = 3
+    case makeGroupMove = 4
+    case makeGroupEnd = 5
+    
+    // Cases for the behavior tapping multiple WordItem when they are selected
+    case tapGroupBegin = 6
+    case tapGroupMove = 7
+    case tapGroupEnd = 8
+    
 }

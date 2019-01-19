@@ -11,7 +11,7 @@ import Alamofire
 import NVActivityIndicatorView
 import CoreMotion
 
-class MainViewController: UIViewController{
+class DoAssignmentViewController: UIViewController{
 
     // Exercise's ID
     var exerciseID:Int = 0
@@ -32,21 +32,22 @@ class MainViewController: UIViewController{
     
     var isTappingNow:Bool = false
     
-    var movementQueue = [Movement]()
     var movementCollection = [Movement]()
     var movementCollectionCurrentIndex:Int = 0
     
     var deviceAccelerationCollection = [DeviceAcceleration]()
     var deviceAccelerationCollectionCurrentIndex:Int = 0
     
-    
     // This factor records the original position value of pointer in the UIView(WordItem)
     // It will be used in panGesetureRecongnizerHandler function
-    var pointerBeganPositionInWordItem:CGPoint?
+    var pointerTapSingleBeganPositionInWordItem:CGPoint?
+    
+    // Grouping
+    var pointerMakeGroupBeganPositionInMainView:CGPoint?
+    var pointerTapGroupBeganPositionInRectSelectionView:CGPoint?
     
     // Timer
     var timer:Timer?
-    var lastRecordMillisecondTime:Int = 0
     var currentMillisecondTime:Int = 0
     
     // Date
@@ -58,6 +59,18 @@ class MainViewController: UIViewController{
     
     // NVActivityIndicatorView
     var activityIndicatorOverlayView:ActivityIndicatorOverlayView?
+    
+    // GroupSelectionView
+    var rectSelectionView:RectSelectionView?
+    
+    // GroupBehaviorRecongnizer
+    var makeGroupBehaviorPanGestureRecongnizer:UIPanGestureRecognizer?
+    var tapGroupBehaviorPanGestureReconginzer:UIPanGestureRecognizer?
+    // For cancel
+    var mainViewTapGestureReconginzer:UITapGestureRecognizer?
+    
+    // Operation State
+    var isGroupingNow:Bool = false
     
     // Outlets
     @IBOutlet weak var mainView: UIView!
@@ -78,6 +91,25 @@ class MainViewController: UIViewController{
         alertDialog = UIAlertController(title: "確認", message: "今の解答でよろしいですか?", preferredStyle: .alert)
         alertDialog!.addAction(UIAlertAction(title: "はい", style:.default, handler: alertActionHandler(alertAction:)))
         alertDialog!.addAction(UIAlertAction(title: "いいえ", style:.cancel, handler: alertActionHandler(alertAction:)))
+        
+        // RectSelectionView
+        rectSelectionView = RectSelectionView()
+        //mainView.addSubview(rectSelectionView!)
+        
+        // MakeGroupBehaviorPanGestureRecongnizer
+        makeGroupBehaviorPanGestureRecongnizer = UIPanGestureRecognizer(target: self, action: #selector(makeGroupBehaviorPanGestureRecongnizerHandler(recongnizer:)))
+        mainView.addGestureRecognizer(makeGroupBehaviorPanGestureRecongnizer!)
+        mainView.isUserInteractionEnabled = true
+        
+        // TapGroupBehaviorPanGestureRecongnizer
+        tapGroupBehaviorPanGestureReconginzer = UIPanGestureRecognizer(target: self, action: #selector(tapGroupBehaviorPanGestureRecongnizerHandler(recongnizer:)))
+        rectSelectionView!.addGestureRecognizer(tapGroupBehaviorPanGestureReconginzer!)
+        rectSelectionView!.isUserInteractionEnabled = true
+        
+        // MainViewTapGestureReconginzer
+        mainViewTapGestureReconginzer = UITapGestureRecognizer(target: self, action: #selector(mainViewTapGestureRecongnizerHandler(recongnizer:)))
+        mainView.addGestureRecognizer(mainViewTapGestureReconginzer!)
+        mainView.isUserInteractionEnabled = true
         
         // ActivityIndicatorOverlayView
         activityIndicatorOverlayView = ActivityIndicatorOverlayView()
@@ -123,7 +155,8 @@ class MainViewController: UIViewController{
     @objc private func samplingHandler(){
         
         if(isTappingNow){
-            storeMovement()
+            
+            // StoreMovement is handled by gesture
             storeDeviceAcceleration()
         }
         
@@ -209,7 +242,7 @@ class MainViewController: UIViewController{
 
             wordItems.append(singleWordItem)
             
-            singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandler(recongnizer:))))
+            singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(tapSingleBehaviorPanGestureRecongnizerHandler(recongnizer:))))
             singleWordItem.isUserInteractionEnabled = true
             
         }
@@ -342,36 +375,30 @@ class MainViewController: UIViewController{
         deviceAccelerationCollectionCurrentIndex += 1
     }
     
-    private func storeMovement(){
+    private func storeMovement(position:CGPoint,movementState:MovementState,targetElement:Int){
         
-        if(movementQueue.isEmpty){
-            return
-        }
-        
-        for i in 0...movementQueue.count - 1{
+        if(!movementCollection.isEmpty){
             
-            if(i == 0 || movementQueue[i].state != MovementState.tapSingleMove.rawValue){
-                
-                movementCollection.append(movementQueue[i])
+            if(movementState == .tapSingleMove && currentMillisecondTime >= movementCollection.last!.time + 1000/samplingFrequency ){
+                return
             }
         }
         
-        movementQueue.removeAll()
+
+        let movement = Movement(index: movementCollectionCurrentIndex, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
+        
+        movementCollection.append(movement)
+        movementCollectionCurrentIndex += 1
+    
     }
     
-    private func addMovementToQueue(position:CGPoint,movementState:MovementState,targetElement:Int){
-        
-        let movement = Movement(index: movementCollectionCurrentIndex, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
-        movementCollectionCurrentIndex += 1
-        
-        movementQueue.append(movement)
-    }
+    
         
     // WordItem's dragging behavior
-    @objc private func panGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+    @objc private func tapSingleBehaviorPanGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
         
-        // Get CurrentWordItem
-        let currentWordItem = recongnizer.view as! WordItem
+        // Get triggered view
+        let triggeredView = recongnizer.view as! WordItem
         
         switch recongnizer.state {
             
@@ -386,21 +413,23 @@ class MainViewController: UIViewController{
             
         case .began:
             
-            // Record the current position in the tapped WordItem
-            pointerBeganPositionInWordItem = recongnizer.location(in: recongnizer.view)
+            // If RectSelection exists, cancel it
+            rectSelectionView!.cancelAction()
+            rectSelectionView!.removeFromSuperview()
             
-            // auto
+            
+            // Record the current position in the tapped WordItem
+            pointerTapSingleBeganPositionInWordItem = recongnizer.location(in: triggeredView)
+            
+            // Auto
             generateAnswer()
             
             // UI
             generateOrderNumber()
             showOrderNumberForWordItems()
             
-            // Create a new MovementDTO and push it into the array
-            
-            //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
-            
-            addMovementToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:currentWordItem.index)
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:triggeredView.index)
             
             isTappingNow = true
             
@@ -410,17 +439,19 @@ class MainViewController: UIViewController{
             
             // Get finger's current postion in mainView
             let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
-            let triggeredViewSize = currentWordItem.frame.size
+            let triggeredViewSize = triggeredView.frame.size
             
             // Adjust the postion of WordItem
-            currentWordItem.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
+            triggeredView.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerTapSingleBeganPositionInWordItem!.x, y: pointerCurrentPositionInMainView.y - pointerTapSingleBeganPositionInWordItem!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
             
-            //
+            // Auto
+            generateAnswer()
+            
+            // UI
             generateOrderNumber()
             
-            //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:currentWordItem.index)
-            
-            addMovementToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:currentWordItem.index)
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:triggeredView.index)
             
             break;
             
@@ -432,10 +463,9 @@ class MainViewController: UIViewController{
             // UI
             generateOrderNumber()
             hideOrderNumberForWordItems()
-            
-            //createMovementDTO(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
-            
-            addMovementToQueue(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:currentWordItem.index)
+
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:triggeredView.index)
             
             isTappingNow = false
             
@@ -447,10 +477,207 @@ class MainViewController: UIViewController{
         
     }
     
+    // Make group selection's behavior
+    @objc private func makeGroupBehaviorPanGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+        
+        switch recongnizer.state {
+            
+        case .began:
+            
+            // If RectSelection exists, cancel it
+            rectSelectionView!.cancelAction()
+            rectSelectionView!.removeFromSuperview()
+            
+            // RectSelectionView
+            mainView.addSubview(rectSelectionView!)
+            rectSelectionView?.layer.zPosition = 1
+            rectSelectionView!.show()
+            
+            // Record the current position in the tapped WordItem
+            pointerMakeGroupBeganPositionInMainView = recongnizer.location(in: mainView)
+            
+            // Auto
+            generateAnswer()
+            
+            // UI
+            generateOrderNumber()
+            showOrderNumberForWordItems()
+            
+            // Selection
+            rectSelectionView!.selectWordItem(wordItemCollection: wordItems)
+            
+            isTappingNow = true
+            
+            break;
+            
+        case .changed:
+            
+            // Get finger's current postion in mainView
+            let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
+            
+            // Set RectSelectionView's frame
+            let rect = CGRect(x:min(pointerMakeGroupBeganPositionInMainView!.x, pointerCurrentPositionInMainView.x),
+                              y:min(pointerMakeGroupBeganPositionInMainView!.y, pointerCurrentPositionInMainView.y),
+                              width:fabs(pointerMakeGroupBeganPositionInMainView!.x - pointerCurrentPositionInMainView.x),
+                              height:fabs(pointerMakeGroupBeganPositionInMainView!.y - pointerCurrentPositionInMainView.y));
+            
+            rectSelectionView!.setFrame(rect: rect)
+            
+            // Selection
+            rectSelectionView!.selectWordItem(wordItemCollection: wordItems)
+ 
+            // Auto
+            generateAnswer()
+            
+            // UI
+            generateOrderNumber()
+            
+            break;
+            
+        case .ended:
+            
+            // Selection
+            rectSelectionView!.selectWordItem(wordItemCollection: wordItems)
+            
+            if(rectSelectionView!.isEmptySelection){
+                
+                rectSelectionView!.cancelAction()
+                rectSelectionView!.removeFromSuperview()
+            }
+            
+            rectSelectionView!.hide()
+            
+            print(rectSelectionView!.generateSelectedTargetElementIndexString())
+            
+            // Auto
+            generateAnswer()
+            
+            // UI
+            generateOrderNumber()
+            hideOrderNumberForWordItems()
+            
+            
+            isTappingNow = false
+            
+            break;
+            
+        default:
+            break;
+        }
+        
+    }
+    
+    // Tap group selection's behavior
+    @objc private func tapGroupBehaviorPanGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+        
+        // Get triggered view
+        let triggeredView = recongnizer.view as! RectSelectionView
+        
+        switch recongnizer.state {
+            
+        case .began:
+            
+            // Record the current position in the tapped WordItem
+            pointerTapGroupBeganPositionInRectSelectionView = recongnizer.location(in: triggeredView)
+            
+            // Auto
+            generateAnswer()
+            
+            // UI
+            generateOrderNumber()
+            showOrderNumberForWordItems()
+            
+            isTappingNow = true
+            
+            break;
+            
+        case .changed:
+            
+            // Get finger's current postion in mainView
+            let pointerCurrentPositionInMainView = recongnizer.location(in: mainView)
+            let triggeredViewSize = triggeredView.frame.size
+            
+            // Get original position
+            let orgRectSelectionViewRect = triggeredView.frame
+            
+            // Adjust the postion of RectSelectionView
+            triggeredView.frame = CGRect(x: pointerCurrentPositionInMainView.x - pointerTapGroupBeganPositionInRectSelectionView!.x, y: pointerCurrentPositionInMainView.y - pointerTapGroupBeganPositionInRectSelectionView!.y, width: triggeredViewSize.width, height: triggeredViewSize.height)
+            
+            // Get destnation position
+            let destRectSelectionViewRect = triggeredView.frame
+            
+            // Get offset(moved)
+            let offsetX = destRectSelectionViewRect.minX - orgRectSelectionViewRect.minX
+            let offsetY = destRectSelectionViewRect.minY - orgRectSelectionViewRect.minY
+            
+            // Set selectedWordItems' frames
+            rectSelectionView!.adjustSelectedWordItem(offsetX: offsetX, offsetY: offsetY)
+            
+            // Auto
+            generateAnswer()
+            
+            // UI
+            generateOrderNumber()
+            
+            break;
+            
+        case .ended:
+            
+            // RectSelectionView
+            rectSelectionView!.cancelAction()
+            rectSelectionView!.removeFromSuperview()
+            
+            print("tapGroupEnd")
+            
+            // Auto
+            generateAnswer()
+            
+            // UI
+            generateOrderNumber()
+            hideOrderNumberForWordItems()
+            
+            isTappingNow = false
+            
+            break;
+            
+        default:
+            break;
+        }
+        
+    }
+    
+    // Tap on mainView
+    @objc private func mainViewTapGestureRecongnizerHandler(recongnizer:UITapGestureRecognizer){
+        
+        switch recongnizer.state {
+            
+        case .began:
+            
+            break;
+            
+        case .changed:
+
+            break;
+            
+        case .ended:
+            
+            // Cancel selection
+            rectSelectionView!.cancelAction()
+            rectSelectionView!.removeFromSuperview()
+            
+            break;
+            
+        default:
+            break;
+        }
+        
+    }
+    
+    
     private func getResoultion()->String{
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
-                
+        
         return "\(width)x\(height)"
     }
     

@@ -149,7 +149,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
         
         // Fill data in question for MainViewController
         if(segue.identifier == "BeginToDoAssignment"){
-            let dest = segue.destination as! MainViewController
+            let dest = segue.destination as! DoAssignmentViewController
             
             dest.exerciseID = selectedExerciseDetail?.id ?? 0
             dest.assignmentQuestionVM = assignmentQuestionVM
