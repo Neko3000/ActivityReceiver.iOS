@@ -30,13 +30,9 @@ class DoAssignmentViewController: UIViewController{
     // 20 time per second
     var samplingFrequency:Int = 20
     
-    var isTappingNow:Bool = false
-    
+    // Store
     var movementCollection = [Movement]()
-    var movementCollectionCurrentIndex:Int = 0
-    
     var deviceAccelerationCollection = [DeviceAcceleration]()
-    var deviceAccelerationCollectionCurrentIndex:Int = 0
     
     // This factor records the original position value of pointer in the UIView(WordItem)
     // It will be used in panGesetureRecongnizerHandler function
@@ -70,6 +66,7 @@ class DoAssignmentViewController: UIViewController{
     var mainViewTapGestureReconginzer:UITapGestureRecognizer?
     
     // Operation State
+    var isTappingNow:Bool = false
     var isGroupingNow:Bool = false
     
     // Outlets
@@ -97,17 +94,17 @@ class DoAssignmentViewController: UIViewController{
         //mainView.addSubview(rectSelectionView!)
         
         // MakeGroupBehaviorPanGestureRecongnizer
-        makeGroupBehaviorPanGestureRecongnizer = UIPanGestureRecognizer(target: self, action: #selector(makeGroupBehaviorPanGestureRecongnizerHandler(recongnizer:)))
+        makeGroupBehaviorPanGestureRecongnizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandlerForMainView(recongnizer:)))
         mainView.addGestureRecognizer(makeGroupBehaviorPanGestureRecongnizer!)
         mainView.isUserInteractionEnabled = true
         
         // TapGroupBehaviorPanGestureRecongnizer
-        tapGroupBehaviorPanGestureReconginzer = UIPanGestureRecognizer(target: self, action: #selector(tapGroupBehaviorPanGestureRecongnizerHandler(recongnizer:)))
+        tapGroupBehaviorPanGestureReconginzer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandlerForRectSelectionView(recongnizer:)))
         rectSelectionView!.addGestureRecognizer(tapGroupBehaviorPanGestureReconginzer!)
         rectSelectionView!.isUserInteractionEnabled = true
         
         // MainViewTapGestureReconginzer
-        mainViewTapGestureReconginzer = UITapGestureRecognizer(target: self, action: #selector(mainViewTapGestureRecongnizerHandler(recongnizer:)))
+        mainViewTapGestureReconginzer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecongnizerHandlerForMainView(recongnizer:)))
         mainView.addGestureRecognizer(mainViewTapGestureReconginzer!)
         mainView.isUserInteractionEnabled = true
         
@@ -156,7 +153,7 @@ class DoAssignmentViewController: UIViewController{
         
         if(isTappingNow){
             
-            // StoreMovement is handled by gesture
+            // StoreMovement is handled by gestureReconginzer
             storeDeviceAcceleration()
         }
         
@@ -242,7 +239,7 @@ class DoAssignmentViewController: UIViewController{
 
             wordItems.append(singleWordItem)
             
-            singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(tapSingleBehaviorPanGestureRecongnizerHandler(recongnizer:))))
+            singleWordItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGestureRecongnizerHandlerForWordItem(recongnizer:))))
             singleWordItem.isUserInteractionEnabled = true
             
         }
@@ -310,22 +307,19 @@ class DoAssignmentViewController: UIViewController{
         wordItems.removeAll()
         
         movementCollection.removeAll()
-        movementCollectionCurrentIndex = 0
-        
         deviceAccelerationCollection.removeAll()
-        deviceAccelerationCollectionCurrentIndex = 0
     }
     
     // These functions are related to order number
     // Show/Hide order numbers when user is tapping on WordItem
     func showOrderNumberForWordItems(){
-        for index in 0...wordItems.count - 1 {
+        for index in 0..<wordItems.count{
             wordItems[index].showOrderNumber()
         }
     }
     
     func hideOrderNumberForWordItems(){
-        for index in 0...wordItems.count - 1 {
+        for index in 0..<wordItems.count{
             wordItems[index].hideOrderNumber()
         }
     }
@@ -334,7 +328,7 @@ class DoAssignmentViewController: UIViewController{
     func generateOrderNumber(){
         let sortedWordItems = wordItems.sorted(by: { $0.frame.minX < $1.frame.minX })
         
-        for index in 0...sortedWordItems.count - 1 {
+        for index in 0..<sortedWordItems.count{
             sortedWordItems[index].orderNumberLabel.text = String(index + 1)
         }
 
@@ -347,7 +341,7 @@ class DoAssignmentViewController: UIViewController{
         // Sort WordItems by their x-postion
         let sortedWordItems = wordItems.sorted(by: { $0.frame.minX < $1.frame.minX })
         
-        for index in 0...sortedWordItems.count - 1{
+        for index in 0..<sortedWordItems.count{
             
             if(index == 0){
                 answer += sortedWordItems[index].textLabel.text!
@@ -370,32 +364,27 @@ class DoAssignmentViewController: UIViewController{
         let accelerationY:Float = Float(motionManager.accelerometerData?.acceleration.y ?? 0)
         let accelerationZ:Float = Float(motionManager.accelerometerData?.acceleration.z ?? 0)
         
-        deviceAccelerationCollection.append(DeviceAcceleration(index:deviceAccelerationCollectionCurrentIndex, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
-        
-        deviceAccelerationCollectionCurrentIndex += 1
+        deviceAccelerationCollection.append(DeviceAcceleration(index:deviceAccelerationCollection.count, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
     }
     
-    private func storeMovement(position:CGPoint,movementState:MovementState,targetElement:Int){
+    private func storeMovement(position:CGPoint,movementState:MovementState,targetElement:String){
         
         if(!movementCollection.isEmpty){
             
-            if(movementState == .tapSingleMove && currentMillisecondTime >= movementCollection.last!.time + 1000/samplingFrequency ){
+            if((movementState == .dragSingleMove || movementState == .dragGroupMove) && currentMillisecondTime >= movementCollection.last!.time + 1000/samplingFrequency ){
                 return
             }
         }
         
-
-        let movement = Movement(index: movementCollectionCurrentIndex, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
+        let movement = Movement(index: movementCollection.count, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y))
         
         movementCollection.append(movement)
-        movementCollectionCurrentIndex += 1
-    
     }
     
     
         
     // WordItem's dragging behavior
-    @objc private func tapSingleBehaviorPanGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+    @objc private func panGestureRecongnizerHandlerForWordItem(recongnizer:UIPanGestureRecognizer){
         
         // Get triggered view
         let triggeredView = recongnizer.view as! WordItem
@@ -417,7 +406,6 @@ class DoAssignmentViewController: UIViewController{
             rectSelectionView!.cancelAction()
             rectSelectionView!.removeFromSuperview()
             
-            
             // Record the current position in the tapped WordItem
             pointerTapSingleBeganPositionInWordItem = recongnizer.location(in: triggeredView)
             
@@ -429,7 +417,7 @@ class DoAssignmentViewController: UIViewController{
             showOrderNumberForWordItems()
             
             // Store
-            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleBegin,targetElement:triggeredView.index)
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.dragSingleBegin,targetElement:String(triggeredView.index))
             
             isTappingNow = true
             
@@ -451,7 +439,7 @@ class DoAssignmentViewController: UIViewController{
             generateOrderNumber()
             
             // Store
-            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleMove,targetElement:triggeredView.index)
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.dragSingleMove,targetElement:String(triggeredView.index))
             
             break;
             
@@ -465,7 +453,7 @@ class DoAssignmentViewController: UIViewController{
             hideOrderNumberForWordItems()
 
             // Store
-            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.tapSingleEnd,targetElement:triggeredView.index)
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.dragSingleEnd,targetElement:String(triggeredView.index))
             
             isTappingNow = false
             
@@ -478,11 +466,13 @@ class DoAssignmentViewController: UIViewController{
     }
     
     // Make group selection's behavior
-    @objc private func makeGroupBehaviorPanGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+    @objc private func panGestureRecongnizerHandlerForMainView(recongnizer:UIPanGestureRecognizer){
         
         switch recongnizer.state {
             
         case .began:
+            
+            // No need to store "CancelGroup" Movement
             
             // If RectSelection exists, cancel it
             rectSelectionView!.cancelAction()
@@ -505,6 +495,9 @@ class DoAssignmentViewController: UIViewController{
             
             // Selection
             rectSelectionView!.selectWordItem(wordItemCollection: wordItems)
+
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.makeGroupBegin,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
             
             isTappingNow = true
             
@@ -532,6 +525,9 @@ class DoAssignmentViewController: UIViewController{
             // UI
             generateOrderNumber()
             
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.makeGroupMove,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
+            
             break;
             
         case .ended:
@@ -556,6 +552,8 @@ class DoAssignmentViewController: UIViewController{
             generateOrderNumber()
             hideOrderNumberForWordItems()
             
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.makeGroupEnd,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
             
             isTappingNow = false
             
@@ -568,7 +566,7 @@ class DoAssignmentViewController: UIViewController{
     }
     
     // Tap group selection's behavior
-    @objc private func tapGroupBehaviorPanGestureRecongnizerHandler(recongnizer:UIPanGestureRecognizer){
+    @objc private func panGestureRecongnizerHandlerForRectSelectionView(recongnizer:UIPanGestureRecognizer){
         
         // Get triggered view
         let triggeredView = recongnizer.view as! RectSelectionView
@@ -586,6 +584,9 @@ class DoAssignmentViewController: UIViewController{
             // UI
             generateOrderNumber()
             showOrderNumberForWordItems()
+            
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.dragGroupBegin,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
             
             isTappingNow = true
             
@@ -619,6 +620,9 @@ class DoAssignmentViewController: UIViewController{
             // UI
             generateOrderNumber()
             
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.dragGroupMove,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
+            
             break;
             
         case .ended:
@@ -627,14 +631,15 @@ class DoAssignmentViewController: UIViewController{
             rectSelectionView!.cancelAction()
             rectSelectionView!.removeFromSuperview()
             
-            print("tapGroupEnd")
-            
             // Auto
             generateAnswer()
             
             // UI
             generateOrderNumber()
             hideOrderNumberForWordItems()
+            
+            // Store
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.dragGroupEnd,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
             
             isTappingNow = false
             
@@ -647,19 +652,20 @@ class DoAssignmentViewController: UIViewController{
     }
     
     // Tap on mainView
-    @objc private func mainViewTapGestureRecongnizerHandler(recongnizer:UITapGestureRecognizer){
+    @objc private func tapGestureRecongnizerHandlerForMainView(recongnizer:UITapGestureRecognizer){
         
         switch recongnizer.state {
             
         case .began:
-            
             break;
             
         case .changed:
-
             break;
             
         case .ended:
+            
+            // Store the Movement if user cancel the group initiatively
+            storeMovement(position: recongnizer.location(in: mainView), movementState: MovementState.cancelGroup,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString())
             
             // Cancel selection
             rectSelectionView!.cancelAction()

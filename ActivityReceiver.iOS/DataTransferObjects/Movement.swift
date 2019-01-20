@@ -12,13 +12,13 @@ class Movement:ObjectToDictionary{
     
     public var index:Int = 0
     public var state:Int = 0
-    public var targetElement:Int = 0
+    public var targetElement:String = ""
     public var time:Int = 0
     
     public var xPosition:Int = 0
     public var yPosition:Int = 0
     
-    init(index:Int,state:Int,targetElement:Int,time:Int,xPosition:Int,yPosition:Int) {
+    init(index:Int,state:Int,targetElement:String,time:Int,xPosition:Int,yPosition:Int) {
         
         self.index = index
         self.state = state
