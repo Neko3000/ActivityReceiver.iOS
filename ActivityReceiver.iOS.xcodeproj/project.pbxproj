@@ -17,6 +17,8 @@
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
+		EB12EA4521F88D4300C34B6A /* ConfusionDegreeSurveyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB12EA4421F88D4300C34B6A /* ConfusionDegreeSurveyView.xib */; };
+		EB12EA4921F88DA100C34B6A /* ConfusionDegreeSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB12EA4821F88DA100C34B6A /* ConfusionDegreeSurveyView.swift */; };
 		EB137632218ED08900B9FF02 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137631218ED08900B9FF02 /* Movement.swift */; };
 		EB137634218ED34500B9FF02 /* MovementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137633218ED34500B9FF02 /* MovementState.swift */; };
 		EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F9862182CD5C004DC1A9 /* UserInfo.swift */; };
@@ -29,6 +31,8 @@
 		EB83514F21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */; };
 		EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */; };
 		EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */; };
+		EB9B1D6621F98094005EFEE0 /* ConfusionElementSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B1D6521F98094005EFEE0 /* ConfusionElementSurveyView.swift */; };
+		EB9B1D6821F980A2005EFEE0 /* ConfusionElementSurveyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9B1D6721F980A2005EFEE0 /* ConfusionElementSurveyView.xib */; };
 		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
 		EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */; };
 		EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD32186EA9300460F66 /* XibUIView.swift */; };
@@ -73,6 +77,8 @@
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB12EA4421F88D4300C34B6A /* ConfusionDegreeSurveyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfusionDegreeSurveyView.xib; sourceTree = "<group>"; };
+		EB12EA4821F88DA100C34B6A /* ConfusionDegreeSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfusionDegreeSurveyView.swift; sourceTree = "<group>"; };
 		EB137631218ED08900B9FF02 /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		EB137633218ED34500B9FF02 /* MovementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementState.swift; sourceTree = "<group>"; };
 		EB28F9862182CD5C004DC1A9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -85,6 +91,8 @@
 		EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDictionaryProtocols.swift; sourceTree = "<group>"; };
 		EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHandler.swift; sourceTree = "<group>"; };
 		EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceManager.swift; sourceTree = "<group>"; };
+		EB9B1D6521F98094005EFEE0 /* ConfusionElementSurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfusionElementSurveyView.swift; sourceTree = "<group>"; };
+		EB9B1D6721F980A2005EFEE0 /* ConfusionElementSurveyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfusionElementSurveyView.xib; sourceTree = "<group>"; };
 		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ActivityReceiver.iOS/SketchShadow.swift; sourceTree = SOURCE_ROOT; };
 		EBB5EBD32186EA9300460F66 /* XibUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIView.swift; sourceTree = "<group>"; };
@@ -267,6 +275,10 @@
 			isa = PBXGroup;
 			children = (
 				EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */,
+				EB12EA4421F88D4300C34B6A /* ConfusionDegreeSurveyView.xib */,
+				EB12EA4821F88DA100C34B6A /* ConfusionDegreeSurveyView.swift */,
+				EB9B1D6721F980A2005EFEE0 /* ConfusionElementSurveyView.xib */,
+				EB9B1D6521F98094005EFEE0 /* ConfusionElementSurveyView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -352,8 +364,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9B1D6821F980A2005EFEE0 /* ConfusionElementSurveyView.xib in Resources */,
 				EBF9C1A12190532100321174 /* ExerciseListItemTableViewCell.xib in Resources */,
 				EBE8B965218BF91E0093E466 /* ResultHeaderTableViewCell.xib in Resources */,
+				EB12EA4521F88D4300C34B6A /* ConfusionDegreeSurveyView.xib in Resources */,
 				EBE8B96B218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib in Resources */,
 				EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */,
 				EB052050216C9C4200940214 /* WordItem.xib in Resources */,
@@ -438,6 +452,7 @@
 				EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
 				EBE224CF21F2F0A700B4C160 /* RectSelectionView.swift in Sources */,
+				EB9B1D6621F98094005EFEE0 /* ConfusionElementSurveyView.swift in Sources */,
 				EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
 				EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */,
@@ -459,6 +474,7 @@
 				EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */,
 				EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */,
 				EB72C20621B75D4900C616C6 /* MotionViewController.swift in Sources */,
+				EB12EA4921F88DA100C34B6A /* ConfusionDegreeSurveyView.swift in Sources */,
 				EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -291,33 +291,54 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="賢い人は探すより機会を作るのだ。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnP-b4-jhl">
-                                        <rect key="frame" x="205.5" y="30" width="256" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                        <rect key="frame" x="203" y="30" width="261.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" name="NormalGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gde-4Z-eNx">
+                                        <rect key="frame" x="10" y="284" width="647" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="whO-JE-dIb"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gde-4Z-eNx" secondAttribute="trailing" constant="10" id="4XB-FS-GXr"/>
                                     <constraint firstItem="grN-y2-lLb" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="7KM-d9-Ctu"/>
                                     <constraint firstItem="94b-On-noq" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="FoX-kJ-1JR"/>
                                     <constraint firstAttribute="trailing" secondItem="grN-y2-lLb" secondAttribute="trailing" constant="30" id="IsI-C4-gRQ"/>
                                     <constraint firstItem="grN-y2-lLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mnP-b4-jhl" secondAttribute="trailing" constant="30" id="K3b-Xw-egF"/>
+                                    <constraint firstAttribute="bottom" secondItem="gde-4Z-eNx" secondAttribute="bottom" constant="90" id="OxG-Kw-4Ox"/>
                                     <constraint firstItem="94b-On-noq" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="65" id="PW4-4l-w1h"/>
                                     <constraint firstItem="94b-On-noq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkI-X1-JnM" secondAttribute="trailing" constant="30" id="UFD-vD-eMC"/>
+                                    <constraint firstItem="gde-4Z-eNx" firstAttribute="leading" secondItem="dks-m8-EDV" secondAttribute="leading" constant="10" id="UR6-fr-DJH"/>
                                     <constraint firstItem="JkI-X1-JnM" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="V60-9s-N6U"/>
                                     <constraint firstItem="JkI-X1-JnM" firstAttribute="leading" secondItem="dks-m8-EDV" secondAttribute="leading" constant="30" id="YPH-mo-1LR"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="baQ-gs-uQl"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkI-X1-JnM" secondAttribute="trailing" constant="30" id="bl5-km-GCh"/>
+                                    <constraint firstItem="gde-4Z-eNx" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="iFC-kw-Ybe"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="m9J-mg-WOu"/>
                                     <constraint firstItem="grN-y2-lLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="94b-On-noq" secondAttribute="trailing" constant="30" id="sU4-WS-JzM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqe-Hl-mkK" customClass="ConfusionDegreeSurveyView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
+                                <rect key="frame" x="133.5" y="65" width="400" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="lYu-RU-bqV"/>
+                                    <constraint firstAttribute="width" constant="400" id="nB2-qJ-LzB"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="cqe-Hl-mkK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3jZ-fQ-Ijx"/>
                             <constraint firstItem="dks-m8-EDV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FEz-B9-MRO"/>
                             <constraint firstItem="dks-m8-EDV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="YGK-88-Lv6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cqe-Hl-mkK" secondAttribute="bottom" constant="60" id="p7b-5U-ssf"/>
                             <constraint firstItem="dks-m8-EDV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sde-Ww-Xyu"/>
                             <constraint firstItem="dks-m8-EDV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tVt-dy-0ID"/>
                         </constraints>
@@ -325,6 +346,7 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="94b-On-noq" id="QWR-VE-PK9"/>
+                        <outlet property="confusionDegreeSurveyView" destination="cqe-Hl-mkK" id="1qb-p3-kKH"/>
                         <outlet property="mainView" destination="dks-m8-EDV" id="0CF-x3-b0t"/>
                         <outlet property="numberLabel" destination="JkI-X1-JnM" id="qH3-fI-Ybb"/>
                         <outlet property="questionLabel" destination="mnP-b4-jhl" id="Ibg-xf-A2Q"/>
@@ -333,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="668"/>
+            <point key="canvasLocation" x="1578.2608695652175" y="668"/>
         </scene>
         <!--Assignment Result View Controller-->
         <scene sceneID="ONQ-eX-b0W">

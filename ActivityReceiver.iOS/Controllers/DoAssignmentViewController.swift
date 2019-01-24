@@ -75,10 +75,15 @@ class DoAssignmentViewController: UIViewController{
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
+    @IBOutlet weak var confusionDegreeSurveyView: ConfusionDegreeSurveyView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Basic layout
+        confusionDegreeSurveyView.layer.zPosition = 1
+        confusionDegreeSurveyView.layer.applySketchShadow(color: UIColor(named: "Shadow-LightGrey")!, alpha: 0.8, x: 0, y: 10.0, blur: 30.0, spread: 0)
         //
         showQuestionInfo()
         generateWordItems()
@@ -247,6 +252,8 @@ class DoAssignmentViewController: UIViewController{
 
     private func arrangeWordItems(){
         
+        let bottomSpace:CGFloat = 100.0
+        
         let horizontalPadding:CGFloat = 10.0
         let verticalPadding:CGFloat = 10.0
         
@@ -287,7 +294,7 @@ class DoAssignmentViewController: UIViewController{
             
             for wordItemNumber in 0...lines[lineNumber].count - 1{
                 
-                lines[lineNumber][wordItemNumber].frame = CGRect(x: currentXPosition + horizontalPadding, y: containerHeight - CGFloat(lines.count - lineNumber) * (wordItemHeight + verticalPadding), width: lines[lineNumber][wordItemNumber].frame.width, height: lines[lineNumber][wordItemNumber].frame.height)
+                lines[lineNumber][wordItemNumber].frame = CGRect(x: currentXPosition + horizontalPadding, y: containerHeight - CGFloat(lines.count - lineNumber) * (wordItemHeight + verticalPadding) - bottomSpace, width: lines[lineNumber][wordItemNumber].frame.width, height: lines[lineNumber][wordItemNumber].frame.height)
 
                 
                 mainView.addSubview(lines[lineNumber][wordItemNumber])

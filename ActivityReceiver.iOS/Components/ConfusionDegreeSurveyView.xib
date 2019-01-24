@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfusionDegreeSurveyView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
+            <connections>
+                <outlet property="selectionTableView" destination="PRt-le-bN8" id="jEx-lq-RWA"/>
+                <outlet property="toNextBtn" destination="uI4-y3-aTS" id="2HL-4i-q0w"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="443" height="336"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uI4-y3-aTS">
+                    <rect key="frame" x="15" y="291" width="413" height="30"/>
+                    <color key="backgroundColor" name="HeavyTurquoise"/>
+                    <state key="normal" title="続ける">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PRt-le-bN8">
+                    <rect key="frame" x="15" y="49.5" width="413" height="221.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="迷い度の選択" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goF-GV-epb">
+                    <rect key="frame" x="172.5" y="15" width="98" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" name="NormalGrey"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PRt-le-bN8" secondAttribute="trailing" constant="15" id="5BG-4C-Vgt"/>
+                <constraint firstItem="uI4-y3-aTS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="BTm-6i-NGL"/>
+                <constraint firstItem="uI4-y3-aTS" firstAttribute="top" secondItem="PRt-le-bN8" secondAttribute="bottom" constant="20" id="EfG-gl-qdy"/>
+                <constraint firstItem="PRt-le-bN8" firstAttribute="top" secondItem="goF-GV-epb" secondAttribute="bottom" constant="15" id="KTm-l8-UCY"/>
+                <constraint firstItem="goF-GV-epb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Vsh-hf-shG"/>
+                <constraint firstItem="PRt-le-bN8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="c8r-fy-DvW"/>
+                <constraint firstItem="goF-GV-epb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="hkq-gR-csj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uI4-y3-aTS" secondAttribute="trailing" constant="15" id="lxQ-5f-5MJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uI4-y3-aTS" secondAttribute="bottom" constant="15" id="tae-TR-Mab"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="132" y="-67.466266866566727"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="HeavyTurquoise">
+            <color red="0.13333333333333333" green="0.16470588235294117" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="NormalGrey">
+            <color red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -3,6 +3,39 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ConfusionDegreeSurveyView.tableView(_:didDeselectRowAt:):ConfusionDegreeSurveyView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectionTableView!.indexPathsForSelectedRows!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AssignmentResultTableView.tableView(_:cellForRowAt:):AssignmentResultTableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "assignmentResultViewModel!.accuracyRate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.sampling():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AssignmentResultAnswerDetail.init(dict:):AssignmentResultViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginViewController.initUserState():LoginViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginViewController.loginSubmit(_:):LoginViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in MainViewController.loadWordItems():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -12,39 +45,6 @@
                value = "divisionString">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in LoginViewController.loginSubmit(_:):LoginViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ResultTableView.layoutSubviews():ResultTableView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "test">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in MainViewController.submitQuestionAnswer():MainViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "response.response?.statusCode">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "LoginViewController.initUserState():LoginViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ActiveUserInfo.userToken">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AssignmentResultAnswerDetail.init(dict:):AssignmentResultViewModel.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in LoginViewController.initUserState():LoginViewController.swift">
       </ContextState>
       <ContextState
          contextName = "MainViewController.arrangeWordItems():MainViewController.swift">
@@ -58,10 +58,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainViewController.sampling():MainViewController.swift">
+         contextName = "ResultTableView.layoutSubviews():ResultTableView.swift">
          <PersistentStrings>
             <PersistentString
-               value = "items">
+               value = "test">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.initUserState():LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ActiveUserInfo.userToken">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MainViewController.submitQuestionAnswer():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.response?.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -70,14 +86,6 @@
          <PersistentStrings>
             <PersistentString
                value = "self.assignmentResultTableView.assignmentResultViewModel">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AssignmentResultTableView.tableView(_:cellForRowAt:):AssignmentResultTableView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "assignmentResultViewModel!.accuracyRate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
