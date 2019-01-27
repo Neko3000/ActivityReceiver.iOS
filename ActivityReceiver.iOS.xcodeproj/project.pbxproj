@@ -51,6 +51,8 @@
 		EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */; };
 		EBE8B96B218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */; };
 		EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B96C218C0B9E0093E466 /* AssignmentResultViewModel.swift */; };
+		EBEE949921FD59AB00B8B677 /* InteractiveTouchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE949821FD59AB00B8B677 /* InteractiveTouchVC.swift */; };
+		EBEE949C21FD789F00B8B677 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE949B21FD789F00B8B677 /* FloatExtension.swift */; };
 		EBF9C1A02190532100321174 /* ExerciseListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */; };
 		EBF9C1A12190532100321174 /* ExerciseListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF9C19F2190532100321174 /* ExerciseListItemTableViewCell.xib */; };
 		EBF9C1A32190570E00321174 /* ExerciseListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */; };
@@ -111,6 +113,8 @@
 		EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultAnswerDetailTableViewCell.swift; sourceTree = "<group>"; };
 		EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultAnswerDetailTableViewCell.xib; sourceTree = "<group>"; };
 		EBE8B96C218C0B9E0093E466 /* AssignmentResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultViewModel.swift; sourceTree = "<group>"; };
+		EBEE949821FD59AB00B8B677 /* InteractiveTouchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTouchVC.swift; sourceTree = "<group>"; };
+		EBEE949B21FD789F00B8B677 /* FloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
 		EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListItemTableViewCell.swift; sourceTree = "<group>"; };
 		EBF9C19F2190532100321174 /* ExerciseListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseListItemTableViewCell.xib; sourceTree = "<group>"; };
 		EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListTableView.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		EB0F5CF5215B526A005E9654 /* ActivityReceiver.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBEE949A21FD788100B8B677 /* Extensions */,
+				EBEE949721FD592C00B8B677 /* Protocols */,
 				EBE224CD21F2F05800B4C160 /* Components */,
 				EB36F18021ECAC220031CED7 /* Enums */,
 				EBF9C1A4219174F500321174 /* DataTransferObjects */,
@@ -292,6 +298,22 @@
 				EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EBEE949721FD592C00B8B677 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EBEE949821FD59AB00B8B677 /* InteractiveTouchVC.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EBEE949A21FD788100B8B677 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBEE949B21FD789F00B8B677 /* FloatExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EBF9C1A4219174F500321174 /* DataTransferObjects */ = {
@@ -467,9 +489,11 @@
 				EBE8B967218BFABB0093E466 /* AssignmentResultViewController.swift in Sources */,
 				EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */,
 				EB137632218ED08900B9FF02 /* Movement.swift in Sources */,
+				EBEE949921FD59AB00B8B677 /* InteractiveTouchVC.swift in Sources */,
 				EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */,
 				EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
+				EBEE949C21FD789F00B8B677 /* FloatExtension.swift in Sources */,
 				EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */,
 				EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */,
 				EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */,

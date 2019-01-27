@@ -18,7 +18,9 @@ class Movement:ObjectToDictionary{
     public var xPosition:Int = 0
     public var yPosition:Int = 0
     
-    init(index:Int,state:Int,targetElement:String,time:Int,xPosition:Int,yPosition:Int) {
+    public var force:Float = 0
+    
+    init(index:Int,state:Int,targetElement:String,time:Int,xPosition:Int,yPosition:Int,force:Float) {
         
         self.index = index
         self.state = state
@@ -28,6 +30,8 @@ class Movement:ObjectToDictionary{
         
         self.xPosition = xPosition
         self.yPosition = yPosition
+        
+        self.force = force
     }
     
     public func toDictionary() -> [String:Any] {
@@ -39,7 +43,8 @@ class Movement:ObjectToDictionary{
             "targetElement":targetElement,
             "time":time,
             "xPosition":xPosition,
-            "yPosition":yPosition
+            "yPosition":yPosition,
+            "force":force
         ]
         
         return dict
