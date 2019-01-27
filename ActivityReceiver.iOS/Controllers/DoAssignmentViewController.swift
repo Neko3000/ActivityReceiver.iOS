@@ -364,9 +364,9 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         
         if #available(iOS 4.0, *){
             if(motionManager.isAccelerometerAvailable){
-                let accelerationX:Float = Float(motionManager.accelerometerData?.acceleration.x ?? 0)
-                let accelerationY:Float = Float(motionManager.accelerometerData?.acceleration.y ?? 0)
-                let accelerationZ:Float = Float(motionManager.accelerometerData?.acceleration.z ?? 0)
+                let accelerationX:Float = Float(motionManager.accelerometerData?.acceleration.x ?? 0).rounded(toPlaces: 5)
+                let accelerationY:Float = Float(motionManager.accelerometerData?.acceleration.y ?? 0).rounded(toPlaces: 5)
+                let accelerationZ:Float = Float(motionManager.accelerometerData?.acceleration.z ?? 0).rounded(toPlaces: 5)
                 
                 deviceAccelerationCollection.append(DeviceAcceleration(index:deviceAccelerationCollection.count, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
             }
