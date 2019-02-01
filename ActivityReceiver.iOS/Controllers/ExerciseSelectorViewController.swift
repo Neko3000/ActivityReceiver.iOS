@@ -12,7 +12,7 @@ import Alamofire
 class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
 
     //
-    var assignmentQuestionVM:AssignmentQuestionViewModel?
+    var getNextQuestionGetVM:GetNextQuestionGetViewModel?
     
     //
     var selectedExerciseDetail:ExerciseDetail?
@@ -21,7 +21,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
     var alertDialog:UIAlertController?
     
     // Outlets
-    @IBOutlet weak var exerciseListTableView: ExerciseListTableView!
+    @IBOutlet weak var exerciseSelectorExerciseListTableView: ExerciseSelectorExerciseListTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
         alertDialog!.addAction(UIAlertAction(title: "はい", style:.default, handler: alertActionHandler(alertAction:)))
         alertDialog!.addAction(UIAlertAction(title: "いいえ", style:.cancel, handler: alertActionHandler(alertAction:)))
         
-        exerciseListTableView.setFunctionExecuteTarget(target: self)
+        exerciseSelectorExerciseListTableView.setFunctionExecuteTarget(target: self)
     }
     
     private func loadExercises(){
@@ -54,8 +54,8 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
                 let dict = json as! [String:Any]
                 let exerciseDetailArray = dict["exerciseDetails"] as! NSArray
                 
-                self.exerciseListTableView.exerciseListViewModel = ExerciseListViewModel(exerciseDetails: DictionaryHandler.convertFromDictionaryArray(dictionaryArray: exerciseDetailArray))
-                self.exerciseListTableView.reloadData()
+                self.exerciseSelectorExerciseListTableView.getExerciseListGetVM = GetExerciseListGetViewModel(exerciseDetails: DictionaryHandler.convertFromDictionaryArray(dictionaryArray: exerciseDetailArray))
+                self.exerciseSelectorExerciseListTableView.reloadData()
                 
                 break
                 
@@ -100,7 +100,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
                     case .success(let json):
                         
                         let dict = json as! [String:Any]
-                        self.assignmentQuestionVM = AssignmentQuestionViewModel(dict: dict)
+                        self.getNextQuestionGetVM = GetNextQuestionGetViewModel(dict: dict)
                         
                         self.present(self.alertDialog!, animated: true, completion: nil)
                         break
@@ -152,7 +152,7 @@ class ExerciseSelectorViewController: UIViewController,FunctionExecuteTarget {
             let dest = segue.destination as! DoAssignmentViewController
             
             dest.exerciseID = selectedExerciseDetail?.id ?? 0
-            dest.assignmentQuestionVM = assignmentQuestionVM
+            dest.getNextQuestionGetVM = getNextQuestionGetVM
         }
         else if(segue.identifier == "ShowAssignmentResult"){
             let dest = segue.destination as! AssignmentResultViewController

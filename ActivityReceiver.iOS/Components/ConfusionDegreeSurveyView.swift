@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfusionDegreeSurveyView: XibUIView,UITableViewDelegate,UITableViewDataSource {
+class ConfusionDegreeSurveyView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -24,7 +24,6 @@ class ConfusionDegreeSurveyView: XibUIView,UITableViewDelegate,UITableViewDataSo
     
     // Outlets
     @IBOutlet weak var selectionTableView: UITableView!
-    @IBOutlet weak var toNextBtn: UIButton!
     
     private var isInitialized:Bool = false
     
@@ -42,6 +41,8 @@ class ConfusionDegreeSurveyView: XibUIView,UITableViewDelegate,UITableViewDataSo
             
             selectionTableView.allowsSelection = true
             selectionTableView.allowsMultipleSelection = false
+            
+            selectionTableView.separatorStyle = .none
             
             selectionTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
             

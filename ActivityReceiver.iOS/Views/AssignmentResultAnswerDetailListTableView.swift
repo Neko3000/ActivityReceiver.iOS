@@ -8,10 +8,10 @@
 
 import UIKit
 
-class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
+class AssignmentResultAnswerDetailListTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     // Data - ViewModel
-    var assignmentResultViewModel:AssignmentResultViewModel?
+    var getAssignmentResultGetVM:GetAssignmentResultGetViewModel?
 
     private var isInitialized = false
     
@@ -33,8 +33,8 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
             self.allowsSelection = false
             
             // Register custom .xib as reusable cells
-            self.register(UINib(nibName: "ResultAnswerDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultAnswerDetailTableViewCell")
-            self.register(UINib(nibName: "ResultHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultHeaderTableViewCell")
+            self.register(UINib(nibName: "AssignmentResultResultAnswerDetailListItemTableViewCell", bundle: nil), forCellReuseIdentifier: "AssignmentResultResultAnswerDetailListItemTableViewCell")
+            self.register(UINib(nibName: "AssignmentResultResultAnswerDetailListHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "AssignmentResultResultAnswerDetailListHeaderTableViewCell")
             
             // Delegates
             self.delegate = self
@@ -59,18 +59,18 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
         if(indexPath.section == 0){
             
             // Get reuseable cell
-            let specificCell = self.dequeueReusableCell(withIdentifier: "ResultHeaderTableViewCell") as! ResultHeaderTableViewCell
+            let specificCell = self.dequeueReusableCell(withIdentifier: "AssignmentResultResultAnswerDetailListHeaderTableViewCell") as! AssignmentResultResultAnswerDetailListHeaderTableViewCell
             
             // Settings
-            specificCell.accuracyRateLabel.text = "\(assignmentResultViewModel!.accuracyRate * 100)%"
+            specificCell.accuracyRateLabel.text = "\(getAssignmentResultGetVM!.accuracyRate * 100)%"
             
             cell = specificCell
         }
         else{
             
-            let specificCell = self.dequeueReusableCell(withIdentifier: "ResultAnswerDetailTableViewCell") as! ResultAnswerDetailTableViewCell
+            let specificCell = self.dequeueReusableCell(withIdentifier: "AssignmentResultResultAnswerDetailListItemTableViewCell") as! AssignmentResultResultAnswerDetailListItemTableViewCell
             
-            let currentResultAnswerDetail = assignmentResultViewModel?.assignmentResultAnswerDetails[indexPath.section - 1]
+            let currentResultAnswerDetail = getAssignmentResultGetVM?.assignmentResultAnswerDetails[indexPath.section - 1]
             specificCell.numberLabel.text = "No." + String(indexPath.section)
             specificCell.sentenceJPLabel.text = currentResultAnswerDetail?.sentenceJP
             specificCell.sentenceENLabel.text = currentResultAnswerDetail?.sentenceEN
@@ -101,8 +101,8 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
         
         if(indexPath.section != 0){
             
-            let specificCell = cell as! ResultAnswerDetailTableViewCell
-            let currentResultAnswerDetail = assignmentResultViewModel?.assignmentResultAnswerDetails[indexPath.section - 1]
+            let specificCell = cell as! AssignmentResultResultAnswerDetailListItemTableViewCell
+            let currentResultAnswerDetail = getAssignmentResultGetVM?.assignmentResultAnswerDetails[indexPath.section - 1]
             
             if(!(currentResultAnswerDetail?.isCorrect ?? false)){
                 specificCell.setCorrectnessMarkImage(image:UIImage(named: "bg-mark-wrong")!)
@@ -131,8 +131,8 @@ class AssignmentResultTableView: UITableView,UITableViewDelegate,UITableViewData
     func numberOfSections(in tableView: UITableView) -> Int {
         
         // The count of section are decieded by resultAnswerDetials which in the ViewModel
-        if(assignmentResultViewModel != nil){
-            return assignmentResultViewModel!.assignmentResultAnswerDetails.count + 1
+        if(getAssignmentResultGetVM != nil){
+            return getAssignmentResultGetVM!.assignmentResultAnswerDetails.count + 1
         }
         
         return 0

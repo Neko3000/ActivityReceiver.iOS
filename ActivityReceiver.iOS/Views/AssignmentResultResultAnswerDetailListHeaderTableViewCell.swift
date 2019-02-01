@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultHeaderTableViewCell: UITableViewCell {
+class AssignmentResultResultAnswerDetailListHeaderTableViewCell: UITableViewCell {
     
     // Outlets
     @IBOutlet weak var accuracyRateLabel: UILabel!

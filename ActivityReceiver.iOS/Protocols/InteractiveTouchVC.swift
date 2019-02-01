@@ -13,9 +13,10 @@ protocol InteractiveTouchVC {
     
     // View
     var mainView:UIView!{ get }
+    var rectSelectionView:RectSelectionView?{ get }
     
     // Selection
-    func cancelSelection()
+    func cancelSelectionAndRemove()
     
     // UI
     func generateAnswer()
@@ -27,9 +28,9 @@ protocol InteractiveTouchVC {
     func setTapState(isTappingNow:Bool)
     func setGroupState(isGroupingNow:Bool)
     
+    func getTapState()->Bool
+    func getGroupState()->Bool
+    
     // StoreMovement
     func storeMovement(position:CGPoint,movementState:MovementState,targetElement:String,force:Float)
-    
-    // Group selection - for WordItem
-    func getGroupTargetElementString() -> String
 }

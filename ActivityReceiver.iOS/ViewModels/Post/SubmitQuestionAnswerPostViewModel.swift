@@ -27,13 +27,14 @@ class SubmitQuestionAnswerPostViewModel{
     var movementCollection:[[String:Any]] = [[String:Any]]()
     var deviceAccelerationCollection:[[String:Any]]  = [[String:Any]] ()
     
-    init(questionDetail:AssignmentQuestionViewModel,resolution:String,movementCollection:[Movement],deviceAccelerationCollection:[DeviceAcceleration] ,answerDivision:String,startDate:Date,endDate:Date) {
-        self.assignmentRecordID = questionDetail.assignmentRecordID
+    init(getNextQuestionGetVM:GetNextQuestionGetViewModel,resolution:String,movementCollection:[Movement],deviceAccelerationCollection:[DeviceAcceleration] ,answerDivision:String,startDate:Date,endDate:Date) {
         
-        self.sentenceEN = questionDetail.sentenceEN
-        self.sentenceJP = questionDetail.sentenceJP
-        self.division = questionDetail.division
-        self.standardAnswerDivision = questionDetail.standardAnswerDivision
+        self.assignmentRecordID = getNextQuestionGetVM.assignmentRecordID
+        
+        self.sentenceEN = getNextQuestionGetVM.sentenceEN
+        self.sentenceJP = getNextQuestionGetVM.sentenceJP
+        self.division = getNextQuestionGetVM.division
+        self.standardAnswerDivision = getNextQuestionGetVM.standardAnswerDivision
         
         self.resolution = resolution
         

@@ -45,7 +45,7 @@ public class AssignmentResultAnswerDetail:ObjectFromDictionary
     }
 }
 
-public class AssignmentResultViewModel{
+public class GetAssignmentResultGetViewModel{
     
     public var accuracyRate:Float = 0.0
     public var assignmentResultAnswerDetails:[AssignmentResultAnswerDetail] = [AssignmentResultAnswerDetail]()

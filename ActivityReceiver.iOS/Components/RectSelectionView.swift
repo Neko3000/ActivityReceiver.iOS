@@ -134,8 +134,6 @@ class RectSelectionView: UIView {
             // Set selectedWordItems' frames
             adjustSelectedWordItem(offsetX: offsetX, offsetY: offsetY)
             
-            // Cancel selection
-            superViewController!.cancelSelection()
             
             // Auto
             superViewController!.generateAnswer()
@@ -145,10 +143,16 @@ class RectSelectionView: UIView {
             superViewController!.hideOrderNumberForWordItems()
             
             // Store
-            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleEnd,targetElement:generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragGroupEnd,targetElement:generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            
+            // Cancel selection
+            superViewController!.cancelSelectionAndRemove()
             
             // State
+            superViewController!.setGroupState(isGroupingNow: false)
             superViewController!.setTapState(isTappingNow: false)
+            
+            resetPosition()
             
             print("touch end in rectSelectionView")
         }
@@ -195,7 +199,7 @@ class RectSelectionView: UIView {
     }
     
     // Cancel selection this time
-    public func cancelAction(){
+    public func cancelSelection(){
         
         for i in 0..<selectedWordItemCollection.count{
             
@@ -203,6 +207,9 @@ class RectSelectionView: UIView {
         }
         
         selectedWordItemCollection.removeAll()
+    }
+    public func resetPosition(){
+        self.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     }
     
     // Generate selection string

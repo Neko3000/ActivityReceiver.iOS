@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataSource {
+class ConfusionElementSurveyView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -17,7 +17,7 @@ class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataS
         // Drawing code
     }
     */
-    lazy var confusionElementString: String = {
+    lazy var confusionElement: String = {
         
         if(selectionTableView!.indexPathsForSelectedRows == nil){
             return ""
@@ -43,9 +43,11 @@ class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataS
         return selectedConfusionElementString
     }()
     
+    
+    var words:[String] = [String]()
+    
     // Outlets
     @IBOutlet weak var selectionTableView: UITableView!
-    @IBOutlet weak var toNextBtn: UIButton!
     
     private var isInitialized:Bool = false
     
@@ -64,6 +66,7 @@ class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataS
             selectionTableView.allowsSelection = true
             selectionTableView.allowsMultipleSelection = true
             
+            selectionTableView.separatorStyle = .none
             selectionTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
             
             isInitialized = true
@@ -74,13 +77,13 @@ class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at:indexPath)
         
-        cell?.accessoryType = .checkmark
+        cell!.accessoryType = .checkmark
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at:indexPath)
         
-        cell?.accessoryType = .none
+        cell!.accessoryType = .none
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,7 +92,7 @@ class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return words.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -103,26 +106,26 @@ class ConfusionElementSurveyView: XibUIView,UITableViewDelegate,UITableViewDataS
         cell!.selectionStyle = .none
         cell!.textLabel!.font = UIFont(name: cell!.textLabel!.font.fontName, size: 14)
         
-        var descriptionText = ""
-        switch indexPath.row {
-        case 0:
-            descriptionText = "ほとんど迷わなかった"
-            break
-        case 1:
-            descriptionText = "少し迷った"
-            break
-        case 2:
-            descriptionText = "かなり迷った"
-            break
-        case 3:
-            descriptionText = "誤って決定ボタンを押した"
-            break
-        default:
-            break
+        cell!.textLabel!.text = words[indexPath.row]
+        
+        // Checkmark should be reset when cell is reused
+        if(selectionTableView!.indexPathsForSelectedRows != nil){
+            if(selectionTableView!.indexPathsForSelectedRows!.contains(indexPath)){
+                cell!.accessoryType = .checkmark
+            }
+            else{
+                cell!.accessoryType = .none
+            }
         }
-        cell!.textLabel!.text = descriptionText
         
         return cell!
     }
     
+    public func setWords(words:[String]){
+        self.words = words
+    }
+    public func reload(){
+        
+        selectionTableView.reloadData()
+    }
 }

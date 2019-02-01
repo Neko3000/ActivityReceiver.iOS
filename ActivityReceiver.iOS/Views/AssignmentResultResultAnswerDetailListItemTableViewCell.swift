@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultAnswerDetailTableViewCell: UITableViewCell {
+class AssignmentResultResultAnswerDetailListItemTableViewCell: UITableViewCell {
 
     // Outlets
     @IBOutlet weak var numberLabel: UILabel!

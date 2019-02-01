@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExerciseListItemTableViewCell: UITableViewCell {
+class ExerciseSelectorExerciseListItemTableViewCell: UITableViewCell {
     
     // ID
     public var id:Int = 0

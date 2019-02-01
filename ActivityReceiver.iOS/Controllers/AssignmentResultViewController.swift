@@ -13,7 +13,7 @@ class AssignmentResultViewController: UIViewController {
     var exerciseID:Int = 0
     
     // Outlets
-    @IBOutlet weak var assignmentResultTableView: AssignmentResultTableView!
+    @IBOutlet weak var assignmentResultAnswerDetailListTableView: AssignmentResultAnswerDetailListTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +41,10 @@ class AssignmentResultViewController: UIViewController {
                     
                     let dict = json as! [String:Any]
                     
-                    self.assignmentResultTableView.assignmentResultViewModel = AssignmentResultViewModel(accuracyRate: (dict["accuracyRate"] as! NSNumber).floatValue, assignmentResultAnswerDetails:
+                    self.assignmentResultAnswerDetailListTableView.getAssignmentResultGetVM = GetAssignmentResultGetViewModel(accuracyRate: (dict["accuracyRate"] as! NSNumber).floatValue, assignmentResultAnswerDetails:
                         DictionaryHandler.convertFromDictionaryArray(dictionaryArray: dict["answerDetails"] as! NSArray))
 
-                    self.assignmentResultTableView.reloadData()
+                    self.assignmentResultAnswerDetailListTableView.reloadData()
                     break
                     
                 case .failure(let json):

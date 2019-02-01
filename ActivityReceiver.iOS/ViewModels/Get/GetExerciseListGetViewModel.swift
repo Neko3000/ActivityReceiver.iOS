@@ -41,7 +41,7 @@ class ExerciseDetail:ObjectFromDictionary{
     
 }
 
-class ExerciseListViewModel{
+class GetExerciseListGetViewModel{
     
     public var exerciseDetails:[ExerciseDetail] = [ExerciseDetail]()
     

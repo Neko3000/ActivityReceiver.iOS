@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
+class ExerciseSelectorExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSource {
 
     // The reference of the ViewContrller which contains this view
     private var functionExecuteTarget:FunctionExecuteTarget?
     
     // Data - ViewModel
-    public var exerciseListViewModel:ExerciseListViewModel?
+    public var getExerciseListGetVM:GetExerciseListGetViewModel?
     
     private var isInitialized:Bool = false
 
@@ -36,7 +36,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
             //self.allowsSelection = false
             
             // Register custom .xib as reusable cells
-            self.register(UINib(nibName: "ExerciseListItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseListItemTableViewCell")
+            self.register(UINib(nibName: "ExerciseSelectorExerciseListItemTableViewCell", bundle: nil), forCellReuseIdentifier: "ExerciseSelectorExerciseListItemTableViewCell")
             
             // Delegates
             
@@ -52,12 +52,12 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
         
         var cell:UITableViewCell?
         
-        let specificCell = self.dequeueReusableCell(withIdentifier: "ExerciseListItemTableViewCell") as! ExerciseListItemTableViewCell
+        let specificCell = self.dequeueReusableCell(withIdentifier: "ExerciseSelectorExerciseListItemTableViewCell") as! ExerciseSelectorExerciseListItemTableViewCell
         
         // Z-Postion for each cell, this is for the shadows
         specificCell.layer.zPosition = CGFloat(indexPath.section)
         
-        let currentExerciseDetail = exerciseListViewModel?.exerciseDetails[indexPath.section]
+        let currentExerciseDetail = getExerciseListGetVM?.exerciseDetails[indexPath.section]
         specificCell.id = currentExerciseDetail?.id ?? 0
         specificCell.nameLabel.text = currentExerciseDetail?.name
         specificCell.descriptionLabel.text = currentExerciseDetail?.description
@@ -81,8 +81,8 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         
         // The count of section are decieded by resultAnswerDetials which in the ViewModel
-        if(exerciseListViewModel != nil){
-            return exerciseListViewModel!.exerciseDetails.count
+        if(getExerciseListGetVM != nil){
+            return getExerciseListGetVM!.exerciseDetails.count
         }
         
         return 0
@@ -111,7 +111,6 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         // Top-margin for each cell
-        
         if(section == 0){
             return 20
         }
@@ -127,7 +126,7 @@ class ExerciseListTableView: UITableView,UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        functionExecuteTarget?.executedFunction(sender: exerciseListViewModel?.exerciseDetails[indexPath.section])
+        functionExecuteTarget?.executedFunction(sender: getExerciseListGetVM?.exerciseDetails[indexPath.section])
         
     }
     

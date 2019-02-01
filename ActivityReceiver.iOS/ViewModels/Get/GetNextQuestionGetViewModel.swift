@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AssignmentQuestionViewModel:ObjectFromDictionary{
+class GetNextQuestionGetViewModel:ObjectFromDictionary{
     public var assignmentRecordID:Int = 0
     public var questionID:Int = 0
     

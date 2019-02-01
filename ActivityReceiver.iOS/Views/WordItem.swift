@@ -77,10 +77,12 @@ class WordItem: XibUIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             
-            // If RectSelection exists, cancel it
-            superViewController!.cancelSelection()
-            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.cancelGroup,targetElement:superViewController!.getGroupTargetElementString(),force: getForce(touch: touch))
-            
+            if(superViewController!.getGroupState()){
+                // If RectSelection exists, cancel it
+                superViewController!.cancelSelectionAndRemove()
+                superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.cancelGroup,targetElement:superViewController!.rectSelectionView!.generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            }
+
             // Record the current position in the tapped WordItem
             beginTouchPoint = touch.location(in: self)
             
@@ -97,7 +99,7 @@ class WordItem: XibUIView {
             // State
             superViewController!.setTapState(isTappingNow: true)
             
-            print("touch begain in wordItem - " + self.textLabel.text!)
+            print("touch begain in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
         }
         
     }
@@ -121,7 +123,7 @@ class WordItem: XibUIView {
             // Store
             superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleMove,targetElement:String(self.index),force: getForce(touch: touch))
             
-            print("touch move in wordItem - " + self.textLabel.text!)
+            print("touch move in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
         }
     }
     
@@ -149,7 +151,7 @@ class WordItem: XibUIView {
             // State
             superViewController!.setTapState(isTappingNow: false)
             
-            print("touch end in wordItem - " + self.textLabel.text!)
+            print("touch end in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
         }
         
     }

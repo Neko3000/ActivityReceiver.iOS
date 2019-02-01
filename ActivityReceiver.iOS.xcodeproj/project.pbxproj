@@ -17,7 +17,6 @@
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
 		EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFD215B526C005E9654 /* Assets.xcassets */; };
 		EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFF215B526C005E9654 /* LaunchScreen.storyboard */; };
-		EB12EA4521F88D4300C34B6A /* ConfusionDegreeSurveyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB12EA4421F88D4300C34B6A /* ConfusionDegreeSurveyView.xib */; };
 		EB12EA4921F88DA100C34B6A /* ConfusionDegreeSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB12EA4821F88DA100C34B6A /* ConfusionDegreeSurveyView.swift */; };
 		EB137632218ED08900B9FF02 /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137631218ED08900B9FF02 /* Movement.swift */; };
 		EB137634218ED34500B9FF02 /* MovementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB137633218ED34500B9FF02 /* MovementState.swift */; };
@@ -25,14 +24,12 @@
 		EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */; };
 		EB72C20621B75D4900C616C6 /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20521B75D4900C616C6 /* MotionViewController.swift */; };
 		EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20721B772F100C616C6 /* DeviceAcceleration.swift */; };
-		EB72C20A21B773A600C616C6 /* ActivityFrameDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72C20921B773A600C616C6 /* ActivityFrameDTO.swift */; };
 		EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB822701217CA79A003C01D7 /* LoginViewController.swift */; };
 		EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */; };
 		EB83514F21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */; };
 		EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */; };
 		EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */; };
 		EB9B1D6621F98094005EFEE0 /* ConfusionElementSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B1D6521F98094005EFEE0 /* ConfusionElementSurveyView.swift */; };
-		EB9B1D6821F980A2005EFEE0 /* ConfusionElementSurveyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9B1D6721F980A2005EFEE0 /* ConfusionElementSurveyView.xib */; };
 		EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */; };
 		EBB5EBD22186EA8F00460F66 /* SketchShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */; };
 		EBB5EBD42186EA9300460F66 /* XibUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB5EBD32186EA9300460F66 /* XibUIView.swift */; };
@@ -44,22 +41,23 @@
 		EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */; };
 		EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA705421CA3665007DDD9D /* AlamofireManager.swift */; };
 		EBE224CF21F2F0A700B4C160 /* RectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */; };
-		EBE8B95A218ACEB80093E466 /* AssignmentResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */; };
-		EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */; };
-		EBE8B965218BF91E0093E466 /* ResultHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */; };
+		EBE8B95A218ACEB80093E466 /* AssignmentResultAnswerDetailListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B959218ACEB80093E466 /* AssignmentResultAnswerDetailListTableView.swift */; };
+		EBE8B964218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B962218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift */; };
+		EBE8B965218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B963218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.xib */; };
 		EBE8B967218BFABB0093E466 /* AssignmentResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B966218BFABB0093E466 /* AssignmentResultViewController.swift */; };
-		EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */; };
-		EBE8B96B218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */; };
-		EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B96C218C0B9E0093E466 /* AssignmentResultViewModel.swift */; };
+		EBE8B96A218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B968218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.swift */; };
+		EBE8B96B218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8B969218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.xib */; };
+		EBE8B96D218C0B9E0093E466 /* GetAssignmentResultGetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8B96C218C0B9E0093E466 /* GetAssignmentResultGetViewModel.swift */; };
 		EBEE949921FD59AB00B8B677 /* InteractiveTouchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE949821FD59AB00B8B677 /* InteractiveTouchVC.swift */; };
 		EBEE949C21FD789F00B8B677 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE949B21FD789F00B8B677 /* FloatExtension.swift */; };
-		EBF9C1A02190532100321174 /* ExerciseListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */; };
-		EBF9C1A12190532100321174 /* ExerciseListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF9C19F2190532100321174 /* ExerciseListItemTableViewCell.xib */; };
-		EBF9C1A32190570E00321174 /* ExerciseListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */; };
+		EBEE94A021FE026500B8B677 /* DoAssignmentVCCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE949F21FE026500B8B677 /* DoAssignmentVCCommand.swift */; };
+		EBF9C1A02190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C19E2190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.swift */; };
+		EBF9C1A12190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF9C19F2190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.xib */; };
+		EBF9C1A32190570E00321174 /* ExerciseSelectorExerciseListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A22190570E00321174 /* ExerciseSelectorExerciseListTableView.swift */; };
 		EBF9C1A621917D2400321174 /* ActiveUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */; };
 		EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */; };
-		EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */; };
-		EBFC7C982193D9BB006323FC /* AssignmentQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C972193D9BB006323FC /* AssignmentQuestionViewModel.swift */; };
+		EBF9C1AA2191859700321174 /* GetExerciseListGetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9C1A92191859700321174 /* GetExerciseListGetViewModel.swift */; };
+		EBFC7C982193D9BB006323FC /* GetNextQuestionGetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C972193D9BB006323FC /* GetNextQuestionGetViewModel.swift */; };
 		EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */; };
 		EBFC7C9C21957CD6006323FC /* QuestionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */; };
 		EBFC7C9E2196A6AB006323FC /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC7C9D2196A6AB006323FC /* DateConverter.swift */; };
@@ -79,7 +77,6 @@
 		EB0F5CFD215B526C005E9654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB0F5D00215B526C005E9654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB0F5D02215B526C005E9654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB12EA4421F88D4300C34B6A /* ConfusionDegreeSurveyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfusionDegreeSurveyView.xib; sourceTree = "<group>"; };
 		EB12EA4821F88DA100C34B6A /* ConfusionDegreeSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfusionDegreeSurveyView.swift; sourceTree = "<group>"; };
 		EB137631218ED08900B9FF02 /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		EB137633218ED34500B9FF02 /* MovementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementState.swift; sourceTree = "<group>"; };
@@ -87,14 +84,12 @@
 		EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCapitalizeFirstLetter.swift; sourceTree = "<group>"; };
 		EB72C20521B75D4900C616C6 /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
 		EB72C20721B772F100C616C6 /* DeviceAcceleration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceAcceleration.swift; sourceTree = "<group>"; };
-		EB72C20921B773A600C616C6 /* ActivityFrameDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFrameDTO.swift; sourceTree = "<group>"; };
 		EB822701217CA79A003C01D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitQuestionAnswerPostViewModel.swift; sourceTree = "<group>"; };
 		EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDictionaryProtocols.swift; sourceTree = "<group>"; };
 		EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHandler.swift; sourceTree = "<group>"; };
 		EB8DC76821D464BB000D7B0D /* RemoteServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceManager.swift; sourceTree = "<group>"; };
 		EB9B1D6521F98094005EFEE0 /* ConfusionElementSurveyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfusionElementSurveyView.swift; sourceTree = "<group>"; };
-		EB9B1D6721F980A2005EFEE0 /* ConfusionElementSurveyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfusionElementSurveyView.xib; sourceTree = "<group>"; };
 		EBA7B9CB217F0BD10084319D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SketchShadow.swift; path = ActivityReceiver.iOS/SketchShadow.swift; sourceTree = SOURCE_ROOT; };
 		EBB5EBD32186EA9300460F66 /* XibUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIView.swift; sourceTree = "<group>"; };
@@ -106,22 +101,23 @@
 		EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionListItemView.swift; sourceTree = "<group>"; };
 		EBDA705421CA3665007DDD9D /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectSelectionView.swift; sourceTree = "<group>"; };
-		EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultTableView.swift; sourceTree = "<group>"; };
-		EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		EBE8B959218ACEB80093E466 /* AssignmentResultAnswerDetailListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultAnswerDetailListTableView.swift; sourceTree = "<group>"; };
+		EBE8B962218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		EBE8B963218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentResultResultAnswerDetailListHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		EBE8B966218BFABB0093E466 /* AssignmentResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentResultViewController.swift; sourceTree = "<group>"; };
-		EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultAnswerDetailTableViewCell.swift; sourceTree = "<group>"; };
-		EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultAnswerDetailTableViewCell.xib; sourceTree = "<group>"; };
-		EBE8B96C218C0B9E0093E466 /* AssignmentResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentResultViewModel.swift; sourceTree = "<group>"; };
+		EBE8B968218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentResultResultAnswerDetailListItemTableViewCell.swift; sourceTree = "<group>"; };
+		EBE8B969218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AssignmentResultResultAnswerDetailListItemTableViewCell.xib; sourceTree = "<group>"; };
+		EBE8B96C218C0B9E0093E466 /* GetAssignmentResultGetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAssignmentResultGetViewModel.swift; sourceTree = "<group>"; };
 		EBEE949821FD59AB00B8B677 /* InteractiveTouchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTouchVC.swift; sourceTree = "<group>"; };
 		EBEE949B21FD789F00B8B677 /* FloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
-		EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListItemTableViewCell.swift; sourceTree = "<group>"; };
-		EBF9C19F2190532100321174 /* ExerciseListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseListItemTableViewCell.xib; sourceTree = "<group>"; };
-		EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListTableView.swift; sourceTree = "<group>"; };
+		EBEE949F21FE026500B8B677 /* DoAssignmentVCCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAssignmentVCCommand.swift; sourceTree = "<group>"; };
+		EBF9C19E2190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectorExerciseListItemTableViewCell.swift; sourceTree = "<group>"; };
+		EBF9C19F2190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseSelectorExerciseListItemTableViewCell.xib; sourceTree = "<group>"; };
+		EBF9C1A22190570E00321174 /* ExerciseSelectorExerciseListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectorExerciseListTableView.swift; sourceTree = "<group>"; };
 		EBF9C1A521917D2400321174 /* ActiveUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserInfo.swift; sourceTree = "<group>"; };
 		EBF9C1A7219183A700321174 /* ExerciseSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectorViewController.swift; sourceTree = "<group>"; };
-		EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModel.swift; sourceTree = "<group>"; };
-		EBFC7C972193D9BB006323FC /* AssignmentQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentQuestionViewModel.swift; sourceTree = "<group>"; };
+		EBF9C1A92191859700321174 /* GetExerciseListGetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExerciseListGetViewModel.swift; sourceTree = "<group>"; };
+		EBFC7C972193D9BB006323FC /* GetNextQuestionGetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNextQuestionGetViewModel.swift; sourceTree = "<group>"; };
 		EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionExecuteTarget.swift; sourceTree = "<group>"; };
 		EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionHandler.swift; sourceTree = "<group>"; };
 		EBFC7C9D2196A6AB006323FC /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
@@ -155,6 +151,16 @@
 				83591755A88A63D56EDB2E97 /* Pods-ActivityReceiver.iOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB03414A2201CEF00064DA87 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				EBFC7C972193D9BB006323FC /* GetNextQuestionGetViewModel.swift */,
+				EBE8B96C218C0B9E0093E466 /* GetAssignmentResultGetViewModel.swift */,
+				EBF9C1A92191859700321174 /* GetExerciseListGetViewModel.swift */,
+			);
+			path = Get;
 			sourceTree = "<group>";
 		};
 		EB0F5CEA215B526A005E9654 = {
@@ -200,38 +206,35 @@
 			isa = PBXGroup;
 			children = (
 				EB137633218ED34500B9FF02 /* MovementState.swift */,
+				EBEE949F21FE026500B8B677 /* DoAssignmentVCCommand.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		EB83514921B64EB800E9FD16 /* PostViewModels */ = {
+		EB83514921B64EB800E9FD16 /* Post */ = {
 			isa = PBXGroup;
 			children = (
 				EB83514A21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift */,
 			);
-			path = PostViewModels;
+			path = Post;
 			sourceTree = "<group>";
 		};
 		EBB5EBCA2186E99000460F66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EB0F5CFA215B526A005E9654 /* Main.storyboard */,
-				EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */,
-				EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */,
-				EBF9C1A22190570E00321174 /* ExerciseListTableView.swift */,
-				EBF9C19E2190532100321174 /* ExerciseListItemTableViewCell.swift */,
-				EBF9C19F2190532100321174 /* ExerciseListItemTableViewCell.xib */,
-				EBE8B959218ACEB80093E466 /* AssignmentResultTableView.swift */,
-				EBE8B968218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift */,
-				EBE8B969218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib */,
-				EBE8B962218BF91E0093E466 /* ResultHeaderTableViewCell.swift */,
-				EBE8B963218BF91E0093E466 /* ResultHeaderTableViewCell.xib */,
+				EBF9C1A22190570E00321174 /* ExerciseSelectorExerciseListTableView.swift */,
+				EBF9C19E2190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.swift */,
+				EBF9C19F2190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.xib */,
+				EBE8B959218ACEB80093E466 /* AssignmentResultAnswerDetailListTableView.swift */,
+				EBE8B968218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.swift */,
+				EBE8B969218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.xib */,
+				EBE8B962218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift */,
+				EBE8B963218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.xib */,
 				EB05204D216C9C0900940214 /* WordItem.swift */,
 				EB05204F216C9C4200940214 /* WordItem.xib */,
 				EBCA51CA2185FEAF001E9448 /* FunctionListItemView.swift */,
 				EBCA51C82185FA2F001E9448 /* FunctionListItemView.xib */,
-				EBCA51C62185D8F5001E9448 /* OutlineView.swift */,
-				EBB5EBD52186EB2400460F66 /* ReshapableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,7 +271,6 @@
 				EB2E4FFE2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift */,
 				EBB5EBD12186EA8E00460F66 /* SketchShadow.swift */,
 				EBB5EBD72186EB2B00460F66 /* SegueBehaviorObject.swift */,
-				EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */,
 				EBFC7C9B21957CD6006323FC /* QuestionHandler.swift */,
 				EBFC7C9D2196A6AB006323FC /* DateConverter.swift */,
 				EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */,
@@ -281,10 +283,12 @@
 			isa = PBXGroup;
 			children = (
 				EBE224CE21F2F0A700B4C160 /* RectSelectionView.swift */,
-				EB12EA4421F88D4300C34B6A /* ConfusionDegreeSurveyView.xib */,
 				EB12EA4821F88DA100C34B6A /* ConfusionDegreeSurveyView.swift */,
-				EB9B1D6721F980A2005EFEE0 /* ConfusionElementSurveyView.xib */,
 				EB9B1D6521F98094005EFEE0 /* ConfusionElementSurveyView.swift */,
+				EBCA51C62185D8F5001E9448 /* OutlineView.swift */,
+				EBB5EBD52186EB2400460F66 /* ReshapableImageView.swift */,
+				EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */,
+				EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -292,10 +296,8 @@
 		EBE8B96E218C1BD70093E466 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				EB83514921B64EB800E9FD16 /* PostViewModels */,
-				EBFC7C972193D9BB006323FC /* AssignmentQuestionViewModel.swift */,
-				EBE8B96C218C0B9E0093E466 /* AssignmentResultViewModel.swift */,
-				EBF9C1A92191859700321174 /* ExerciseListViewModel.swift */,
+				EB03414A2201CEF00064DA87 /* Get */,
+				EB83514921B64EB800E9FD16 /* Post */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEE949821FD59AB00B8B677 /* InteractiveTouchVC.swift */,
+				EBFC7C992193E03D006323FC /* FunctionExecuteTarget.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -319,7 +322,6 @@
 		EBF9C1A4219174F500321174 /* DataTransferObjects */ = {
 			isa = PBXGroup;
 			children = (
-				EB72C20921B773A600C616C6 /* ActivityFrameDTO.swift */,
 				EB137631218ED08900B9FF02 /* Movement.swift */,
 				EB72C20721B772F100C616C6 /* DeviceAcceleration.swift */,
 			);
@@ -386,16 +388,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9B1D6821F980A2005EFEE0 /* ConfusionElementSurveyView.xib in Resources */,
-				EBF9C1A12190532100321174 /* ExerciseListItemTableViewCell.xib in Resources */,
-				EBE8B965218BF91E0093E466 /* ResultHeaderTableViewCell.xib in Resources */,
-				EB12EA4521F88D4300C34B6A /* ConfusionDegreeSurveyView.xib in Resources */,
-				EBE8B96B218BFAC90093E466 /* ResultAnswerDetailTableViewCell.xib in Resources */,
-				EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */,
-				EB052050216C9C4200940214 /* WordItem.xib in Resources */,
 				EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */,
 				EB0F5D01215B526C005E9654 /* LaunchScreen.storyboard in Resources */,
 				EB0F5CFE215B526C005E9654 /* Assets.xcassets in Resources */,
+				EBF9C1A12190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.xib in Resources */,
+				EBE8B965218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.xib in Resources */,
+				EBE8B96B218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.xib in Resources */,
+				EBCA51C92185FA2F001E9448 /* FunctionListItemView.xib in Resources */,
+				EB052050216C9C4200940214 /* WordItem.xib in Resources */,
 				EB0765B721C21E2200144FC5 /* ActivityIndicatorOverlayView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,13 +460,12 @@
 				EB822702217CA79A003C01D7 /* LoginViewController.swift in Sources */,
 				EB137634218ED34500B9FF02 /* MovementState.swift in Sources */,
 				EBFC7C9C21957CD6006323FC /* QuestionHandler.swift in Sources */,
-				EBF9C1A02190532100321174 /* ExerciseListItemTableViewCell.swift in Sources */,
-				EBE8B95A218ACEB80093E466 /* AssignmentResultTableView.swift in Sources */,
-				EB72C20A21B773A600C616C6 /* ActivityFrameDTO.swift in Sources */,
+				EBF9C1A02190532100321174 /* ExerciseSelectorExerciseListItemTableViewCell.swift in Sources */,
+				EBE8B95A218ACEB80093E466 /* AssignmentResultAnswerDetailListTableView.swift in Sources */,
 				EB0765B921C21E3800144FC5 /* ActivityIndicatorOverlayView.swift in Sources */,
-				EBFC7C982193D9BB006323FC /* AssignmentQuestionViewModel.swift in Sources */,
+				EBFC7C982193D9BB006323FC /* GetNextQuestionGetViewModel.swift in Sources */,
 				EBCA51CB2185FEAF001E9448 /* FunctionListItemView.swift in Sources */,
-				EBE8B96A218BFAC90093E466 /* ResultAnswerDetailTableViewCell.swift in Sources */,
+				EBE8B96A218BFAC90093E466 /* AssignmentResultResultAnswerDetailListItemTableViewCell.swift in Sources */,
 				EB0F5CF9215B526A005E9654 /* DoAssignmentViewController.swift in Sources */,
 				EBB5EBD82186EB2B00460F66 /* SegueBehaviorObject.swift in Sources */,
 				EBF9C1A8219183A700321174 /* ExerciseSelectorViewController.swift in Sources */,
@@ -474,14 +473,15 @@
 				EB83514B21B64F2A00E9FD16 /* SubmitQuestionAnswerPostViewModel.swift in Sources */,
 				EB28F9872182CD5C004DC1A9 /* UserInfo.swift in Sources */,
 				EBE224CF21F2F0A700B4C160 /* RectSelectionView.swift in Sources */,
+				EBEE94A021FE026500B8B677 /* DoAssignmentVCCommand.swift in Sources */,
 				EB9B1D6621F98094005EFEE0 /* ConfusionElementSurveyView.swift in Sources */,
 				EB8DC76921D464BB000D7B0D /* RemoteServiceManager.swift in Sources */,
 				EBA7B9CC217F0BD10084319D /* RegisterViewController.swift in Sources */,
-				EBE8B96D218C0B9E0093E466 /* AssignmentResultViewModel.swift in Sources */,
+				EBE8B96D218C0B9E0093E466 /* GetAssignmentResultGetViewModel.swift in Sources */,
 				EBB5EBD62186EB2400460F66 /* ReshapableImageView.swift in Sources */,
 				EBF9C1A621917D2400321174 /* ActiveUserInfo.swift in Sources */,
 				EB05204E216C9C0900940214 /* WordItem.swift in Sources */,
-				EBF9C1A32190570E00321174 /* ExerciseListTableView.swift in Sources */,
+				EBF9C1A32190570E00321174 /* ExerciseSelectorExerciseListTableView.swift in Sources */,
 				EBFC7C9E2196A6AB006323FC /* DateConverter.swift in Sources */,
 				EB83514F21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift in Sources */,
 				EBB5EBDA2186EB7C00460F66 /* UserCenterViewController.swift in Sources */,
@@ -490,11 +490,11 @@
 				EBDA705521CA3665007DDD9D /* AlamofireManager.swift in Sources */,
 				EB137632218ED08900B9FF02 /* Movement.swift in Sources */,
 				EBEE949921FD59AB00B8B677 /* InteractiveTouchVC.swift in Sources */,
-				EBF9C1AA2191859700321174 /* ExerciseListViewModel.swift in Sources */,
+				EBF9C1AA2191859700321174 /* GetExerciseListGetViewModel.swift in Sources */,
 				EB83515121B67A9200E9FD16 /* DictionaryHandler.swift in Sources */,
 				EB2E4FFF2175C879003AE7D3 /* StringCapitalizeFirstLetter.swift in Sources */,
 				EBEE949C21FD789F00B8B677 /* FloatExtension.swift in Sources */,
-				EBE8B964218BF91E0093E466 /* ResultHeaderTableViewCell.swift in Sources */,
+				EBE8B964218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift in Sources */,
 				EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */,
 				EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */,
 				EB72C20621B75D4900C616C6 /* MotionViewController.swift in Sources */,
