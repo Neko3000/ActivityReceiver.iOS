@@ -17,10 +17,11 @@ class ConfusionDegreeSurveyView: UIView,UITableViewDelegate,UITableViewDataSourc
         // Drawing code
     }
     */
-    lazy var confusionDegree: Int = {
-        
-        return selectionTableView.indexPathForSelectedRow?.row ?? 0
-    }()
+    var confusionDegree: Int {
+        get{
+            return selectionTableView.indexPathForSelectedRow?.row ?? 0
+        }
+    }
     
     // Outlets
     @IBOutlet weak var selectionTableView: UITableView!
@@ -103,6 +104,16 @@ class ConfusionDegreeSurveyView: UIView,UITableViewDelegate,UITableViewDataSourc
         cell!.textLabel!.text = descriptionText
         
         return cell!
+    }
+    
+    public func clearSelection() {
+        if let indexPath = selectionTableView.indexPathForSelectedRow {
+            selectionTableView.deselectRow(at: indexPath, animated: false)
+            
+            let cell = selectionTableView.cellForRow(at:indexPath)
+            
+            cell?.accessoryType = .none
+        }
     }
     
 }

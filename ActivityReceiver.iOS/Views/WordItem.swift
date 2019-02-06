@@ -80,7 +80,8 @@ class WordItem: XibUIView {
             if(superViewController!.getGroupState()){
                 // If RectSelection exists, cancel it
                 superViewController!.cancelSelectionAndRemove()
-                superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.cancelGroup,targetElement:superViewController!.rectSelectionView!.generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+                
+                superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.cancelGroup,targetElement:"",force: getForce(touch: touch))
             }
 
             // Record the current position in the tapped WordItem
@@ -99,7 +100,7 @@ class WordItem: XibUIView {
             // State
             superViewController!.setTapState(isTappingNow: true)
             
-            print("touch begain in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
+            //print("touch begain in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
         }
         
     }
@@ -123,7 +124,7 @@ class WordItem: XibUIView {
             // Store
             superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleMove,targetElement:String(self.index),force: getForce(touch: touch))
             
-            print("touch move in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
+            //print("touch move in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
         }
     }
     
@@ -151,7 +152,7 @@ class WordItem: XibUIView {
             // State
             superViewController!.setTapState(isTappingNow: false)
             
-            print("touch end in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
+            //print("touch end in wordItem - " + self.textLabel.text! + ",force:\(getForce(touch: touch))")
         }
         
     }

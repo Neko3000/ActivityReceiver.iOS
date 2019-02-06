@@ -89,7 +89,7 @@ class RectSelectionView: UIView {
             // State
             superViewController!.setTapState(isTappingNow: true)
             
-            print("touch begain in rectSelectionView")
+            //print("touch begain in rectSelectionView")
         }
         
     }
@@ -116,10 +116,9 @@ class RectSelectionView: UIView {
             // Store
             superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragGroupMove,targetElement:generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
             
-            print("touch move in rectSelectionView")
+            //print("touch move in rectSelectionView")
         }
     }
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             
@@ -152,9 +151,7 @@ class RectSelectionView: UIView {
             superViewController!.setGroupState(isGroupingNow: false)
             superViewController!.setTapState(isTappingNow: false)
             
-            resetPosition()
-            
-            print("touch end in rectSelectionView")
+            //print("touch end in rectSelectionView")
         }
         
     }

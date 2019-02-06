@@ -83,12 +83,9 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         //
         showQuestionInfo()
         generateWordItems()
-        arrangeWordItems()
         
         // Set ConfusionElementSurveyView's datasource
-        confusionElementSurveyView.setWords(words: words!)
-        confusionElementSurveyView.reload()
-        
+        confusionElementSurveyView.loadWords(words: words!)
         
         // RectSelectionView
         rectSelectionView = RectSelectionView()
@@ -105,6 +102,13 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         // ActivityIndicatorOverlayView
         activityIndicatorOverlayView = ActivityIndicatorOverlayView()
         activityIndicatorOverlayView?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        arrangeWordItems()
         
         // Timer controls sampling
         startSampling()
@@ -131,7 +135,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
             // If RectSelection exists, cancel it
             if(isGroupingNow){
                 cancelSelectionAndRemove()
-                storeMovement(position: touch.location(in: mainView), movementState: MovementState.cancelGroup,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+                storeMovement(position: touch.location(in: mainView), movementState: MovementState.cancelGroup,targetElement:"",force: getForce(touch: touch))
             }
 
             // RectSelectionView
@@ -309,8 +313,6 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
 
     private func arrangeWordItems(){
         
-        let bottomSpace:CGFloat = 100.0
-        
         let horizontalPadding:CGFloat = 10.0
         let verticalPadding:CGFloat = 10.0
         
@@ -330,7 +332,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
                 currentLine.removeAll()
                 currentLineLength = 0.0
             }
-
+            
             currentLine.append(wordItems[index])
             currentLineLength = currentLineLength + horizontalPadding + wordItems[index].frame.width
             
@@ -350,7 +352,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
             
             for wordItemNumber in 0...lines[lineNumber].count - 1{
                 
-                lines[lineNumber][wordItemNumber].frame = CGRect(x: currentXPosition + horizontalPadding, y: containerHeight - CGFloat(lines.count - lineNumber) * (wordItemHeight + verticalPadding) - bottomSpace, width: lines[lineNumber][wordItemNumber].frame.width, height: lines[lineNumber][wordItemNumber].frame.height)
+                lines[lineNumber][wordItemNumber].frame = CGRect(x: currentXPosition + horizontalPadding, y: containerHeight - CGFloat(lines.count - lineNumber) * (wordItemHeight + verticalPadding), width: lines[lineNumber][wordItemNumber].frame.width, height: lines[lineNumber][wordItemNumber].frame.height)
 
                 
                 mainView.addSubview(lines[lineNumber][wordItemNumber])
@@ -422,6 +424,11 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
                         self.generateWordItems()
                         self.arrangeWordItems()
                         
+                        self.confusionDegreeSurveyView.clearSelection()
+                        self.confusionElementSurveyView.clearSelection()
+                        
+                        self.confusionElementSurveyView.loadWords(words: self.words!)
+                        
                         self.startSampling()
                         
                     }
@@ -448,8 +455,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
             "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
         
-        let params = SubmitQuestionAnswerPostViewModel(getNextQuestionGetVM: getNextQuestionGetVM!,resolution:getResoultion(),movementCollection: movementCollection,deviceAccelerationCollection:deviceAccelerationCollection, answerDivision: content, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
-        
+        let params = SubmitQuestionAnswerPostViewModel(getNextQuestionGetVM: getNextQuestionGetVM!,resolution:getResoultion(),movementCollection: movementCollection,deviceAccelerationCollection:deviceAccelerationCollection, answerDivision: content,confusionDegree:confusionDegreeSurveyView.confusionDegree, confusionElement:confusionElementSurveyView.confusionElement, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
+                
         showActivityIndicatorOverlay()
         
         AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/MobileApplication/SubmitAnswerRecord", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
@@ -558,6 +565,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         
         // If RectSelection exists, cancel it
         rectSelectionView!.cancelSelection()
+        rectSelectionView!.resetPosition()
         rectSelectionView!.removeFromSuperview()
     }
     
@@ -626,9 +634,11 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
     // Store Movement
     func storeMovement(position:CGPoint,movementState:MovementState,targetElement:String,force:Float){
         
+        
         if(!movementCollection.isEmpty){
             
-            if((movementState == .dragSingleMove || movementState == .dragGroupMove) && currentMillisecondTime < movementCollection.last!.time + 1000/samplingFrequency ){
+            if((movementState == .dragSingleMove || movementState == .dragGroupMove || movementState == .makeGroupMove) && (currentMillisecondTime < movementCollection.last!.time + 1000/samplingFrequency)){
+                
                 return
             }
         }
@@ -636,6 +646,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         let movement = Movement(index: movementCollection.count, state: movementState.rawValue, targetElement:targetElement, time: currentMillisecondTime, xPosition: Int(position.x), yPosition: Int(position.y),force:force)
         
         movementCollection.append(movement)
+        
+        print("index:\(movement.index),state:\(movement.state),targetElement:\(movement.targetElement),time:\(movement.time),xPosition:\(movement.xPosition),yPosition:\(movement.yPosition),force:\(movement.force)")
     }
 
     @IBAction func confusionDegreeViewToNextBtnTouchUpInside(_ sender: Any) {
@@ -645,8 +657,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
     
     @IBAction func confusionElementViewToNextBtnTouchUpInside(_ sender: Any) {
         hideConfusionElementSurveyView()
-        print("\(confusionDegreeSurveyView.confusionDegree)")
-        print("\(confusionElementSurveyView.confusionElement)")
+        submitAnswerRecord()
     }
     
     /* Segue */

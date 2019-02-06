@@ -17,31 +17,33 @@ class ConfusionElementSurveyView: UIView,UITableViewDelegate,UITableViewDataSour
         // Drawing code
     }
     */
-    lazy var confusionElement: String = {
-        
-        if(selectionTableView!.indexPathsForSelectedRows == nil){
-            return ""
-        }
-        
-
-        var selectedIndex = [Int]()
-        for selectedIndexPath in selectionTableView!.indexPathsForSelectedRows!{
-            selectedIndex.append(selectedIndexPath.row)
-        }
-        selectedIndex = selectedIndex.sorted()
-
-        var selectedConfusionElementString = ""
-        for i in 0..<selectedIndex.count{
-            if(i == 0){
-                selectedConfusionElementString = selectedConfusionElementString + "\(selectedIndex[i])"
+    
+    // 
+    var confusionElement: String{
+        get{
+            if(selectionTableView!.indexPathsForSelectedRows == nil){
+                return ""
             }
-            else{
-                selectedConfusionElementString = selectedConfusionElementString + "#" + "\(selectedIndex[i])"
+            
+            var selectedIndex = [Int]()
+            for selectedIndexPath in selectionTableView!.indexPathsForSelectedRows!{
+                selectedIndex.append(selectedIndexPath.row)
             }
+            selectedIndex = selectedIndex.sorted()
+
+            var selectedConfusionElementString = ""
+            for i in 0..<selectedIndex.count{
+                if(i == 0){
+                    selectedConfusionElementString = selectedConfusionElementString + "\(selectedIndex[i])"
+                }
+                else{
+                    selectedConfusionElementString = selectedConfusionElementString + "#" + "\(selectedIndex[i])"
+                }
+            }
+            
+            return selectedConfusionElementString
         }
-        
-        return selectedConfusionElementString
-    }()
+    }
     
     
     var words:[String] = [String]()
@@ -121,11 +123,18 @@ class ConfusionElementSurveyView: UIView,UITableViewDelegate,UITableViewDataSour
         return cell!
     }
     
-    public func setWords(words:[String]){
+    public func loadWords(words:[String]){
         self.words = words
-    }
-    public func reload(){
-        
         selectionTableView.reloadData()
+    }
+    
+    public func clearSelection() {
+        for indexPath in selectionTableView.indexPathsForSelectedRows ?? [] {
+            selectionTableView.deselectRow(at: indexPath, animated: false)
+            
+            let cell = selectionTableView.cellForRow(at:indexPath)
+            
+            cell?.accessoryType = .none
+        }
     }
 }

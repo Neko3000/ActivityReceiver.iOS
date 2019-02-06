@@ -21,13 +21,16 @@ class SubmitQuestionAnswerPostViewModel{
     
     var answerDivision:String = ""
     
+    var confusionDegree:Int = 0
+    var confusionElement:String = ""
+    
     var startDate:String = ""
     var endDate:String = ""
     
     var movementCollection:[[String:Any]] = [[String:Any]]()
     var deviceAccelerationCollection:[[String:Any]]  = [[String:Any]] ()
     
-    init(getNextQuestionGetVM:GetNextQuestionGetViewModel,resolution:String,movementCollection:[Movement],deviceAccelerationCollection:[DeviceAcceleration] ,answerDivision:String,startDate:Date,endDate:Date) {
+    init(getNextQuestionGetVM:GetNextQuestionGetViewModel,resolution:String,movementCollection:[Movement],deviceAccelerationCollection:[DeviceAcceleration] ,answerDivision:String,confusionDegree:Int,confusionElement:String,startDate:Date,endDate:Date) {
         
         self.assignmentRecordID = getNextQuestionGetVM.assignmentRecordID
         
@@ -39,6 +42,9 @@ class SubmitQuestionAnswerPostViewModel{
         self.resolution = resolution
         
         self.answerDivision = answerDivision
+        
+        self.confusionDegree = confusionDegree
+        self.confusionElement = confusionElement
         
         self.startDate = DateConverter.convertToStandardDateString(date: startDate)
         self.endDate = DateConverter.convertToStandardDateString(date: endDate)
@@ -60,6 +66,10 @@ class SubmitQuestionAnswerPostViewModel{
             "resolution":resolution,
             
             "answerDivision":answerDivision,
+            
+            "confusionDegree":confusionDegree,
+            "confusionElement":confusionElement,
+            
             "startDate":startDate,
             "endDate":endDate,
             

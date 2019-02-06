@@ -296,30 +296,19 @@
                                         <color key="textColor" name="NormalGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gde-4Z-eNx">
-                                        <rect key="frame" x="10" y="284" width="647" height="1"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="whO-JE-dIb"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gde-4Z-eNx" secondAttribute="trailing" constant="10" id="4XB-FS-GXr"/>
+                                    <constraint firstItem="94b-On-noq" firstAttribute="top" secondItem="mnP-b4-jhl" secondAttribute="bottom" constant="15.5" id="7JC-Ur-Kao"/>
                                     <constraint firstItem="grN-y2-lLb" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="7KM-d9-Ctu"/>
                                     <constraint firstItem="94b-On-noq" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="FoX-kJ-1JR"/>
                                     <constraint firstAttribute="trailing" secondItem="grN-y2-lLb" secondAttribute="trailing" constant="30" id="IsI-C4-gRQ"/>
                                     <constraint firstItem="grN-y2-lLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mnP-b4-jhl" secondAttribute="trailing" constant="30" id="K3b-Xw-egF"/>
-                                    <constraint firstAttribute="bottom" secondItem="gde-4Z-eNx" secondAttribute="bottom" constant="90" id="OxG-Kw-4Ox"/>
-                                    <constraint firstItem="94b-On-noq" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="65" id="PW4-4l-w1h"/>
                                     <constraint firstItem="94b-On-noq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkI-X1-JnM" secondAttribute="trailing" constant="30" id="UFD-vD-eMC"/>
-                                    <constraint firstItem="gde-4Z-eNx" firstAttribute="leading" secondItem="dks-m8-EDV" secondAttribute="leading" constant="10" id="UR6-fr-DJH"/>
                                     <constraint firstItem="JkI-X1-JnM" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="V60-9s-N6U"/>
                                     <constraint firstItem="JkI-X1-JnM" firstAttribute="leading" secondItem="dks-m8-EDV" secondAttribute="leading" constant="30" id="YPH-mo-1LR"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="baQ-gs-uQl"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkI-X1-JnM" secondAttribute="trailing" constant="30" id="bl5-km-GCh"/>
-                                    <constraint firstItem="gde-4Z-eNx" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="iFC-kw-Ybe"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="m9J-mg-WOu"/>
                                     <constraint firstItem="grN-y2-lLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="94b-On-noq" secondAttribute="trailing" constant="30" id="sU4-WS-JzM"/>
                                 </constraints>
@@ -413,14 +402,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dks-m8-EDV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FEz-B9-MRO"/>
-                            <constraint firstItem="dks-m8-EDV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="YGK-88-Lv6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dks-m8-EDV" secondAttribute="trailing" id="LG4-ey-Kqh"/>
+                            <constraint firstItem="dks-m8-EDV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UHt-GA-LFH"/>
                             <constraint firstItem="EUs-Bo-oa2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="500" id="ZNU-es-wTM"/>
                             <constraint firstItem="85v-DY-xXg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gDV-P0-W0p"/>
                             <constraint firstItem="85v-DY-xXg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="500" id="gdz-6j-nbw"/>
                             <constraint firstItem="EUs-Bo-oa2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nrM-ke-HnW"/>
-                            <constraint firstItem="dks-m8-EDV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sde-Ww-Xyu"/>
-                            <constraint firstItem="dks-m8-EDV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tVt-dy-0ID"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dks-m8-EDV" secondAttribute="bottom" id="siI-ZT-LEx"/>
+                            <constraint firstItem="dks-m8-EDV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vUh-J6-fkz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -666,7 +655,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w44-Kd-U80"/>
-        <segue reference="1xT-Nf-KXo"/>
+        <segue reference="Nmw-x0-KAx"/>
         <segue reference="F5d-Hf-XmF"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DoAssignmentViewController.confusionElementViewToNextBtnTouchUpInside(_:):DoAssignmentViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DoAssignmentViewController.submitAnswerRecord():DoAssignmentViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "confusionElementSurveyView.confusionElement">
+            </PersistentString>
+            <PersistentString
+               value = "confusionDegreeSurveyView.confusionDegree">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.sampling():MainViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -74,18 +88,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in MainViewController.submitQuestionAnswer():MainViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "response.response?.statusCode">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in AssignmentResultViewController.loadAssignmentResult():AssignmentResultViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.assignmentResultTableView.assignmentResultViewModel">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MainViewController.submitQuestionAnswer():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.response?.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
