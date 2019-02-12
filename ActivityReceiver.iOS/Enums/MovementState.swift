@@ -10,7 +10,7 @@ import Foundation
 
 enum MovementState:Int{
     
-    // Cases for the behavoir dragging single WordItem
+    // Cases for the behavior dragging single WordItem
     case dragSingleBegin = 0
     case dragSingleMove = 1
     case dragSingleEnd = 2

@@ -135,7 +135,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
             // If RectSelection exists, cancel it
             if(isGroupingNow){
                 cancelSelectionAndRemove()
-                storeMovement(position: touch.location(in: mainView), movementState: MovementState.cancelGroup,targetElement:"",force: getForce(touch: touch))
+                storeMovement(position: touch.location(in: mainView), movementState: MovementState.cancelGroup,targetElement:"",force: 0)
             }
 
             // RectSelectionView
@@ -156,7 +156,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
             rectSelectionView!.selectWordItem(wordItemCollection: wordItems)
             
             // Store
-            storeMovement(position: touch.location(in: mainView), movementState: MovementState.makeGroupBegin,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            storeMovement(position: touch.location(in: mainView), movementState: MovementState.makeGroupBegin,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString(),force: 0)
             
             setGroupState(isGroupingNow: true)
             setTapState(isTappingNow: true)
@@ -215,7 +215,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
             hideOrderNumberForWordItems()
             
             // Store
-            storeMovement(position: touch.location(in: mainView), movementState: MovementState.makeGroupEnd,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            storeMovement(position: touch.location(in: mainView), movementState: MovementState.makeGroupEnd,targetElement:rectSelectionView!.generateSelectedTargetElementIndexString(),force: 0)
             
             setTapState(isTappingNow: false)
         }
@@ -454,6 +454,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + ActiveUserInfo.getToken(),
             ]
+        
+        MovementHandler.Fix(movementCollection: &movementCollection)
         
         let params = SubmitQuestionAnswerPostViewModel(getNextQuestionGetVM: getNextQuestionGetVM!,resolution:getResoultion(),movementCollection: movementCollection,deviceAccelerationCollection:deviceAccelerationCollection, answerDivision: content,confusionDegree:confusionDegreeSurveyView.confusionDegree, confusionElement:confusionElementSurveyView.confusionElement, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
                 

@@ -84,7 +84,7 @@ class RectSelectionView: UIView {
             superViewController!.showOrderNumberForWordItems()
             
             // Store
-            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragGroupBegin,targetElement:generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragGroupBegin,targetElement:generateSelectedTargetElementIndexString(),force: 0)
             
             // State
             superViewController!.setTapState(isTappingNow: true)
@@ -142,7 +142,7 @@ class RectSelectionView: UIView {
             superViewController!.hideOrderNumberForWordItems()
             
             // Store
-            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragGroupEnd,targetElement:generateSelectedTargetElementIndexString(),force: getForce(touch: touch))
+            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragGroupEnd,targetElement:generateSelectedTargetElementIndexString(),force: 0)
             
             // Cancel selection
             superViewController!.cancelSelectionAndRemove()

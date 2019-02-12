@@ -81,7 +81,7 @@ class WordItem: XibUIView {
                 // If RectSelection exists, cancel it
                 superViewController!.cancelSelectionAndRemove()
                 
-                superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.cancelGroup,targetElement:"",force: getForce(touch: touch))
+                superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.cancelGroup,targetElement:"",force: 0)
             }
 
             // Record the current position in the tapped WordItem
@@ -95,7 +95,7 @@ class WordItem: XibUIView {
             superViewController!.showOrderNumberForWordItems()
             
             // Store
-            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleBegin,targetElement:String(self.index),force: getForce(touch: touch))
+            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleBegin,targetElement:String(self.index),force: 0)
             
             // State
             superViewController!.setTapState(isTappingNow: true)
@@ -147,7 +147,7 @@ class WordItem: XibUIView {
             superViewController!.hideOrderNumberForWordItems()
             
             // Store
-            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleEnd,targetElement:String(self.index),force: getForce(touch: touch))
+            superViewController!.storeMovement(position: touch.location(in: superViewController!.mainView), movementState: MovementState.dragSingleEnd,targetElement:String(self.index),force: 0)
             
             // State
             superViewController!.setTapState(isTappingNow: false)

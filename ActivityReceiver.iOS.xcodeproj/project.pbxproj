@@ -12,6 +12,7 @@
 		EB052050216C9C4200940214 /* WordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB05204F216C9C4200940214 /* WordItem.xib */; };
 		EB0765B721C21E2200144FC5 /* ActivityIndicatorOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */; };
 		EB0765B921C21E3800144FC5 /* ActivityIndicatorOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */; };
+		EB09739D221287A5000FDCC2 /* MovementHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09739C221287A5000FDCC2 /* MovementHandler.swift */; };
 		EB0F5CF7215B526A005E9654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF6215B526A005E9654 /* AppDelegate.swift */; };
 		EB0F5CF9215B526A005E9654 /* DoAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F5CF8215B526A005E9654 /* DoAssignmentViewController.swift */; };
 		EB0F5CFC215B526A005E9654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0F5CFA215B526A005E9654 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		EB05204F216C9C4200940214 /* WordItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordItem.xib; sourceTree = "<group>"; };
 		EB0765B621C21E2200144FC5 /* ActivityIndicatorOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityIndicatorOverlayView.xib; sourceTree = "<group>"; };
 		EB0765B821C21E3800144FC5 /* ActivityIndicatorOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorOverlayView.swift; sourceTree = "<group>"; };
+		EB09739C221287A5000FDCC2 /* MovementHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementHandler.swift; sourceTree = "<group>"; };
 		EB0F5CF3215B526A005E9654 /* ActivityReceiver.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityReceiver.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F5CF6215B526A005E9654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0F5CF8215B526A005E9654 /* DoAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAssignmentViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				EBFC7C9D2196A6AB006323FC /* DateConverter.swift */,
 				EB83514E21B6799E00E9FD16 /* ObjectDictionaryProtocols.swift */,
 				EB83515021B67A9200E9FD16 /* DictionaryHandler.swift */,
+				EB09739C221287A5000FDCC2 /* MovementHandler.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				EBEE949C21FD789F00B8B677 /* FloatExtension.swift in Sources */,
 				EBE8B964218BF91E0093E466 /* AssignmentResultResultAnswerDetailListHeaderTableViewCell.swift in Sources */,
 				EBFC7C9A2193E03D006323FC /* FunctionExecuteTarget.swift in Sources */,
+				EB09739D221287A5000FDCC2 /* MovementHandler.swift in Sources */,
 				EB72C20821B772F100C616C6 /* DeviceAcceleration.swift in Sources */,
 				EB72C20621B75D4900C616C6 /* MotionViewController.swift in Sources */,
 				EB12EA4921F88DA100C34B6A /* ConfusionDegreeSurveyView.swift in Sources */,
