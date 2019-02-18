@@ -83,7 +83,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                 case .failure(let json):
                     
                     let dict = json as! NSDictionary
-                    print(dict["message"] as! String)
+                    
+                    self.alertDialog!.message = dict["message"] as? String
+                    self.present(self.alertDialog!, animated: true, completion: nil)
                     
                     break
                 }
@@ -94,33 +96,37 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         var isValiadated = true
         
+        var alertMessage = ""
+        
         if(usernameTextField.text == "" || passwordTextField.text == ""){
             
             isValiadated = false
             
-            alertDialog?.message = "username/password can not be empty"
-            
-            self.present(alertDialog!, animated: true, completion: nil)
+            alertMessage = "username/password can not be empty"
             
         }
         else if(passwordTextField.text != passwordConfirmTextField.text){
             
             isValiadated = false
             
-            alertDialog?.message = "password is not matched"
+            alertMessage = "password is not matched"
             
-            self.present(alertDialog!, animated: true, completion: nil)
             
         }
         else if(passwordTextField.text!.count < 6){
             
             isValiadated = false
             
-            alertDialog?.message = "password should be longer than 6"
+            alertMessage = "password should be longer than 6"
             
-            self.present(alertDialog!, animated: true, completion: nil)
         }
         
+        if(!isValiadated){
+            
+            alertDialog!.message = alertMessage
+            self.present(alertDialog!, animated: true, completion: nil)
+        }
+
         return isValiadated
     }
     
