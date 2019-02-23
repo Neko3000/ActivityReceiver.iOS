@@ -57,6 +57,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
     var isTappingNow:Bool = false
     var isGroupingNow:Bool = false
     
+    var isLocked:Bool = false
+    
     // Outlets
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var numberLabel: UILabel!
@@ -114,22 +116,13 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         startSampling()
     }
     
-    // 3D touch - get force value
-    private func getForce(touch:UITouch)->Float{
-        var force:Float = 0
-        
-        if #available(iOS 9.0, *) {
-            if traitCollection.forceTouchCapability == UIForceTouchCapability.available {
-                // 3D Touch capable
-                force = Float(touch.force/touch.maximumPossibleForce)
-            }
-        }
-        
-        return force.rounded(toPlaces: 5)
-    }
-    
     /* Touch */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if(isLocked){
+            return
+        }
+        
         if let touch = touches.first {
             
             // If RectSelection exists, cancel it
@@ -164,6 +157,11 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if(isLocked){
+            return
+        }
+        
         if let touch = touches.first {
             
             // Show rectSelectionView when move
@@ -195,6 +193,11 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if(isLocked){
+            return
+        }
+        
         if let touch = touches.first {
             
             // Selection
@@ -241,7 +244,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         currentMillisecondTime = 0
     }
     
-    private func stopSmapling(){
+    private func stopSampling(){
         
         // Acceleration
         if #available(iOS 4.0, *){
@@ -279,7 +282,7 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
     private func showQuestionInfo(){
         
         // Set layout
-        numberLabel.text = "\(getNextQuestionGetVM?.currentNumber ?? 0)"
+        numberLabel.text = "\(getNextQuestionGetVM?.currentNumber ?? 0)."
         questionLabel.text = getNextQuestionGetVM?.sentenceJP
         answerLabel.text = "-"
     }
@@ -431,6 +434,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
                         
                         self.startSampling()
                         
+                        self.isLocked = false
+                        
                     }
                     
                     break
@@ -458,8 +463,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         MovementHandler.Fix(movementCollection: &movementCollection)
         
         let params = SubmitQuestionAnswerPostViewModel(getNextQuestionGetVM: getNextQuestionGetVM!,resolution:getResoultion(),movementCollection: movementCollection,deviceAccelerationCollection:deviceAccelerationCollection, answerDivision: content,confusionDegree:confusionDegreeSurveyView.confusionDegree, confusionElement:confusionElementSurveyView.confusionElement, startDate: currentQuestionStartDate!, endDate: currentQuestionEndDate!)
-                
-        showActivityIndicatorOverlay()
+        
+        activityIndicatorOverlayView?.showActivityIndicatorView()
         
         AlamofireManager.sharedSessionManager.request(RemoteServiceManager.domain + "/MobileApplication/SubmitAnswerRecord", method: .post, parameters: params.toDictionary(), encoding: JSONEncoding.default, headers:headers).responseJSON(completionHandler:
             {
@@ -505,8 +510,14 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         switch alertAction.style {
             
         case .default:
-            stopSmapling()
-            //submitAnswerRecord()
+            
+            isLocked = true
+            
+            stopSampling()
+            
+            showActivityIndicatorOverlay()
+            activityIndicatorOverlayView?.hideActivityIndiactorView()
+            
             showConfusionDegreeSurveyView()
 
             break
@@ -546,8 +557,8 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
     
     /* UI(upload) */
     private func showActivityIndicatorOverlay(){
-        view.addSubview(activityIndicatorOverlayView!)
-        view.bringSubview(toFront: activityIndicatorOverlayView!)
+        mainView.addSubview(activityIndicatorOverlayView!)
+        mainView.bringSubview(toFront: activityIndicatorOverlayView!)
     }
     private func hideActivityIndicatorOverlay(){
         activityIndicatorOverlayView?.removeFromSuperview()

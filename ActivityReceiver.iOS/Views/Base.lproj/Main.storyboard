@@ -268,18 +268,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkI-X1-JnM">
-                                        <rect key="frame" x="30" y="30" width="22.5" height="19"/>
+                                        <rect key="frame" x="30" y="32" width="22.5" height="18.5"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <color key="textColor" name="NormalGrey"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grN-y2-lLb">
-                                        <rect key="frame" x="609" y="30" width="28" height="16"/>
+                                        <rect key="frame" x="607" y="32" width="30" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="jYd-fe-zXH"/>
-                                            <constraint firstAttribute="width" constant="28" id="qoA-Ee-WqQ"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="right-arrow"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" name="NormalGrey"/>
+                                        </state>
                                         <connections>
                                             <action selector="moveToNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SAu-EA-koi"/>
                                         </connections>
@@ -300,17 +302,17 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="94b-On-noq" firstAttribute="top" secondItem="mnP-b4-jhl" secondAttribute="bottom" constant="15.5" id="7JC-Ur-Kao"/>
-                                    <constraint firstItem="grN-y2-lLb" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="7KM-d9-Ctu"/>
                                     <constraint firstItem="94b-On-noq" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="FoX-kJ-1JR"/>
+                                    <constraint firstItem="mnP-b4-jhl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dks-m8-EDV" secondAttribute="leading" constant="80" id="Hki-3c-37d"/>
                                     <constraint firstAttribute="trailing" secondItem="grN-y2-lLb" secondAttribute="trailing" constant="30" id="IsI-C4-gRQ"/>
-                                    <constraint firstItem="grN-y2-lLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mnP-b4-jhl" secondAttribute="trailing" constant="30" id="K3b-Xw-egF"/>
-                                    <constraint firstItem="94b-On-noq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkI-X1-JnM" secondAttribute="trailing" constant="30" id="UFD-vD-eMC"/>
-                                    <constraint firstItem="JkI-X1-JnM" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="V60-9s-N6U"/>
+                                    <constraint firstItem="JkI-X1-JnM" firstAttribute="top" secondItem="mnP-b4-jhl" secondAttribute="top" constant="2" id="TIG-1Y-iKY"/>
                                     <constraint firstItem="JkI-X1-JnM" firstAttribute="leading" secondItem="dks-m8-EDV" secondAttribute="leading" constant="30" id="YPH-mo-1LR"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="centerX" secondItem="dks-m8-EDV" secondAttribute="centerX" id="baQ-gs-uQl"/>
-                                    <constraint firstItem="mnP-b4-jhl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JkI-X1-JnM" secondAttribute="trailing" constant="30" id="bl5-km-GCh"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="94b-On-noq" secondAttribute="trailing" constant="80" id="hv1-Bw-KDd"/>
                                     <constraint firstItem="mnP-b4-jhl" firstAttribute="top" secondItem="dks-m8-EDV" secondAttribute="top" constant="30" id="m9J-mg-WOu"/>
-                                    <constraint firstItem="grN-y2-lLb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="94b-On-noq" secondAttribute="trailing" constant="30" id="sU4-WS-JzM"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mnP-b4-jhl" secondAttribute="trailing" constant="80" id="oF7-aJ-1cD"/>
+                                    <constraint firstItem="grN-y2-lLb" firstAttribute="top" secondItem="mnP-b4-jhl" secondAttribute="top" constant="2" id="qQq-LG-bLy"/>
+                                    <constraint firstItem="94b-On-noq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dks-m8-EDV" secondAttribute="leading" constant="80" id="xKA-5Q-bJ9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85v-DY-xXg" customClass="ConfusionDegreeSurveyView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
@@ -589,12 +591,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="261" height="375"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGK-bA-iq9">
-                                        <rect key="frame" x="20" y="20" width="28" height="16"/>
+                                        <rect key="frame" x="20" y="20" width="30" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="HO3-eG-vJD"/>
                                             <constraint firstAttribute="height" constant="16" id="aJr-fv-o06"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="left-arrow"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="戻る">
+                                            <color key="titleColor" name="NormalGrey"/>
+                                        </state>
                                         <connections>
                                             <segue destination="vdr-3o-3Mb" kind="show" id="sCX-pk-W20"/>
                                         </connections>
@@ -637,9 +641,7 @@
     </scenes>
     <resources>
         <image name="cross-logout" width="16" height="16"/>
-        <image name="left-arrow" width="28" height="16"/>
         <image name="left-arrow-white" width="28" height="16"/>
-        <image name="right-arrow" width="28" height="16"/>
         <namedColor name="HeavyTurquoise">
             <color red="0.13333333333333333" green="0.16470588235294117" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -654,7 +656,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w44-Kd-U80"/>
+        <segue reference="sCX-pk-W20"/>
         <segue reference="Nmw-x0-KAx"/>
         <segue reference="F5d-Hf-XmF"/>
     </inferredMetricsTieBreakers>

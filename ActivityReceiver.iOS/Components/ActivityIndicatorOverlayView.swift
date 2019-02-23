@@ -33,4 +33,12 @@ class ActivityIndicatorOverlayView:XibUIView{
         }
         
     }
+    
+    public func showActivityIndicatorView(){
+        activityIndicatorView.alpha = 1
+    }
+    
+    public func hideActivityIndiactorView(){
+        activityIndicatorView.alpha = 0
+    }
 }

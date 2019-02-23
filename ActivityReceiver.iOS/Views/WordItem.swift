@@ -59,20 +59,6 @@ class WordItem: XibUIView {
         superViewController = superVC
     }
     
-    // 3D touch - get force value
-    private func getForce(touch:UITouch)->Float{
-        var force:Float = 0
-        
-        if #available(iOS 9.0, *) {
-            if traitCollection.forceTouchCapability == UIForceTouchCapability.available {
-                // 3D Touch capable
-                force = Float(touch.force/touch.maximumPossibleForce)
-            }
-        }
-        
-        return force.rounded(toPlaces: 5)
-    }
-    
     // Touch
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
