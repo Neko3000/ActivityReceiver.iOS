@@ -230,9 +230,9 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         // Acceleration
         if #available(iOS 4.0, *){
             if(motionManager!.isAccelerometerAvailable){
-                motionManager!.accelerometerUpdateInterval = 1.0/Double(samplingFrequency)
+                motionManager!.deviceMotionUpdateInterval = 1.0/Double(samplingFrequency)
                 
-                motionManager!.startAccelerometerUpdates()
+                motionManager!.startDeviceMotionUpdates()
             }
         }
         
@@ -248,9 +248,11 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
         
         // Acceleration
         if #available(iOS 4.0, *){
-            if(motionManager!.isAccelerometerAvailable){
-                
-                motionManager!.stopAccelerometerUpdates()
+            if(motionManager!.isDeviceMotionAvailable){
+                if(motionManager!.isDeviceMotionActive){
+                    
+                        motionManager!.stopDeviceMotionUpdates()
+                }
             }
         }
         
@@ -382,12 +384,16 @@ class DoAssignmentViewController: UIViewController,InteractiveTouchVC{
     private func storeDeviceAcceleration(){
         
         if #available(iOS 4.0, *){
-            if(motionManager!.isAccelerometerAvailable){
-                let accelerationX:Float = Float(motionManager!.accelerometerData?.acceleration.x ?? 0).rounded(toPlaces: 6)
-                let accelerationY:Float = Float(motionManager!.accelerometerData?.acceleration.y ?? 0).rounded(toPlaces: 6)
-                let accelerationZ:Float = Float(motionManager!.accelerometerData?.acceleration.z ?? 0).rounded(toPlaces: 6)
-                
-                deviceAccelerationCollection.append(DeviceAcceleration(index:deviceAccelerationCollection.count, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
+            if(motionManager!.isDeviceMotionAvailable){
+             
+                if(motionManager!.isDeviceMotionActive){
+                    
+                    let accelerationX:Float = Float(motionManager!.deviceMotion?.userAcceleration.x ?? 0).rounded(toPlaces: 6)
+                    let accelerationY:Float = Float(motionManager!.deviceMotion?.userAcceleration.y ?? 0).rounded(toPlaces: 6)
+                    let accelerationZ:Float = Float(motionManager!.deviceMotion?.userAcceleration.z ?? 0).rounded(toPlaces: 6)
+                    
+                    deviceAccelerationCollection.append(DeviceAcceleration(index:deviceAccelerationCollection.count, time:currentMillisecondTime,x: accelerationX, y: accelerationY, z: accelerationZ))
+                }
             }
         }
     }
