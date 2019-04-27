@@ -62,7 +62,7 @@ class AssignmentResultAnswerDetailListTableView: UITableView,UITableViewDelegate
             let specificCell = self.dequeueReusableCell(withIdentifier: "AssignmentResultResultAnswerDetailListHeaderTableViewCell") as! AssignmentResultResultAnswerDetailListHeaderTableViewCell
             
             // Settings
-            specificCell.accuracyRateLabel.text = "\(getAssignmentResultGetVM!.accuracyRate * 100)%"
+            specificCell.accuracyRateLabel.text = "\((getAssignmentResultGetVM!.accuracyRate * 100).rounded(toPlaces: 2))%"
             
             cell = specificCell
         }

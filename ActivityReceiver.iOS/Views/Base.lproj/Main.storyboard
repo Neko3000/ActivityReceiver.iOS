@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqv-xQ-0eL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eqv-xQ-0eL">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -316,7 +316,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85v-DY-xXg" customClass="ConfusionDegreeSurveyView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
-                                <rect key="frame" x="133.5" y="562.5" width="400" height="250"/>
+                                <rect key="frame" x="133.5" y="1562.5" width="400" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBU-ey-yX0">
                                         <rect key="frame" x="15" y="205" width="370" height="30"/>
@@ -359,7 +359,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUs-Bo-oa2" customClass="ConfusionElementSurveyView" customModule="ActivityReceiver_iOS" customModuleProvider="target">
-                                <rect key="frame" x="133.5" y="562.5" width="400" height="250"/>
+                                <rect key="frame" x="133.5" y="1562.5" width="400" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8H-hS-lpf">
                                         <rect key="frame" x="15" y="205" width="370" height="30"/>
@@ -406,9 +406,9 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dks-m8-EDV" secondAttribute="trailing" id="LG4-ey-Kqh"/>
                             <constraint firstItem="dks-m8-EDV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UHt-GA-LFH"/>
-                            <constraint firstItem="EUs-Bo-oa2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="500" id="ZNU-es-wTM"/>
+                            <constraint firstItem="EUs-Bo-oa2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="1500" id="ZNU-es-wTM"/>
                             <constraint firstItem="85v-DY-xXg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gDV-P0-W0p"/>
-                            <constraint firstItem="85v-DY-xXg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="500" id="gdz-6j-nbw"/>
+                            <constraint firstItem="85v-DY-xXg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="1500" id="gdz-6j-nbw"/>
                             <constraint firstItem="EUs-Bo-oa2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nrM-ke-HnW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dks-m8-EDV" secondAttribute="bottom" id="siI-ZT-LEx"/>
                             <constraint firstItem="dks-m8-EDV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vUh-J6-fkz"/>
