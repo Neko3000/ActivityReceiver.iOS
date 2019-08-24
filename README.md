@@ -28,12 +28,12 @@ or download it here:</br>
 </p>
 
 <p align="center"> 
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s1.png" alt="screen-shot-1">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s2.png" alt="screen-shot-2">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s3.png" alt="screen-shot-3">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s4.png" alt="screen-shot-4">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s5.png" alt="screen-shot-5">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s6.png" alt="screen-shot-6">
+<img width="400" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s1.png" alt="screen-shot-1">
+<img width="400" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s2.png" alt="screen-shot-2">
+<img width="400" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s3.png" alt="screen-shot-3">
+<img width="400" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s4.png" alt="screen-shot-4">
+<img width="400" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s5.png" alt="screen-shot-5">
+<img width="400" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s6.png" alt="screen-shot-6">
 </p>
 
 ## Features
