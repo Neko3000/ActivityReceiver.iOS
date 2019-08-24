@@ -6,8 +6,8 @@
 
 ActivityReceiver.iOS is a mobile application(client-side) based on iOS.</br>
 It works with server-side - [ActivityReceiver]().</br>
-Users need to solve word reordering problems, and Learning Records including Acceleration/Force would be uploaded to server side triggered by ActivityReceiver.</br>
-Then we calculate parameters from trajeactories produced by Drag&Drop operations, analyze parameters to Machine Learning to classfier users' hesitation level.</br>
+
+We used Learning Records collected on mobile device while users were solving word reordering problems to calculate parameters from trajeactories produced by Drag&Drop operations. By analyzing parameters using Machine Learning, we could classfier hesitation level for each user.</br>
 
 ## Installation
 Simple clone it by:
