@@ -2,7 +2,7 @@
 ![License: Mozilla](https://img.shields.io/github/license/Neko3000/ActivityReceiver.iOS)
 ![Platforms: iOS](https://img.shields.io/badge/Platform-iOS-lightgrey)
 ![Language: Swift](https://img.shields.io/badge/language-swift-orange.svg)
-![Version: v0.90](https://img.shields.io/badge/version-v1.1-lightgrey)
+![Version: v1.05](https://img.shields.io/badge/version-v1.05-lightgrey)
 
 ActivityReceiver.iOS is a mobile application(client-side) based on iOS.</br>
 It works with server-side - [ActivityReceiver](https://github.com/Neko3000/ActivityReceiver).</br>
