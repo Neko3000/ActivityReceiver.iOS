@@ -1,12 +1,13 @@
-# StarryTarget
+# ActivityReceiver.iOS
 ![License: Mozilla](https://img.shields.io/github/license/Neko3000/ActivityReceiver.iOS)
 ![Platforms: iOS](https://img.shields.io/badge/Platform-iOS-lightgrey)
 ![Language: Swift](https://img.shields.io/badge/language-swift-orange.svg)
 ![Version: v0.90](https://img.shields.io/badge/version-v1.1-lightgrey)
 
-ActivityReceiver.iOS is a mobile application based on iOS.</br>
-This is the client side of ActivityReceiver, users need to solve word reordering problems, and Learning Records including Acceleration/Force would be uploaded to server side triggered by ActivityReceiver.</br>
-</br>
+ActivityReceiver.iOS is a mobile application(client-side) based on iOS.</br>
+It works with server-side - [ActivityReceiver]().</br>
+Users need to solve word reordering problems, and Learning Records including Acceleration/Force would be uploaded to server side triggered by ActivityReceiver.</br>
+Then we calculate parameters from trajeactories produced by Drag&Drop operations, analyze parameters to Machine Learning to classfier users' hesitation level.</br>
 
 ## Installation
 Simple clone it by:
@@ -32,7 +33,6 @@ Or</br>
 <img src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-s4.png" width="200" alt="">
 </p>
 
-
 ## Features
 - [x] Sign In/Sign UP
 - [x] Exercise Selection
@@ -41,7 +41,6 @@ Or</br>
 - [x] Drag&Drop Operation with Multiple Selection
 - [x] DAcceleration/Force Retrievement
 - [x] More...
-
 
 ## Dependencies
 For handling Network requests, we used famouse [Alamofire](https://github.com/Alamofire/Alamofire) and [SwfityJSON](https://github.com/SwiftyJSON/SwiftyJSON) in this project.</br>
@@ -54,13 +53,7 @@ pod 'NVActivityIndicatorView'
 ```
 
 ## Development
-You should build your own server using [ActivityReceiver]().</br>
-
-Here's the path:
-```
-// RealmManager.swift
-print(Realm.Configuration.defaultConfiguration.fileURL!)
-```
+You should build your own server service using [ActivityReceiver]().</br>
 
 ## Contact To Me
 E-mail: sheran_chen@outlook.com </br>
