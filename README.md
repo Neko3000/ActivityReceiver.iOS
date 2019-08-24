@@ -5,7 +5,7 @@
 ![Version: v0.90](https://img.shields.io/badge/version-v1.1-lightgrey)
 
 ActivityReceiver.iOS is a mobile application(client-side) based on iOS.</br>
-It works with server-side - [ActivityReceiver]().</br>
+It works with server-side - [ActivityReceiver](https://github.com/Neko3000/ActivityReceiver).</br>
 
 We used Learning Records collected on mobile device while users were solving word reordering problems to calculate parameters from trajeactories produced by Drag&Drop operations. By analyzing parameters using Machine Learning, we could classfier hesitation level for each user.</br>
 
@@ -15,7 +15,7 @@ Simple clone it by:
 ```
 $ git clone https://github.com/Neko3000/ActivityReceiver.iOS
 ```
-Or</br>
+or download it here:</br>
 <a href="https://apps.apple.com/jp/app/英単語並べ替え問題/id1461578282">
 <img width="250" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/available-on-app-store-material.png" alt="screen-record-1">
 </a>
@@ -28,12 +28,12 @@ Or</br>
 </p>
 
 <p align="center"> 
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s1.gif" alt="screen-shot-1">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s2.gif" alt="screen-shot-2">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s3.gif" alt="screen-shot-3">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s4.gif" alt="screen-shot-4">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s5.gif" alt="screen-shot-5">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s6.gif" alt="screen-shot-6">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s1.png" alt="screen-shot-1">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s2.png" alt="screen-shot-2">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s3.png" alt="screen-shot-3">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s4.png" alt="screen-shot-4">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s5.png" alt="screen-shot-5">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s6.png" alt="screen-shot-6">
 </p>
 
 ## Features
