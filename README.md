@@ -22,15 +22,18 @@ Or</br>
 
 ## How to use
 <p align="center"> 
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-sr1.gif" alt="screen-record-1">
-<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-sr2.gif" alt="screen-record-2">
+<img width="500" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-sr1.gif" alt="screen-record-1">
+<img width="500" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-sr2.gif" alt="screen-record-2">
+<img width="500" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-sr3.gif" alt="screen-record-3">
 </p>
 
 <p align="center"> 
-<img src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-s1.png" width="200" alt="">
-<img src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-s2.png" width="200" alt="">
-<img src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-s3.png" width="200" alt="">
-<img src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/starrytarget-s4.png" width="200" alt="">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s1.gif" alt="screen-shot-1">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s2.gif" alt="screen-shot-2">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s3.gif" alt="screen-shot-3">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s4.gif" alt="screen-shot-4">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s5.gif" alt="screen-shot-5">
+<img width="300" src="https://raw.githubusercontent.com/Neko3000/resource-storage/master/img/screenshot/activityreceiver-ios-s6.gif" alt="screen-shot-6">
 </p>
 
 ## Features
@@ -53,11 +56,17 @@ pod 'NVActivityIndicatorView'
 ```
 
 ## Development
-You should build your own server service using [ActivityReceiver]().</br>
+You should build your own server service using [ActivityReceiver](https://github.com/Neko3000/ActivityReceiver).</br>
+
+The address of the server should be set in the beginning:
+```
+// RemoteServiceManager.swift
+public static let domain:String = "http://..."
+```
 
 ## Contact To Me
 E-mail: sheran_chen@outlook.com </br>
 Weibo: @妖绀
 
 ## License
-Distributed under the MIT license. See LICENSE for more information.
+Distributed under the Mozilla license. See LICENSE for more information.
