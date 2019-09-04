@@ -42,7 +42,7 @@ or download it here:</br>
 - [x] Word Reordering Problems Assignment
 - [x] Upload Learning Record
 - [x] Drag&Drop Operation with Multiple Selection
-- [x] DAcceleration/Force Retrievement
+- [x] Acceleration/Force Retrievement
 - [x] More...
 
 ## Dependencies
